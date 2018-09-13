@@ -15,3 +15,10 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 /vendor/
+/nbproject
+/assets/upload
+application/config/project.php
+application/helpers/sms_helper.php
+application/helpers/mc_helper.php
+application/config/email.php
+application/config/database.php
