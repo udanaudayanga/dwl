@@ -1,6 +1,4 @@
 <?php $this->load->view('template/header');?>
-<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-timepicker.min.css">
-<script type="text/javascript" src="/assets/js/bootstrap-timepicker.min.js"></script>
 <?php if($this->session->flashdata('message')){?>
     <div role="alert" class="alert fresh-color alert-success">
           <strong><?php echo $this->session->flashdata('message');?></strong>
@@ -27,7 +25,6 @@
     </div> 
 </div>
 <?php if($id){?>
-
 <div class="row" style="margin-top: 10px;">    
     <div class="card">           
         <div class="card-header">
@@ -36,8 +33,7 @@
             </div>
             <a href="" id="add_cl_mem_btn" style="margin: 10px 15px;" class="btn btn-success pull-right">Add Member</a>
         </div>
-        <div class="card-body" id="cl_mem_list_div" style="padding: 15px;"> 
-            <div role="alert" class="alert fresh-color alert-success" id="appoint_success" style="display: none;"></div>
+        <div class="card-body" id="cl_mem_list_div" style="padding: 15px;">            
             <?php $this->load->view('marketing/_cl_manage_table');?>
         </div> 
     </div> 
@@ -109,62 +105,6 @@
         </div>
     </div>
 </div>
-<div class="modal fade modal-info" id="for_promo_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width: 550px;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>			
-                <h4 class="modal-title" id="myModalLabel">Send Promotion Mails</h4>
-            </div>
-            <div class="modal-body" style="overflow: auto;">
-                <div class="loader-container text-center color-white">
-                    <div><i class="fa fa-spinner fa-pulse fa-4x"></i></div>
-                    <div>Adding to Mail Queue...</div>
-                </div>
-                <div id="as_errors"></div>
-                <form id="send_promo_frm" >
-                    <input type="hidden" name="list_id" value="<?php echo $id;?>"/>
-                    <div class="col-xs-12" style="padding: 0px;">
-                        <div class="form-group col-xs-12">
-                            <label for="qty">Promotion</label>
-                            <select class="form-control not_select2" name="promo_id" style="width: 100%;">
-                                <?php foreach($promos as $promo){?> 
-                                <option value="<?php echo $promo->id;?>"><?php echo $promo->name;?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                        <div class="form-group col-xs-12">
-                            <label for="qty">Mail Template</label>
-                            <select class="form-control not_select2" name="tmpl_id" style="width: 100%;">
-                                <?php foreach($tmpls as $tmpl){?> 
-                                <option value="<?php echo $tmpl->id;?>"><?php echo $tmpl->name;?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                        <div class="form-group col-xs-12">
-                            <label for="qty">Mail Subject</label>
-                            <input type="text" id="mc_list_name" class="form-control" name="subject" >
-                        </div>
-                        <div class="form-group col-xs-6">
-                            <label for="qty">Delivery Date</label>
-                            <input type="text" data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" placeholder="YYYY-MM-DD" class="form-control" name="promo_date" value="" id="promo_date" >                                
-                        </div>
-                        <div class="form-group col-xs-6">
-                            <label for="qty">Delivery Time</label>
-                            <div class="input-group bootstrap-timepicker timepicker">
-                                <input readonly="readonly" name="promo_time" id="promo_time" type="text" class="form-control input-small ">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                            </div>
-                        </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="send_promo_btn">Add To Queue</button>
-                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 <?php } ?>
 <script type="text/javascript"> 
     $(function(){
@@ -202,14 +142,6 @@
                     $('#cl_mem_list_div').find('.datatable').dataTable();
                 });
             }
-        });
-        
-        $('#promo_time').timepicker({
-            minuteStep: 30,
-            showSeconds: false,
-            showMeridian: false,
-            defaultTime:'08:00',
-            showInputs:false
         });
         
         $('#add_cl_mem_btn').on('click',function(e){
@@ -283,41 +215,6 @@
 
              _modal.modal();
             
-        });
-        
-        $('#cl_mem_list_div').on('click','#send_promo',function(e){
-            e.preventDefault();
-            
-            _target = $(this);
-            _modal = $('#for_promo_modal');
-            
-            _modal.find('#promo_date').datepicker('setDate', '0');
-            
-            _modal.find('#send_promo_btn').unbind('click').bind('click', function(ex) {
-                ex.preventDefault();
-                
-                _modal.find('#as_errors').html('');
-                _modal.find('.modal-body').addClass('loader');
-                $.post(BASE_URL+'marketing/sendPromoMails',$('#send_promo_frm').serialize(),function(data){
-                    data = JSON.parse(data);
-                    _modal.find('.modal-body').removeClass('loader');
-                    if(data.status == 'error')
-                    {
-                        _modal.find('#as_errors').html(data.errors);
-                    }
-                    else if(data.status == 'success')
-                    {
-                       
-                         setSuccAlert("Promotion mails added to queue successfully!");
-                        _modal.find('#send_promo_frm').trigger("reset");
-                        _modal.find('#as_errors').html('');
-                        _modal.modal('hide');
-
-                    }
-                });
-            });
-            
-            _modal.modal();
         });
         
         function setSuccAlert(msg)

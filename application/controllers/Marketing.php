@@ -9,8 +9,6 @@ class Marketing extends Admin_Controller
     public function __construct() {
         parent::__construct();
         $this->load->model('marketing_model','marketing');
-        $this->load->model('Promos_model','promos');
-        $this->load->model("Mail_model", "mail");
     }
     public function customList()
     {
@@ -22,7 +20,6 @@ class Marketing extends Admin_Controller
     
     public function manageCL($id = null)
     {
-        
         $this->data['bc1'] = "Custom List";
         $this->data['bc2'] = "Manage";
         
@@ -59,8 +56,6 @@ class Marketing extends Admin_Controller
         }
         $this->data['id'] = $id;
         $this->data['members'] = $members;
-        $this->data['promos'] = $this->promos->getAll();
-        $this->data['tmpls'] = $this->mail->getTemplates();
         
         $this->load->view('marketing/manage_cl',$this->data);
     }
@@ -106,8 +101,6 @@ class Marketing extends Admin_Controller
         } 
         echo json_encode($result);
     }
-    
-    
     
     public function removeCLMem()
     {
@@ -202,74 +195,5 @@ class Marketing extends Admin_Controller
             }
         }
         echo json_encode($result);
-    }
-    
-    public function sendPromoMails()
-    {
-        $result = array();
-        if($this->input->server('REQUEST_METHOD') === 'POST')
-    	{ 
-            $this->form_validation->set_rules('promo_id', 'Promotion', 'trim|required');
-            $this->form_validation->set_rules('tmpl_id', 'Template', 'trim|required');
-            $this->form_validation->set_rules('subject', 'Subject', 'trim|required');
-            $this->form_validation->set_rules('promo_date', 'Delivery Date', 'trim|required');
-            $this->form_validation->set_rules('promo_time', 'Delivery Time', 'trim|required');
-            
-            if($this->form_validation->run() == TRUE)
-	    {
-                $post = $this->input->post();
-                
-                $list_id = $post['list_id'];
-                $mems = $this->marketing->getCLMems($list_id);
-                $template = $this->mail->getTemplate($post['tmpl_id']);
-                $html = $this->load->view($template->file,$this->data,true);
-                $search = array('[FNAME]','[COUPON]');
-                
-                foreach($mems as $mem)
-                {
-                    $coup = array();
-                    $coup['promo_id'] = $post['promo_id'];
-                    $coup['patient_id'] = $mem->patient_id;
-                    $coup['tmpl_id'] = $post['tmpl_id'];
-                    $coup['coupon'] = getPromoCoupon();
-                    $coup['created'] = date('Y-m-d H:i:s');
-                    
-                    $this->marketing->addCoupon($coup);
-                    
-                    $replace = array($mem->fname,$coup['coupon']);
-                    $content = str_replace($search, $replace, $html);
-                    
-                    $queue = array();
-                    $queue['patient_id'] = $mem->patient_id;
-                    $queue['subject'] = $post['subject'];
-                    $queue['deliver_after'] = $post['promo_date']." ".$post['promo_time'].":00";
-                    $queue['content'] = $content;
-                    $queue['created'] = date('Y-m-d H:i:s');
-                    
-                    $this->mail->add_mail($queue);
-                }
-                
-                
-                $result['status'] = 'success';
-                $result['msg'] ='<div class="col-xs-12" style="padding:0 5px;margin:10px 0px 0px 0px;"><div style="padding:5px;margin:0px;" role="alert" class="alert fresh-color alert-success"><strong>Promotion Mails added to mail queue.</strong></div></div>';                            
-                
-            }
-            else 
-            {
-                $result['status'] = 'error';
-                $result['errors'] = validation_errors('<div class="col-xs-12" style="padding:0 5px;margin:10px 0px 0px 0px;"><div style="padding:5px;margin:0px;" role="alert" class="alert fresh-color alert-danger"><strong>','</strong></div></div>');
-            }
-        }
-        echo json_encode($result);
-    }
-    
-    public function coupons()
-    {
-        $this->data['bc1'] = "Marketing";
-        $this->data['bc2'] = "Coupons";
-        
-        $this->data['coupons'] = $this->marketing->getCoupons();
-        
-        $this->load->view('marketing/coupons',$this->data);
     }
 }

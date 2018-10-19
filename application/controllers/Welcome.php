@@ -20,6 +20,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		echo date('Y-m-d',strtotime("+12 weeks"));
+		$this->load->view('welcome_message');
 	}
 }

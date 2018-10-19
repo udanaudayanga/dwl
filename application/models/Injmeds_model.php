@@ -101,20 +101,4 @@ class Injmeds_model extends CI_Model
     {
         $this->db->where('id',$id)->update('injmed',$data);
     }
-    
-    public function addBagCount($data)
-    {
-        $this->db->insert('bags_usage',$data);
-    }
-    
-    public function getBagCount($week,$loc_id)
-    {
-        $query = $this->db->where('week',$week)->where('loc_id',$loc_id)->get('bags_usage');
-        return $query->row();
-    }
-    
-    public function updateBagCount($id,$data)
-    {
-        $this->db->where('id',$id)->update('bags_usage',$data);
-    }
 }

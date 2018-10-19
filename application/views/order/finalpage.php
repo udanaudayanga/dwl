@@ -439,8 +439,8 @@
                           <tr class="hdr">
                               <td style="width: 30%;">Medication</td>
                               <td>Made By</td>
-                              <td>Checked</td>
                               <td>Pat Sign</td>
+                              <td>Suppl Bag</td>                              
                               <td>Days</td>
                               <td>Total Qty</td>
                           </tr>

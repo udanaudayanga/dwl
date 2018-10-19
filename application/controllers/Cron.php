@@ -1114,9 +1114,9 @@ class Cron extends CI_Controller
         $this->load->model("Cron_model", "cron");
         $this->load->helper('file');
         
-        $start = '2018-08-25';
-        $end = '2018-08-25';
-        $loc_id = 2;
+        $start = '2018-08-22';
+        $end = '2018-08-22';
+        $loc_id = 4;
         echo "Generating: ".$start." - ".$end." - ".$loc_id."<br>";
         
         $dea = array(2=>'FN4356514',3=>'FN4321080',4=>'FN5029005');

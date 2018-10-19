@@ -239,17 +239,17 @@ class Order extends Admin_Controller
         
         if($stock)
         {
-            $combine = $product->id;
+            $free_combine = 0;
             foreach($fps as $fp)
             {
-                $combine .= ",".$fp->free_pro_id;
+                $free_combine .= $free_combine==0?$fp->free_pro_id:",".$fp->free_pro_id;
             }
             
             $ppbulk_cats = $this->config->item('bulk_visit_pp');
             $free_pro_for_visit = $this->config->item('free_pro_for_visit');
             if($ppbulk_cats == $product->cat_id)
             {
-                $combine .= $combine==0? $free_pro_for_visit:",".$free_pro_for_visit;
+                $free_combine .= $free_combine==0? $free_pro_for_visit:",".$free_pro_for_visit;
             }
             
                 $data = array(
@@ -258,7 +258,7 @@ class Order extends Admin_Controller
                     'price'   => number_format($product->price,2,'.',''),
                     'name'    => $product->name,
                     'product' => $product,
-                    'combined_id'=> $combine
+                    'combined_id'=> $free_combine
                 );
                 
                 $this->cart->product_name_rules = '\d\D';
@@ -276,7 +276,7 @@ class Order extends Admin_Controller
                             'price'   => number_format(0,2),
                             'name'    => $fp->name,
                             'product' => $pro,
-                            'combined_id' => $combine
+                            'combined_id' => 0
                         );
 
                         $this->cart->product_name_rules = '\d\D';
@@ -295,7 +295,7 @@ class Order extends Admin_Controller
 //                            'price'   => number_format(0,2),
 //                            'name'    => $cynofree->name,
 //                            'product' => $cynofree,
-//                            'combined_id' => $combine
+//                            'combined_id' => 0
 //                        );
 //
 //                    $this->cart->product_name_rules = '\d\D';
@@ -946,7 +946,6 @@ class Order extends Admin_Controller
         $this->data['injections'] = getTodayInjections($order_id);
        
         $res = getNextVisitDate($order->patient_id);
-        
         $next_visit = "";
         if($res['status'] == 'success')
         {
@@ -956,8 +955,8 @@ class Order extends Admin_Controller
         {
             $next_visit =  $res['msg'];
         }
-        $this->data['next_visit'] = $next_visit;
-        
+            $this->data['next_visit'] = $next_visit;
+            
         $html = $this->load->view('order/finalpage',$this->data,true);
         
         create_mp_ticket($html);
@@ -1100,7 +1099,5 @@ class Order extends Admin_Controller
         
         $this->load->view('order/update_vp',$this->data);
     }
-    
-    
 }
 

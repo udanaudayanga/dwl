@@ -429,7 +429,7 @@
                                   <p style="font-weight: bold;font-size: 15px;"><?php echo date('m/d',strtotime($alert->created));?>:&nbsp;<?php echo nl2br_except_pre($alert->msg);?></p>
                               <?php } ?>
                             </td></tr>
-                          <tr><td style="height: 100px;">Assessment & Plan:</td></tr>
+                          <tr><td style="height: 80px;">Assessment & Plan:</td></tr>
                           
                       </table>
                   </td>
@@ -443,7 +443,7 @@
                                               If Hungry?&nbsp;&nbsp; YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;:&nbsp; AM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PM
                                           </td>
                                           <td class="med_fields">
-                                              Meds taken at: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PM
+                                              See the Doctor
                                           </td>
                                           <td class="med_fields">
                                               Exercise
@@ -467,10 +467,10 @@
                                               Constipated&nbsp;&nbsp; Moderate &nbsp; Severe
                                           </td>
                                           <td class="med_fields">
-                                              See the Doctor
+                                              Meds taken at: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PM
                                           </td>
                                           <td class="med_fields">
-                                              &nbsp;
+                                              
                                           </td>
                                       </tr>
                                   </table>
@@ -503,12 +503,9 @@
                                   <table id="blank_tbl">
                                       <tr><td>&nbsp;</td></tr>
                                       <tr><td>&nbsp;</td></tr>
+                                      <tr><td>&nbsp;</td></tr>
+                                      
                                   </table>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td style="height: 30px;vertical-align: bottom;text-align: left;font-size: 18px;">
-                                  MA Name: 
                               </td>
                           </tr>
                       </table>
@@ -516,27 +513,24 @@
               </tr>
           </table>
 
-          <table class="bottom_tbl" style="margin: 20px 0 0 0;padding: 0px;">
-<!--              <tr>
+          <table class="bottom_tbl" style="margin: 10px 0 0 0;padding: 0px;">
+              <tr>
                   <td colspan="9"></td>                  
                   <td style="font-weight: bold;">Medication</td>
                   <td style="font-weight: bold;">Week / s</td>
-              </tr>-->
+              </tr>
               <tr>
-<!--                  <td style="text-align: left;width: 250px;padding-top: 5px;">MA Name: ........................................</td>
+                  <td style="text-align: left;width: 250px;padding-top: 5px;">MA Name: ........................................</td>
                   <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">MEDS</td>
                   <td style="width: 10px;"></td>
                   <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">NO MEDS</td>
-                  <td style="width: 10px;"></td>-->
-                  <td style="font-weight: bold;padding: 15px 0px;border: 1px solid #999;">SHOTS ONLY</td>
                   <td style="width: 10px;"></td>
-<!--                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">NO Inject / Supp</td>
-                  <td style="width: 25px;"></td>-->
-                  <td style="border: 1px solid #999;padding: 15px 0px;">37.5mg / 30mg / 15mg / DI 25mg</td>
+                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">SHOTS ONLY</td>
                   <td style="width: 10px;"></td>
-                  <td style="border: 1px solid #999;padding: 5px 5px;width:630px;text-align: left;color:#555;text-align: top;"><span style="font-size: 34px;"><?php echo '$'.$order->net_total;?></span>&nbsp;<span></span></td>
-                  <td style="width: 10px;"></td>
-                  <td style="border: 1px solid #999;width: 100px;padding: 5px 0px;font-size: 32px;font-weight: bold;color:#555;"><?php echo getMedWeeks($order->id);?> wk/s</td>
+                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">NO Inject / Supp</td>
+                  <td style="width: 25px;"></td>
+                  <td style="border: 1px solid #999;padding: 5px 0px;">37.5mg / 30mg / 15mg / DI 25mg</td>
+                  <td style="border: 1px solid #999;width: 100px;"></td>
               </tr>
           </table>
       </div>

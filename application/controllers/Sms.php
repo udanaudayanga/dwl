@@ -63,19 +63,19 @@ class Sms extends CI_Controller
                 {
                    if($query[1]=='mon') 
                    {
-                       $msg = "Largo \nMonday: 7 - 11am | 3 - 6.15pm";
+                       $msg = "Largo \nMonday: 7 - 1pm | 2pm - 6.30pm";
                    }
                    elseif($query[1]=='tue')
                    {
-                       $msg = "Largo \nTuesday: 8 - 11am | 3 - 6.15pm";
+                       $msg = "Largo \nTuesday: 8 - 1pm | 2 - 6.30pm";
                    }
                    elseif($query[1]=='wed')
                    {
-                       $msg = "Largo \nWednesday: 12 - 5.15pm";
+                       $msg = "Largo \nWednesday: 12 - 5pm";
                    }
                    elseif($query[1]=='thu')
                    {
-                       $msg = "Largo \nThursday: 7 - 11am | 3 - 6.15pm";
+                       $msg = "Largo \nThursday: 7 - 1pm | 2 - 6.30pm";
                    }
                    elseif($query[1]=='fri')
                    {
@@ -88,7 +88,7 @@ class Sms extends CI_Controller
                 }
                 else
                 {
-                    $msg = "Largo \nMon: 7 - 11am | 3 - 6.15pm \nTue: 8 - 11am | 3 - 6.15pm \nWed: 12-5.15pm \nThu: 7 - 11am | 3 - 6.15pm \nFri: 7am - 12.30pm \nSat: 9am - 1.15pm";
+                    $msg = "Largo \nMon: 7 - 1pm | 2 - 6.30pm \nTue: 8 - 1pm | 2 - 6.30pm \nWed: 12-5pm \nThu: 7 - 1pm | 2 - 6.30pm \nFri: 7am - 12.30pm \nSat: 9am - 1.15pm";
                 }
             }
             elseif($query[0] == '4thtime')

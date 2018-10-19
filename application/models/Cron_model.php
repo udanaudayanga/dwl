@@ -50,21 +50,4 @@ class Cron_model extends CI_Model
         $query = $this->db->query($sql);
         return $query->result();
     }
-   
-    public function getForPDMP($location_id,$start,$end)
-    {
-        $sql = "SELECT v.*,p.fname,p.lname,p.address,p.city,p.zip,s.abbr,p.dob,p.gender,p.phone,o.payment_type,o.net_total,l.dea,l.address as caddress
-                            FROM visits v
-                            LEFT JOIN orders o ON v.order_id = o.id 
-                            LEFT JOIN patients p ON v.patient_id = p.id 
-                            LEFT JOIN states s ON p.state = s.id 
-                            LEFT JOIN locations l ON o.location_id = l.id
-                            WHERE v.prescription_no > 0 
-                            AND (CAST(v.visit_date AS DATE) BETWEEN '$start' AND '$end')
-                            AND o.location_id = $location_id";
-        
-        $query = $this->db->query($sql);
-        return $query->result();       
-        
-    }
 }

@@ -25,5 +25,4 @@
     
     <a data-id="<?php echo $id;?>" class="btn btn-info pull-right"  id="send_email" href="">Post List to Mailchimp</a>
     <a data-id="<?php echo $id;?>" class="btn btn-info pull-right" id="send_sms" style="margin-right: 20px;" href="">Send Instant SMS to List</a>
-    <a data-id="<?php echo $id;?>" class="btn btn-info pull-right" id="send_promo" style="margin-right: 20px;" href="">Send Promotion Mail</a>
 </div>

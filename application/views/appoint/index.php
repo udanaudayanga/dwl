@@ -401,7 +401,6 @@
         </div>
     </div>
 </div>
-
 <script type="text/javascript">
 $(function(){
     var cache = {};
@@ -668,10 +667,30 @@ $(function(){
         _modal = $('#add_np_appoint_modal');
         $("#np_phone").mask("(999) 999-9999");
         
-        
       $('#timepicker2').timepicker('setTime', '08:00 AM');
       
-       
+//        _modal.find('#np_phone').on('blur',function(){
+//            _fn = _modal.find('#np_fname').val();
+//            _ln = _modal.find('#np_lname').val();
+//            _phn = _modal.find('#np_phone').val();
+//            
+//            if($.trim(_fn).length && $.trim(_ln).length)
+//            {
+//                $.post(BASE_URL+'appoint/isPatientExist',{fname:_fn,lname:_ln,phone:_phn},function(data){
+//                    data = JSON.parse(data);
+//                    if(data.status == 'exist')
+//                    {
+//                        _modal.find('#add_np_appoint_errors').html(data.msg);
+//                    }
+//                    else
+//                    {
+//                        _modal.find('#add_np_appoint_errors').html('');
+//                    }
+//                });
+//                
+//            }
+//        });
+        
         _modal.find('#add_np_app_btn_modal').on('click',function(e){
             e.preventDefault();
             $('#add_np_appoint_errors').html('');
@@ -869,7 +888,7 @@ $(function(){
         
     });
     
-
+    
     
 });
 

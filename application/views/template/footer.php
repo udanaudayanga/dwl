@@ -14,7 +14,7 @@
             <script type="text/javascript" src="/assets/js/bootstrap-switch.min.js"></script>
             <script type="text/javascript" src="/assets/js/jquery.matchHeight-min.js"></script>
             <script type="text/javascript" src="/assets/js/jquery.dataTables.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.15/datatables.min.js"></script>
+            <script type="text/javascript" src="/assets/js/dataTables.bootstrap.min.js"></script>
             <script type="text/javascript" src="/assets/js/select2.full.min.js"></script>
             <script type="text/javascript" src="/assets/js/ace.js"></script>
             <script type="text/javascript" src="/assets/js/mode-html.js"></script>

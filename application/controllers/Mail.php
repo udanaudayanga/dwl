@@ -4,7 +4,7 @@
  *
  * @author Udana
  */
-class Mail extends Admin_Controller
+class Mail extends CI_Controller
 {
     public function __construct() {
         parent::__construct();
@@ -72,24 +72,6 @@ class Mail extends Admin_Controller
 	{
 	    $this->load->view("mail/review_alert",array('t1'=>'Oops!','t2'=>'Something wrong with the link'));
 	}
-    }
-    
-    public function templates()
-    {
-        $this->data['bc1'] = "Mail";
-        $this->data['bc2'] = "Templates";
-        
-        $this->data['mails'] = $this->mail->getTemplates();
-        $this->load->view('mail/templates',$this->data);
-    }
-    
-    public function mailQueue()
-    {
-        $this->data['bc1'] = "Mail";
-        $this->data['bc2'] = "Queue";
-        $this->data['mails'] = $this->mail->getMailQueue();
-        
-        $this->load->view('mail/mail_queue',$this->data);
     }
     
     

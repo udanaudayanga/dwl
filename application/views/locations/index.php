@@ -25,7 +25,6 @@
                             <th>DEA</th>
                             <th>ABBR</th>
                             <th>Address</th>
-                            <th>Status</th>
 			    <th>Actions</th>
 			</tr>
 		    </thead>
@@ -47,7 +46,7 @@
 			   <td><?php echo $location->dea;?></td>
                            <td><?php echo $location->abbr;?></td>
                            <td><?php echo $location->address;?></td>
-                           <td><?php echo $location->status ==1 ? "ACTIVE":"CLOSED";?></td>
+                           
                             <td><a title="Edit" href="<?php echo site_url("locations/edit/$location->id");?>" style="color: #31b0d5;"><span aria-hidden="true" class="glyphicon glyphicon-edit"></span></a> &nbsp;&nbsp;
                                 <a title="Remove"   href="<?php echo site_url("locations/delete/$location->id");?>" style="color: red;" class="" onclick="return confirm('Are you sure? This will make all location references invalid');"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span></a>
                             </td>

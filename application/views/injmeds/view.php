@@ -84,11 +84,6 @@
                         foreach($imarr as $key => $val){?>
                         <li role="presentation" class="<?php if($first){$first = FALSE;echo 'active';};?>"><a style="font-size: 19px;" href="#<?php echo $key;?>" aria-controls="home" role="tab" data-toggle="tab"><?php echo $val;?></a></li>                      
                         <?php } ?>
-                        
-                        <?php
-                        foreach($bagsArr as $key => $val){?>
-                        <li role="presentation" class=""><a style="font-size: 19px;" href="#<?php echo $key;?>" aria-controls="home" role="tab" data-toggle="tab"><?php echo $val;?></a></li>                      
-                        <?php } ?>
                     </ul>
 
                     <!-- Tab panes -->
@@ -158,33 +153,7 @@
                                     </tbody>
                                 </table>
                             </div>                    
-                        <?php } ?>  
-                        
-                        <?php foreach($bagsArr as $key => $val){?>
-                        <div role="tabpanel" class="tab-pane" id="<?php echo $key;?>">
-                            <div class="col-lg-12">
-                                <form method="POST">
-                                    <input type="hidden" name="loc_id" value="<?php echo $loc_id;?>"/>
-                                    <input type="hidden" name="week" value="<?php echo $week;?>" />
-                                    <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                                        <label for="se">Start</label>
-                                        <input name="<?php echo $key;?>_s" value="<?php if($bc) echo $bc->{$key.'_s'};?>" type="number" class="form-control"/>
-                                    </div>
-
-                                    <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                                        <label for="se">End</label>
-                                        <input name="<?php echo $key;?>_e" value="<?php if($bc) echo $bc->{$key.'_e'};?>" type="number" class="form-control"/>
-                                    </div>
-
-
-                                    <div style="" class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                                        <label for="day">&nbsp;</label>
-                                        <button style="margin-top: 0px;" id="" type="button" class="btn btn-success form-control submit_wk">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <?php } ?>  
+                        <?php } ?>                      
                     </div>
 
                   </div>
@@ -211,18 +180,6 @@
                if(data == 'success')
                    bootbox.alert('Copied to next week successfully');
            });
-        });
-        
-        $('.submit_wk').on('click',function(e){
-            e.preventDefault();
-            _form = $(this).closest('form');
-            
-            $.post(BASE_URL+'injmeds/updateWk',_form.serialize(),function(data){
-                if(data == 'success')
-                {
-                    bootbox.alert('Report added successfully');
-                }
-            });
         });
         
         $('.update_im').on('click',function(e){

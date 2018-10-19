@@ -87,9 +87,6 @@ class Injmeds extends Admin_Controller
         $this->data['locations'] = $this->location->getAll(TRUE);
         $injmedsarr = $this->config->item('injmeds');
         $this->data['imarr'] = $injmedsarr;
-        
-        $bagsArr = $this->config->item('bags');
-        $this->data['bagsArr'] = $bagsArr;
         $this->data['staff'] = $this->user->getUserByType(array(2,4));
         
         $injmedspro = $this->config->item('injmeds_pro');
@@ -112,7 +109,6 @@ class Injmeds extends Admin_Controller
                 $this->data['mis'] = $miData;
                 $this->data += $post;
             }
-            $this->data['bc'] = $this->injmeds->getBagCount($post['week'],$post['loc_id']);
         }
         
         $this->load->view('injmeds/view',$this->data);
@@ -332,25 +328,6 @@ class Injmeds extends Admin_Controller
         else 
         {
             $this->injmeds->addIM($data);
-        }
-        
-        echo 'success';
-    }
-    
-    public function updateWk()
-    {
-        $post = $this->input->post();
-        $bc = $this->injmeds->getBagCount($post['week'],$post['loc_id']);
-        
-        if($bc)
-        {
-            unset($post['loc_id'],$post['week']);
-            $this->injmeds->updateBagCount($bc->id,$post);
-        }
-        else
-        {
-            $post['created'] = date("Y-m-d H:i:s");
-            $this->injmeds->addBagCount($post);
         }
         
         echo 'success';

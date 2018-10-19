@@ -26,7 +26,7 @@
             <td><?php echo $days; ?></td>
             <td>&#36;<?php echo $this->cart->format_number($item['price']); ?></td>
             <td>&#36;<?php echo $this->cart->format_number($item['subtotal']); ?></td>
-            <td><a href="" data-rowid="<?php echo $item['rowid'];?>" data-pid="<?php echo $patient_id;?>" data-combineid="<?php echo $item['combined_id'];?>" class="del_cart_pro"  style="color: red;" title="Remove"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span></a></td>
+            <td><a href="" data-rowid="<?php echo $item['rowid'];?>" data-combineid="<?php echo $item['combined_id'];?>" class="del_cart_pro"  style="color: red;" title="Remove"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
         <?php } ?> 
         <?php if(!$this->cart->contents()){?>
@@ -36,7 +36,7 @@
         <?php } ?>
         <?php if($this->cart->contents()){?>
             <?php
-	    $discount = getCartDicount($patient_id);
+	    $discount = getCartDicount();
 	    $cartTotal = $this->cart->total();?>
         <tr>
             <td colspan="4" rowspan="3"></td>

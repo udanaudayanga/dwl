@@ -115,7 +115,11 @@
   p.other_fs{font-size: 32px;}
   .fbox{height: 295px;}
 }
-
+/*.scratchpad{
+          width: 82%;
+          height: 100px;
+          border: solid 1px;
+        }*/
 
 </style>
     
@@ -177,7 +181,7 @@
             <!-- Javascript -->
             <script type="text/javascript" src="/assets/js/app.js"></script>
            
-        
+	    <!--<script type="text/javascript" src="/assets/js/modal.js"></script>-->
  
 
 </body>

@@ -34,44 +34,14 @@
         </div>
     </div>
 </div>
-<?php if(!empty($prepaids) && FALSE){?>
+
 <div class="row">
     <div class="col-xs-12" style="margin-bottom: 10px;">
         <div class="card">   
-            <div class="card-body" style="padding: 10px 0;font-size: 18px;">
-                <div style="font-weight: bold;" class="col-lg-1 col-md-2 col-sm-3 col-xs-4">Not Redeem:</div>
-                <?php foreach($prepaids as $pp){
-                 echo $pp->name." [$pp->remaining]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-                 } ?> 
-                <a href="" id="check_prepaid_btn" style="color: #4cae4c;font-size: 18px;">WANT TO REDEEM ?</a>
-            </div>
-        </div>
-    </div>
-</div>    
-<?php } ?>
-<?php if(!empty($rt) && FALSE){?>
-<div class="row">
-    <div class="col-xs-12" style="margin-bottom: 10px;">
-        <div class="card">   
-            <div class="card-body" style="padding: 10px 0;font-size: 18px;">
-                <div style="font-weight: bold;" class="col-lg-1 col-md-2 col-sm-3 col-xs-4">Redeemed:</div>
-                <?php foreach($rt as $pp){ 
-                    $order_link = (!empty($pp->order))?"[<a style='color: #4cae4c;' href='".site_url("order/view/$pp->order")."' target='_blank'>#".str_pad($pp->order, 5, '0', STR_PAD_LEFT)."</a>]": '';
-                 echo $pp->name." [$pp->quantity]$order_link&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"; 
-                 } ?> 
-                
-            </div>
-        </div>
-    </div>
-</div>    
-<?php } ?>
-<div class="row">
-    <div class="col-xs-12" style="margin-bottom: 10px;">
-        <div class="card">              
+            
             <div class="card-body" style="padding: 0px;background-color: #CAF0FE;">
                 <form id="add_pro_cart" method="POST">
-                    <input type="hidden" name="patient_id" value="<?php echo $patient->id;?>" />
-                    <div class="form-group form-group-lg col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                    <div style="margin-bottom: 5px;" class="form-group form-group-lg col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <label for="cat">Category</label>
                         <select class="form-control not_select2" name="cat_id" id="cart_add_cat" tabindex="-1" aria-hidden="true" style="width: 100%;">
                             <option>Select</option>
@@ -80,7 +50,7 @@
 			    <?php } ?>
                         </select>
                     </div>
-                    <div class="form-group form-group-lg col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div style="margin-bottom: 5px;" class="form-group form-group-lg col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <label for="name">Name</label>
                         <div id="cart_pro_dd_div">
                         <select class="form-control not_select2" id="name" name="pro_id" tabindex="-1" aria-hidden="true" style="width: 100%;">
@@ -88,7 +58,7 @@
                         </select>
                         </div>
                     </div>
-                    <div class="form-group form-group-lg col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div style="margin-bottom: 5px;" class="form-group form-group-lg col-lg-2 col-md-2 col-sm-6 col-xs-12">
                         <label for="qty">Quantity</label>
                         <input type="text" class="form-control" name="qty" value="1" id="qty" placeholder="Quantity">
                     </div>
@@ -96,11 +66,10 @@
                         <label for="day">Days</label>
                         <input type="text" class="form-control" name="days" id="day" placeholder="Days">
                     </div>-->
-                    
-                    <div style="margin-bottom: 0px;" class="form-group form-group-lg col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+                    <div style="margin-bottom: 5px;" class="form-group form-group-lg col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <label for="day">&nbsp;</label>
-                        <input type="hidden" name="patient_id" value="<?php echo $patient->id;?>" />
-                    <button style="margin-top: 0px;" id="add_pro_cart_btn" type="button" class="btn btn-lg btn-success form-control">Add</button>
+                    <button style="margin-top: 0px;" id="add_pro_cart_btn" type="button" class="btn btn-success form-control">Add</button>
                     </div>
                 </form>
             </div>
@@ -126,10 +95,10 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12" style="margin-bottom: 10px;">
+    <div class="col-xs-12">
         <div class="card"> 
             <div class="card-body" style="padding: 0px;background-color: #CAF0FE;">
-                <div class="form-group form-group-lg col-lg-6 col-md-6 col-xs-12">
+                <div style="margin-bottom: 5px;" class="form-group form-group-lg col-lg-6 col-md-6 col-xs-12">
                     <div class="col-lg-4 col-md-6 col-xs-12" style="padding-left: 0px;">
                     <label for="exampleInputName2">Order made by: </label>
                     <select name="staff_id" class="form-control not_select2" id="exampleInputName2" style="width: 100%;">
@@ -146,7 +115,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group form-group-lg col-lg-2 col-md-6 col-xs-12">
+                <div style="margin-bottom: 5px;" class="form-group form-group-lg col-lg-2 col-md-6 col-xs-12">
                     <label for="cc_payment">Payment Type</label>
                     <div>
                         <select id="payment_type" name="payment_type" class="form-control not_select2" style="width: 100%;">
@@ -156,43 +125,30 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group form-group-lg col-lg-2 col-md-6 col-xs-12 cash_div">
+                <div style="margin-bottom: 5px;" class="form-group form-group-lg col-lg-2 col-md-6 col-xs-12 cash_div">
                         <label for="Received">Received</label>
                         <input type="text" class="form-control" value="" id="Received" placeholder="">
                 </div>
-                <div class="form-group form-group-lg col-lg-2 col-md-6 col-xs-12 cash_div">
+                <div style="margin-bottom: 5px;" class="form-group form-group-lg col-lg-2 col-md-6 col-xs-12 cash_div">
                         <label for="Balance">Balance</label>
                         <input type="text" class="form-control" id="Balance" readonly="readonly" value="" placeholder="">
                 </div>
-                <div class="form-group form-group-lg col-lg-2 col-md-6 col-xs-12 mix_div">
+                <div style="margin-bottom: 5px;" class="form-group form-group-lg col-lg-2 col-md-6 col-xs-12 mix_div">
                         <label for="Received">Credit Amount</label>
                         <input type="text" name="credit_amount" class="form-control" value="" id="mix_received" placeholder="">
                 </div>
-                <div class="form-group form-group-lgs col-lg-2 col-md-6 col-xs-12 mix_div">
-                        <label for="Balance">Cash Amount</label>
+                <div style="margin-bottom: 5px;" class="form-group form-group-lg col-lg-2 col-md-6 col-xs-12 mix_div">
+                        <label for="Balance" style="margin-bottom: 5px;">Cash Amount</label>
                         <input type="text" class="form-control" id="mix_balance" readonly="readonly" value="" placeholder="">
                 </div>
-                    <div class="col-xs-4">
-                        <div class="col-lg-6 col-xs-12 pull-left" style="padding-left: 0px;">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="coupon_code" value="<?php if($coupon) echo $coupon; ?>" <?php if($coupon){?>readonly="readonly"<?php } ?> placeholder="Coupon Code">
-                                <span class="input-group-btn">
-                                    <a id="apply_coupon" data-id="<?php echo $patient->id;?>" class="btn btn-default <?php if($coupon){?>hide<?php } ?>" style="margin: 0px;" href=""><span style="color: #4cae4c;" class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
-                                    <a id="remove_coupon" data-id="<?php echo $patient->id;?>" class="btn btn-default <?php if(!$coupon){?>hide<?php } ?>" style="margin: 0px;" href=""><span style="color: #FF0000;" class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                                </span>
-                            </div>
-                        </div>
+                <div class="col-xs-8 form-inline">
+                    <div class="form-group form-group-lg">
 
                     </div>
-                    <div class="col-xs-4 form-inline">
-                        <div class="form-group">
-
-                        </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-lg btn-success pull-right">Save Order</button>
-                    </div>
-                
+                </div>
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-lg btn-success pull-right">Save Order</button>
+                </div>
             </div>
         </div>
     </div>
@@ -361,54 +317,6 @@
         $('#check_prepaid').on('hidden.bs.modal', function () {
             document.location.reload(true);
         })
-        
-        $('#apply_coupon').on('click',function(e){
-            e.preventDefault();
-            
-            _target = $(this);
-            _coupon = $('#coupon_code').val();
-            _pid = _target.data('id');
-            if(!$.trim(_coupon).length)
-            {
-                 bootbox.alert('Please insert a coupon code');
-            }
-            else
-            {
-                $.post(BASE_URL+'order/applyCoup',{coupon:_coupon,pid:_pid},function(data){
-                    data = JSON.parse(data);
-                    if(data.status == 'success')
-                    {
-                       _target.addClass('hide');
-                       $('#remove_coupon').removeClass('hide');
-                       $('#coupon_code').prop('readonly',true);
-                       $('#order_cart_div').html(data.html);
-                    }
-                    else if (data.status == 'error')
-                    {
-                        bootbox.alert(data.error);
-                    }
-                });
-            }
-        });
-        
-        $('#remove_coupon').on('click',function(e){
-            e.preventDefault();
-            
-            _target = $(this);
-            _pid = _target.data('id');
-            $.post(BASE_URL+'order/removeCoupon',{pid:_pid},function(data){
-                data = JSON.parse(data);
-                if(data.status == 'success')
-                {
-                   _target.addClass('hide');
-                   $('#apply_coupon').removeClass('hide');
-                   $('#coupon_code').prop('readonly',false);
-                   $('#coupon_code').val('');
-                   $('#order_cart_div').html(data.html);
-                }
-            });
-            
-        });
     });
 </script>
 
