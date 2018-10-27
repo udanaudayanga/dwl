@@ -15,21 +15,21 @@ class Sms extends CI_Controller
         $post = $this->input->post();
         
         
-        $this->email->from($this->config->item('app_email'), $this->config->item('app_email_name'));
-        $this->email->to("udanaudayanga@gmail.com");
+        // $this->email->from($this->config->item('app_email'), $this->config->item('app_email_name'));
+        // $this->email->to("udanaudayanga@gmail.com");
 
         
-        $this->email->subject('SMS request from TWILIO');
+        // $this->email->subject('SMS request from TWILIO');
         
-        $message = implode('<br>', array_map(
-            function ($v, $k) { return sprintf("%s='%s'", $k, $v); },
-            $post,
-            array_keys($post)
-        ));
+        // $message = implode('<br>', array_map(
+        //     function ($v, $k) { return sprintf("%s='%s'", $k, $v); },
+        //     $post,
+        //     array_keys($post)
+        // ));
        
-        $this->email->message($message);	
+        // $this->email->message($message);	
 
-        $this->email->send();
+        // $this->email->send();
         
         $from = $post['From'];
         $bodyori = $post['Body'];
@@ -383,6 +383,7 @@ class Sms extends CI_Controller
     {
         $media = array('mediaUrl'=>'http://beta.drsweightloss.center/assets/img/B12_test.png');
         $msg = site_url("/assets/upload/queue_alert/test.jpg");
+        $msg = "this is a test";
         $res = SendSMSnew('+94777367567', $msg);
         print_r($res);
         die('test');
