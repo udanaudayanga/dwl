@@ -299,7 +299,7 @@ class Sms extends CI_Controller
                         $msgg .= "\nA: ".date('D m/d',strtotime($appo->date))." | ".date('H:i',strtotime($appo->time))." | ".$appo->name;
                     }
 
-                    SendSMS('+17272497853', $msgg);
+                    SendSMSnew('+17272497853', $msgg);
                 }
                 
 //                $msg = "Doctor's Weight Loss Center \n727-412-8208";
@@ -309,7 +309,7 @@ class Sms extends CI_Controller
         if(!empty($msg))
         {
             if($timeq)$msg .="\nDWLC. 727-412-8208";
-            SendSMS ($from, $msg);
+            SendSMSnew($from, $msg);
             
             if($patient)
             {

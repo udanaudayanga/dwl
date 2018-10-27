@@ -285,7 +285,7 @@ class User extends Admin_Controller
     
     public function sms()
     {
-        $result = SendSMS('+94777367567', 'This is a test');
+        $result = SendSMSnew('+94777367567', 'This is a test');
         print_r($result);
     }
 }

@@ -501,7 +501,7 @@ class Cron extends CI_Controller
         foreach($emps as $key=>$val)
         {
             $msg = $val['name'].", here is your schedule for ".date('l d',strtotime($next_day)).": \n".$val['msg'];
-            SendSMS($val['phone'], $msg);
+            SendSMSnew($val['phone'], $msg);
         }
         
         die('DONE');
@@ -519,7 +519,7 @@ class Cron extends CI_Controller
             if($app->patient_id && $app->phone)
             {
                 $msg = $app->fname.", a reminder from Doctor's Weight Loss for your ".$type[$app->type]." on ".date("l, F d, Y",strtotime($app->date))." ".date("g:ia",strtotime($app->time))." EDT @($app->loc_name). To reschedule (727-412-8208) \nType C to confirm or P to cancel.\nType STOP to stop these Msgs.\nMsg & Data rates may apply.";
-                SendSMS($app->phone, $msg);
+                SendSMSnew($app->phone, $msg);
                 
                 $data = array();
                 $data['patient_id'] = $app->patient_id;
@@ -532,7 +532,7 @@ class Cron extends CI_Controller
             elseif($app->phn)
             {
                 $msg = $app->first_name.", a reminder from Doctor's Weight Loss for your ".$type[$app->type]." on ".date("l, F d, Y",strtotime($app->date))." ".date("g:ia",strtotime($app->time))." EDT @($app->loc_name). Please note: New Patient Initial Visit takes about 2 hrs. Take all your prescription meds prior to visit. Do not apply any body oils or lotions as that might hinder the EKG process. To reschedule (727-412-8208) \nType C to confirm or P to cancel.\nType STOP to stop these Msgs.\nMsg & Data rates may apply.";
-                SendSMS($app->phn, $msg);               
+                SendSMSnew($app->phn, $msg);               
             }
         }
         
@@ -679,7 +679,7 @@ class Cron extends CI_Controller
         {            
             $msg = "Hi $bd->fname, \nHappy Birthday from everyone at our clinic! We love having you as one of our patients and hope you have a great day! You also get a free B-12 on your next Wkly Visit. \nSincerely, \nDWLC Staff";            
             
-            SendSMS($bd->phone, $msg);
+            SendSMSnew($bd->phone, $msg);
             
             $data = array();
             $data['patient_id'] = $bd->id;
@@ -705,7 +705,7 @@ class Cron extends CI_Controller
         {
             $msg = "Hi $p->fname, \nJust a reminder to inform you that your 6 months status of “Current Patient” is about to expire on ".date('j F', strtotime($tw)).". Call 727 412 8208 Doctor's Weight Loss Cntr to schedule an appointment so as to extend the Current Patient Status.";
             
-            SendSMS($p->phone, $msg);
+            SendSMSnew($p->phone, $msg);
         }
         
         die('done');

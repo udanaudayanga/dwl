@@ -1037,7 +1037,7 @@ class Patient extends Admin_Controller
     public function sendSMS()
     {
         $post = $this->input->post();
-        $res = SendSMS($post['phn'], $post['msg']);
+        $res = SendSMSnew($post['phn'], $post['msg']);
         if($res)
         {
             $data = array();
