@@ -538,6 +538,11 @@ class Cron extends CI_Controller
         
         die('DONE');
     }
+
+    public function appointAlertNew()
+    {
+        die('Done \n');
+    }
     
     
     public function printtime()
