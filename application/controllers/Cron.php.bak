@@ -1114,14 +1114,14 @@ class Cron extends CI_Controller
         die('done');
     }
     
-    public function genPDMP($loc_id=null)
+    public function genPDMP($start=null,$end=null,$loc_id=null)
     {  
         $this->load->model("Cron_model", "cron");
         $this->load->helper('file');
         
-        $start = '2018-10-26';
-        $end = '2018-10-26';
-        if(!$loc_id)$loc_id = 3;
+        $start = '2018-08-23';
+        $end = '2018-08-23';
+        $loc_id = 4;
         echo "Generating: ".$start." - ".$end." - ".$loc_id."<br>";
         
         $dea = array(2=>'FN4356514',3=>'FN4321080',4=>'FN5029005');

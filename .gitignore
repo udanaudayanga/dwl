@@ -22,3 +22,4 @@ application/helpers/sms_helper.php
 application/helpers/mc_helper.php
 application/config/email.php
 application/config/database.php
+application/config/config.php
