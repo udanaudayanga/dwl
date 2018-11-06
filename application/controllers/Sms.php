@@ -63,11 +63,11 @@ class Sms extends CI_Controller
                 {
                    if($query[1]=='mon') 
                    {
-                       $msg = "Largo \nMonday: 7 - 6.30pm";
+                       $msg = "Largo \nMonday: 7 - 11am | 3pm - 6.30pm";
                    }
                    elseif($query[1]=='tue')
                    {
-                       $msg = "Largo \nTuesday: 8 - 6.30pm";
+                       $msg = "Largo \nTuesday: 8 - 11am | 3 - 6.30pm";
                    }
                    elseif($query[1]=='wed')
                    {
@@ -75,7 +75,7 @@ class Sms extends CI_Controller
                    }
                    elseif($query[1]=='thu')
                    {
-                       $msg = "Largo \nThursday: 7 - 6.30pm";
+                       $msg = "Largo \nThursday: 7 - 11am | 3 - 6.30pm";
                    }
                    elseif($query[1]=='fri')
                    {
@@ -88,7 +88,7 @@ class Sms extends CI_Controller
                 }
                 else
                 {
-                    $msg = "Largo \nMon: 7 - 6.30pm \nTue: 8 - 6.30pm \nWed: 12-5pm \nThu: 7 - 6.30pm \nFri: 7am - 12.30pm \nSat: 9am - 1.15pm";
+                    $msg = "Largo \nMon: 7 - 11am | 3pm - 6.30pm \nTue: 8 - 11am | 3 - 6.30pm \nWed: 12-5pm \nThu: 7 - 11am | 3 - 6.30pm \nFri: 7am - 12.30pm \nSat: 9am - 1.15pm";
                 }
             }
             elseif($query[0] == '4thtime')
@@ -174,9 +174,9 @@ class Sms extends CI_Controller
             elseif($query[0]=='time')
             {
                 $timeq = true;
-                $msg = "Largo: Mon: 7 - 6.30pm, Tue: 8 - 6.30pm, Wed: 12-5pm, Thu: 7 - 6.30pm, Fri: 7am - 12.30pm, Sat: 9am - 1.15pm\n";
-                $msg .= "St Petersburg: Mon: 7-10.45am, Fri: 7am-1.45pm, Sat: 9am-12.45pm\n";
-                $msg .= "Palm Harbor: Thu: 7 - 1pm | 3.30 - 6.15pm, Fri: 7am - 1.45pm\n";
+                $msg = "Largo: \nMon: 7 - 11am | 3pm - 6.30pm \nTue: 8 - 11am | 3 - 6.30pm \nWed: 12-5pm \nThu: 7 - 11am | 3 - 6.30pm \nFri: 7am - 12.30pm \nSat: 9am - 1.15pm\n\n";
+                $msg .= "St Petersburg: \nMon: 7-10.45am \nFri: 7am-1.45pm \nSat: 9am-12.45pm\n\n";
+                $msg .= "Palm Harbor: \nThu: 7 - 1pm | 3.30 - 6.15pm \nFri: 7am - 1.45pm\n";
             }
             elseif($query[0] == 'mystatus')
             {
