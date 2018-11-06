@@ -518,7 +518,7 @@ class Cron extends CI_Controller
         {
             if($app->patient_id && $app->phone)
             {
-                $msg = $app->fname.", a reminder from Doctor's Weight Loss for your ".$type[$app->type]." on ".date("l, F d, Y",strtotime($app->date))." ".date("g:ia",strtotime($app->time))." EDT @($app->loc_name). To reschedule (727-412-8208) \nType C to confirm or P to cancel.\nType STOP to stop these Msgs.\nMsg & Data rates may apply.";
+                $msg = $app->fname.", a reminder from Doctor's Weight Loss for your ".$type[$app->type]." on ".date("l, F d, Y",strtotime($app->date))." ".date("g:ia",strtotime($app->time))." EDT @($app->loc_name). To reschedule (727-412-8208) \nType C to confirm or P to cancel.\nType STOP to stop these Msgs.\nMsg & Data rates may apply.\nFor HELP type ?";
                 SendSMSnew($app->phone, $msg);
                 
                 $data = array();
@@ -531,7 +531,7 @@ class Cron extends CI_Controller
             }
             elseif($app->phn)
             {
-                $msg = $app->first_name.", a reminder from Doctor's Weight Loss for your ".$type[$app->type]." on ".date("l, F d, Y",strtotime($app->date))." ".date("g:ia",strtotime($app->time))." EDT @($app->loc_name). Please note: New Patient Initial Visit takes about 2 hrs. Take all your prescription meds prior to visit. Do not apply any body oils or lotions as that might hinder the EKG process. To reschedule (727-412-8208) \nType C to confirm or P to cancel.\nType STOP to stop these Msgs.\nMsg & Data rates may apply.";
+                $msg = $app->first_name.", a reminder from Doctor's Weight Loss for your ".$type[$app->type]." on ".date("l, F d, Y",strtotime($app->date))." ".date("g:ia",strtotime($app->time))." EDT @($app->loc_name). Please note: New Patient Initial Visit takes about 2 hrs. Take all your prescription meds prior to visit. Do not apply any body oils or lotions as that might hinder the EKG process. To reschedule (727-412-8208) \nType C to confirm or P to cancel.\nType STOP to stop these Msgs.\nMsg & Data rates may apply.\nFor HELP type ?";
                 SendSMSnew($app->phn, $msg);               
             }
         }
