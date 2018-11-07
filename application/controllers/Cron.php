@@ -975,7 +975,7 @@ class Cron extends CI_Controller
         {
             if(!$p->phone) continue;
 
-            if($p->patient_id < 1940) continue;
+            if($p->patient_id < 2386) continue;
 
             echo $p->fname." ".$p->lname;
             
@@ -983,7 +983,7 @@ class Cron extends CI_Controller
             SendSMSnew($p->phone, $msg);
              
              echo " - SENT <br>";
-            sleep(1);
+            sleep(2);
             flush();
         }
         die('done');
