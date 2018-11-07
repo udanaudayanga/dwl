@@ -1065,7 +1065,7 @@ class Cron extends CI_Controller
         $fname = "Sunil";
         $msg = "Dear $fname, \nIt is never too late to get in shape for the holidays and as such we have waived the start up fees to rejoin the program. You simply start where you left off. Call Doctors Weight Loss Center 727-412 8208.";
             
-        SendSMSnew('+17272497853', $msg);
+        SendSMSnew('+94714717810', $msg);
         die('sent');
     }
     
