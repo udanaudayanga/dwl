@@ -962,6 +962,7 @@ class Cron extends CI_Controller
     
     public function sendPD()
     {
+        set_time_limit(0);
         @ini_set('max_execution_time', 0);
         @ini_set('zlib.output_compression', 0);
         @ini_set('implicit_flush', 1);
@@ -974,7 +975,7 @@ class Cron extends CI_Controller
         {
             if(!$p->phone) continue;
 
-            if($p->patient_id < 340) continue;
+            if($p->patient_id < 1939) continue;
 
             echo $p->fname." ".$p->lname;
             
