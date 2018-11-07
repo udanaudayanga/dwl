@@ -968,14 +968,14 @@ class Cron extends CI_Controller
         @ob_end_clean();
         $this->load->model("Cron_model", "cron");
         //$patients = $this->cron->getPastDuePatients(60,180);
-        $patients = $this->cron->getPastDuePatients(365,700);
-        die();
+        $patients = $this->cron->getPastDuePatients(180,365);
+       
         foreach($patients as $p)
         {
             echo $p->fname." ".$p->lname;
             
-            $msg = "Dear $p->fname, \nWe would love to have you back and help you get ready for the festive season by taking advantage of our '$45/wk Visit' Seasonal Special Offer. Re-join fee $10 for Nov. Check out our other Seasonal Specials at doctorswl.com. Hurry, join before offer ends on Nov 30. Doctors Weight Loss Center 727 412 8208. \nMsg & Data rates may apply. \nType stop to Stop.";
-//             SendSMS($p->phone, $msg);
+            $msg = "Dear $p->fname, \n it is never too late to get in shape for the holidays and as such we have waived the start up fees to rejoin the program. You simply start where you left off. Call Doctors Weight Loss Center 727-412 8208.";
+            SendSMSnew($p->phone, $msg);
              
              echo " - SENT <br>";
             sleep(1);
@@ -1063,9 +1063,9 @@ class Cron extends CI_Controller
     public function sendtest()
     {
         $fname = "Sunil";
-        $msg = "Dear $fname, \nWe would love to have you back and help you get ready for the festive season by taking advantage of our '$45/wk Visit' Seasonal Special Offer. Re-join fee $10 for Nov. Check out our other Seasonal Specials at doctorswl.com. Hurry, join before offer ends on Nov 30. Doctors Weight Loss Center 727 412 8208. \nMsg & Data rates may apply. \nType stop to Stop.";
+        $msg = "Dear $fname, \n it is never too late to get in shape for the holidays and as such we have waived the start up fees to rejoin the program. You simply start where you left off. Call Doctors Weight Loss Center 727-412 8208.";
             
-//        SendSMS('+17272497853', $msg);
+       SendSMS('+17272497853', $msg);
         die('sent');
     }
     
