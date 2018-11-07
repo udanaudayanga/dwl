@@ -974,7 +974,7 @@ class Cron extends CI_Controller
         {
             echo $p->fname." ".$p->lname;
             
-            $msg = "Dear $p->fname, \n it is never too late to get in shape for the holidays and as such we have waived the start up fees to rejoin the program. You simply start where you left off. Call Doctors Weight Loss Center 727-412 8208.";
+            $msg = "Dear $p->fname, \nIt is never too late to get in shape for the holidays and as such we have waived the start up fees to rejoin the program. You simply start where you left off. Call Doctors Weight Loss Center 727-412 8208.";
             SendSMSnew($p->phone, $msg);
              
              echo " - SENT <br>";
@@ -1063,7 +1063,7 @@ class Cron extends CI_Controller
     public function sendtest()
     {
         $fname = "Sunil";
-        $msg = "Dear $fname, \n it is never too late to get in shape for the holidays and as such we have waived the start up fees to rejoin the program. You simply start where you left off. Call Doctors Weight Loss Center 727-412 8208.";
+        $msg = "Dear $fname, \nIt is never too late to get in shape for the holidays and as such we have waived the start up fees to rejoin the program. You simply start where you left off. Call Doctors Weight Loss Center 727-412 8208.";
             
         SendSMSnew('+17272497853', $msg);
         die('sent');
