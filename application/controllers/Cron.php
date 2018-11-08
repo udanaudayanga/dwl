@@ -969,13 +969,11 @@ class Cron extends CI_Controller
         @ob_end_clean();
         $this->load->model("Cron_model", "cron");
         //$patients = $this->cron->getPastDuePatients(60,180);
-        $patients = $this->cron->getPastDuePatients(180,365);
-       
+        $patients = $this->cron->getPastDuePatients(60,180);
+        
         foreach($patients as $p)
         {
             if(!$p->phone) continue;
-
-            if($p->patient_id < 2386) continue;
 
             echo $p->fname." ".$p->lname;
             
