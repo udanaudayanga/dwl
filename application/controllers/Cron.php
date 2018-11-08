@@ -975,6 +975,8 @@ class Cron extends CI_Controller
         {
             if(!$p->phone) continue;
 
+            if($p->patient_id < 1096) continue;
+
             echo $p->fname." ".$p->lname;
             
             $msg = "Dear $p->fname, \nIt is never too late to get in shape for the holidays and as such we have waived the start up fees to rejoin the program. You simply start where you left off. Call Doctors Weight Loss Center 727-412 8208.";
