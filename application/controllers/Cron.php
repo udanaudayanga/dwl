@@ -975,7 +975,7 @@ class Cron extends CI_Controller
         {
             if(!$p->phone) continue;
 
-            if($p->patient_id < 1096) continue;
+            if($p->patient_id < 2606) continue;
 
             echo $p->fname." ".$p->lname;
             
