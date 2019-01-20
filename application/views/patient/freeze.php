@@ -8,6 +8,7 @@
                 </div>
             </div>
             <div class="card-body" style="padding: 10px;">
+
                 <div class="col-xs-12">
                     <?php if($this->session->flashdata('message')){?>
                     <div role="alert" class="alert fresh-color alert-success">
@@ -21,23 +22,23 @@
                     <?php } ?>
                     <div class="col-xs-12" id="add_freeze_errors"></div>
                 </div>
-                
-                
                     
                     
-                    <div class="form-inline col-xs-12">
-                        <div class="form-inline col-lg-4 col-md-6 col-sm-6 col-xs-12" style="margin-bottom: 10px;">
-                            <label class="col-lg-4 col-sm-6 col-xs-6" for="exampleInputName3">Patient Name : </label>
-                            <input type="text" class="form-control" style="width: 200px;" value="" id="patient_name" placeholder="Patient Name">
-                            <input type="hidden" name="patient_id" id="patient_id"/>
-                        </div>
-                         
-                        <div class="form-inline col-lg-3 col-md-6 col-sm-6 col-xs-12" style="">
-                            <button class="btn btn-success" id="patient_freeze_btn" style="margin: 0px;font-size: 16px;">Freeze</button>
-                        </div>
+                <div class="form-inline col-xs-12">
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 10px;">
+                        <label class="col-lg-1 col-md-2 col-sm-3 col-xs-4" for="exampleInputName3">Patient Name : </label>
+                        <input type="text" class="form-control" style="width: 200px;" value="" id="patient_name" placeholder="Patient Name">
+                        <input type="hidden" name="patient_id" id="patient_id"/>
                     </div>
-
-                    
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 10px;">
+                        <label class="col-lg-1 col-md-2 col-sm-3 col-xs-4" for="exampleInputName3">Reason : </label>
+                        <textarea name="reason" id="freezed_reason" class="form-control" style="width:200px;" placeholder="Reason"></textarea>
+                    </div>
+                        
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
+                        <button class="btn btn-success" id="patient_freeze_btn" style="margin: 0px;font-size: 16px;margin-left:15px;">Freeze</button>
+                    </div>
+                </div>
                
             </div>
         </div>
@@ -83,6 +84,7 @@
             $('#patient_freeze_btn').on('click',function(){
                 
                 _pid = $('#patient_id').val();
+                _fr = $('#freezed_reason').val();
 
                 if($.trim(_pid) == '')
                 {
@@ -90,12 +92,15 @@
                 }
                 else
                 {
-                   $.post(BASE_URL+'patient/addFreeze',{id:_pid},function(data){
+                   $.post(BASE_URL+'patient/addFreeze',{id:_pid,fr:_fr},function(data){
                        data = JSON.parse(data);
                        $('#freezed_table').html(data.table);
                        $('#freezed_table').find('.datatable').dataTable();
                        $('#add_freeze_errors').html('<div role="alert" class="alert fresh-color alert-success"><strong>Patient Freezed Successfully.</strong></div>');
                        setTimeout(function(){$('#add_freeze_errors').html('');},2000);
+                       $('#patient_id').val('');
+                       $('#patient_name').val('');
+                       $('#freezed_reason').val('');
                    });
                 }
             });

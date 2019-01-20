@@ -1234,7 +1234,8 @@ class Patient extends Admin_Controller
     {
         $post = $this->input->post();
         $id = $post['id'];
-        $this->patient->updatePatient($id,array('freezed'=>1, 'sms'=>0));
+        $fr = $post['fr'];
+        $this->patient->updatePatient($id,array('freezed'=>1,'freezed_reason'=>$fr,'sms'=>0));
         $result = array();
         $this->data['patients'] = $this->patient->getAllFreezed();        
         $result['table'] = $this->load->view("patient/_freeze_table",$this->data,TRUE);
@@ -1246,7 +1247,7 @@ class Patient extends Admin_Controller
     {
         $post = $this->input->post();
         $id = $post['id'];
-        $this->patient->updatePatient($id,array('freezed'=>0,'sms'=>1));
+        $this->patient->updatePatient($id,array('freezed'=>0, 'freezed_reason'=> NULL, 'sms'=>1));
         $result = array();
         $this->data['patients'] = $this->patient->getAllFreezed();        
         $result['table'] = $this->load->view("patient/_freeze_table",$this->data,TRUE);
