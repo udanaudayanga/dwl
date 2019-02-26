@@ -555,7 +555,7 @@ function getTodayInjections($order_id)
     
     $injections = array();
     $injNames = array();
-    $injNames[5] = "B-12 Cyno 0.4cc Free (Inj USP IM: 1000mcg/ml)";
+    $injNames[5] = "B-12 Cyno 0.4cc";
     $injNames[18] = "LipoGen: Inj USP - SC / IM";
     $injNames[41] = "UltraBurn: Inj - IM";
 
