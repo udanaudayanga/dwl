@@ -970,7 +970,8 @@ class Cron extends CI_Controller
         $this->load->model("Cron_model", "cron");
         //$patients = $this->cron->getPastDuePatients(60,180);
         $patients = $this->cron->getPastDuePatients(60,180);
-        
+        echo $this->db->last_query();
+        die();
         foreach($patients as $p)
         {
             if(!$p->phone) continue;
@@ -1124,8 +1125,8 @@ class Cron extends CI_Controller
         $this->load->model("Cron_model", "cron");
         $this->load->helper('file');
         
-        $start = '2018-10-26';
-        $end = '2018-10-26';
+        $start = $end = '2019-02-25';
+        //$end = '2018-11-18';
         if(!$loc_id)$loc_id = 3;
         echo "Generating: ".$start." - ".$end." - ".$loc_id."<br>";
         

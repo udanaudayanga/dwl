@@ -295,7 +295,7 @@
                         <tr>
                             <td style="height: 40px;vertical-align: top;font-size:15px;line-height:1.1;">
                                 <strong><?php echo $inj['name'];?>: </strong><br>
-                                <?php echo $inj['lot'];?>  &nbsp;&nbsp;&nbsp;&nbsp;Exp Dt: <?php echo date('m/d',strtotime($inj['exp']));?> &nbsp;&nbsp;&nbsp;&nbsp;Qty: <?php echo $inj['qty'];?>
+                                <?php echo $inj['lot'];?>  &nbsp;&nbsp;&nbsp;&nbsp;Exp Dt: <?php echo date('m/Y',strtotime($inj['exp']));?> &nbsp;&nbsp;&nbsp;&nbsp;Qty: <?php echo $inj['qty'];?>
                             </td>
                         </tr>
                         <?php } ?>

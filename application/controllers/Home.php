@@ -69,7 +69,7 @@ class Home extends Admin_Controller
                     $this->data['wd'] = date('w', strtotime($post['date']));
 //                    $this->data['b12u'] = $this->patient->getB12Used($post['date'],$post['date']);
                 }
-                $this->data['injs'] = $injs;            
+                $this->data['injs'] = $injs;    
                 
                 foreach($orders as $order)
                 {
@@ -616,11 +616,11 @@ class Home extends Admin_Controller
     
     private function getInjUsage($start,$end)
     {
-        $injIds = array(5,18,41,106);
+        $injIds = array(5,18,41,107,108,109,113,115);
         $orders = $this->patient->getInjSaleForDuration($start,$end, implode(',', $injIds));
-        
+
         $stats = $b12 = array();
-        $injForId = array("5" => "B-12","18" => "Lipogen","41" => "Ultraburn","106" => "Cookies/Muffin/Cake");
+        $injForId = array("5" => "B-12","18" => "Lipogen","41" => "Ultraburn","107" => "Glutathione", "108"=>"AminoBlend","109" => "StressBuster","113" => "VitD3","115" => "Biotin");
 
         foreach($orders as $order)
         {                    

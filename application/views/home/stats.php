@@ -11,8 +11,8 @@
             line-height: 26px;
         }
         
-        table.meds_tbl tr td,table.meds_tbl tr th{padding: 4px 8px;}
-        table.inj_tbl tr td,table.inj_tbl tr th{padding: 2px 8px;font-size: 14.5px;}
+        table.meds_tbl tr td,table.meds_tbl tr th{padding: 4px 4px;}
+        table.inj_tbl tr td,table.inj_tbl tr th{padding: 2px 4px;font-size: 14px;}
         
         tr td.b12ushade{border: 3px solid #666 !important;background: repeating-linear-gradient(
   130deg,
@@ -102,7 +102,7 @@
                 </div>
                 <div class="card-body" style="padding: 15px 0px;">
                     
-                    <div class="col-sm-4 col-xs-12" style="padding: 0px 8px 0px 5px;width: 28%;">
+                    <div class="col-sm-4 col-xs-12" style="padding: 0px 8px 0px 5px;">
                         <p style="margin-bottom: 0px;height: 30px;">&nbsp;</p>
                         <table style="width: 100%;">
                             <tr>
@@ -141,7 +141,7 @@
                         </tr>
                     </table>
                     </div>
-                    <div class="col-sm-2 col-xs-12" style="padding: 0px 8px 0px 8px;width: 16%;">
+                    <div class="col-sm-2 col-xs-12" style="padding: 0px 8px 0px 5px;">
                         <p style="margin-bottom: 0px;height: 30px;">&nbsp;</p>
                         <table style="width: 100%;">
                             <tr>
@@ -172,7 +172,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="col-sm-3 col-xs-12" style="padding: 0px 8px 0px 8px;width: 28%;">
+                    <div class="col-sm-2 col-xs-12" style="padding: 0px 8px 0px 8px;">
                         <p style="margin-bottom: 2px;font-weight: bold;height: 30px;">
                             <?php if($sg){?>
                             1cc B12 USED <input type="number" class="form-control bui input-sm bu_<?php echo $key;?>" style="width: 100px;display: inline-block;"/>&nbsp;<a style="display: inline-block;margin: 0px;" href="" data-loc="<?php echo $key;?>" data-date="<?php echo $date;?>" class="btn btn-sm btn-success add_b12">ADD</a>
@@ -186,8 +186,8 @@
                                         <table class="table table-bordered inj_tbl table-striped" style="margin: 0px;">
                                         <thead>
                                             <tr>
-                                                <th style="width: 50%;"></th>
-                                                <th style="width: 20%;">Used</th>
+                                                <th style="width: 70%;"></th>
+                                                <th style="width: 30%;">Used</th>
                                                 <?php if($sg && isset($mig[$key]['Lipogen'][$wd])){?>
                                                 <th style="text-align: center;"><span style="color: red;">Left</span></th>
                                                     <th style="text-align: center;"><span style="color: blue;">Total</span></th>
@@ -232,9 +232,13 @@
                                                 <td style="text-align: center;"><span style="color: blue;">(<?php echo $mig[$key]['Ultraburn'][$wd];?>)</span></td>
                                                 <?php } ?>
                                             </tr>
-                                            <tr>                            
-                                                <td>Cookies/Muffin/Cake</td>
-                                                <td><?php echo $b12 = isset($injs[$key]['Cookies/Muffin/Cake'])?$injs[$key]['Cookies/Muffin/Cake']:0;?></td>                                                
+                                            <tr>
+                                                <td>Glutathione 200mg/ml</td>
+                                                <td><?php echo $ub = isset($injs[$key]['Glutathione'])?$injs[$key]['Glutathione']:0;?></td>
+                                                 <?php if($sg && isset($mig[$key]['Glutathione'][$wd])){?>
+                                                <td style="text-align: center;"><span style="color: red;font-weight: bold;"><?php echo ($mig[$key]['Glutathione'][$wd]) - $ub; ?></span></td>
+                                                <td style="text-align: center;"><span style="color: blue;">(<?php echo $mig[$key]['Glutathione'][$wd];?>)</span></td>
+                                                <?php } ?>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -242,7 +246,73 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="col-sm-3 col-xs-12" style="padding: 0px 5px 0px 8px;width: 28%;">
+                    <div class="col-sm-2 col-xs-12" style="padding: 0px 8px 0px 8px;">
+                        <p style="margin-bottom: 2px;font-weight: bold;height: 30px;">
+                            <?php if($sg){?>
+                            1cc B12 USED <input type="number" class="form-control bui input-sm bu_<?php echo $key;?>" style="width: 100px;display: inline-block;"/>&nbsp;<a style="display: inline-block;margin: 0px;" href="" data-loc="<?php echo $key;?>" data-date="<?php echo $date;?>" class="btn btn-sm btn-success add_b12">ADD</a>
+                            <?php }else{ ?>
+                            &nbsp;
+                            <?php } ?>
+                        </p>
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="border: 1px solid black;">
+                                        <table class="table table-bordered inj_tbl table-striped" style="margin: 0px;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 70%;"></th>
+                                                <th style="width: 30%;">Used</th>
+                                                <?php if($sg && isset($mig[$key]['Lipogen'][$wd])){?>
+                                                <th style="text-align: center;"><span style="color: red;">Left</span></th>
+                                                    <th style="text-align: center;"><span style="color: blue;">Total</span></th>
+                                                <?php } ?>
+                                            </tr>
+                                        </thead>
+                                        <tbody>                                           
+
+                                            <tr>
+                                                <td>Amino Blend</td>
+                                                <td><?php echo $ub = isset($injs[$key]['AminoBlend'])?$injs[$key]['AminoBlend']:0;?></td>
+                                                 <?php if($sg && isset($mig[$key]['AminoBlend'][$wd])){?>
+                                                <td style="text-align: center;"><span style="color: red;font-weight: bold;"><?php echo ($mig[$key]['AminoBlend'][$wd]) - $ub; ?></span></td>
+                                                <td style="text-align: center;"><span style="color: blue;">(<?php echo $mig[$key]['AminoBlend'][$wd];?>)</span></td>
+                                                <?php } ?>
+                                            </tr>
+                                            <tr>
+                                                <td>Stress Buster</td>
+                                                <td><?php echo $ub = isset($injs[$key]['StressBuster'])?$injs[$key]['StressBuster']:0;?></td>
+                                                 <?php if($sg && isset($mig[$key]['StressBuster'][$wd])){?>
+                                                <td style="text-align: center;"><span style="color: red;font-weight: bold;"><?php echo ($mig[$key]['StressBuster'][$wd]) - $ub; ?></span></td>
+                                                <td style="text-align: center;"><span style="color: blue;">(<?php echo $mig[$key]['StressBuster'][$wd];?>)</span></td>
+                                                <?php } ?>
+                                            </tr>
+                                            <tr>
+                                                <td>Vit D3</td>
+                                                <td><?php echo $ub = isset($injs[$key]['VitD3'])?$injs[$key]['VitD3']:0;?></td>
+                                                 <?php if($sg && isset($mig[$key]['VitD3'][$wd])){?>
+                                                <td style="text-align: center;"><span style="color: red;font-weight: bold;"><?php echo ($mig[$key]['VitD3'][$wd]) - $ub; ?></span></td>
+                                                <td style="text-align: center;"><span style="color: blue;">(<?php echo $mig[$key]['VitD3'][$wd];?>)</span></td>
+                                                <?php } ?>
+                                            </tr>
+                                            <tr>
+                                                <td>Biotin</td>
+                                                <td><?php echo $ub = isset($injs[$key]['Biotin'])?$injs[$key]['Biotin']:0;?></td>
+                                                 <?php if($sg && isset($mig[$key]['Biotin'][$wd])){?>
+                                                <td style="text-align: center;"><span style="color: red;font-weight: bold;"><?php echo ($mig[$key]['Biotin'][$wd]) - $ub; ?></span></td>
+                                                <td style="text-align: center;"><span style="color: blue;">(<?php echo $mig[$key]['Biotin'][$wd];?>)</span></td>
+                                                <?php } ?>
+                                            </tr>
+                                            <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-sm-2 col-xs-12" style="padding: 0px 5px 0px 8px;">
                         <p style="margin-bottom: 0px;height: 30px;">&nbsp;</p>
                         <table style="width: 100%;">
                             <tr>

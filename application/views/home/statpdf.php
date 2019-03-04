@@ -7,9 +7,9 @@
       table.table-striped tbody tr:nth-child(odd) {
             background-color: #e8e8e8;
         }
-      table.stats_tbl tr td{height: 43px;border: 1px solid #666;}
-      table.medstbl tr td{height: 34.5px;border: 1px solid #666;}
-      table.inj_tbl tr td,table.inj_tbl tr th{height: 27px;font-size: 18px;padding: 3px 0px;}
+      table.stats_tbl tr td{height: 44px;border: 1px solid #666;}
+      table.medstbl tr td{height: 35px;border: 1px solid #666;}
+      table.inj_tbl tr td,table.inj_tbl tr th{height: 30px;font-size: 18px;padding: 2px 0px;}
       tr.border_top td{border-top: 3px solid black !important;}
   </style>
   </head>
@@ -140,7 +140,7 @@
               </tbody>
           </table>
           <?php $location = getLocation($location_id);?>
-          <table class="" style="width: 100%;margin-top: 50px;">
+          <table class="" style="width: 100%;margin-top: 40px;">
               <tr>
                   <td style="width: 28%;vertical-align: top;padding: 0px 15px 0px 0px;">
                       
@@ -176,7 +176,7 @@
                     </table>
                             
                   </td>
-                  <td style="width: 16%;vertical-align: top;padding: 0px 15px 0px 0px;">
+                  <td style="width: 18%;vertical-align: top;padding: 0px 15px 0px 0px;">
                       
                         <table class="table-striped stats_tbl" style="margin: 0px;">
                             <thead>
@@ -202,7 +202,7 @@
                         </table>
                                 
                   </td>
-                  <td style="width: 28%;vertical-align: top;padding: 0px 15px 0px 0px;">
+                  <td style="width: 18%;vertical-align: top;padding: 0px 15px 0px 0px;">
                       
                         <table class="stats_tbl inj_tbl table-striped" style="margin: 0px;">
                             <thead>
@@ -226,29 +226,59 @@
                                 </tr>
                                 <tr class="border_top">
                                     <td style="border-top: 2px solid black;">Lipogen</td>
-                                    <td style="border-top: 2px solid black;"><?php echo $lipogen = isset($injs['Lipogen'])?$injs['Lipogen']:0;?></td>
-                                    <?php if($sg && isset($mig[$location_id]['Lipogen'][$wd])){?>
-                                   <td style="border-top: 2px solid black;"><strong><?php echo ($mig[$location_id]['Lipogen'][$wd]) - $lipogen; ?></strong></td>
-                                    <td style="border-top: 2px solid black;">(<?php echo $mig[$location_id]['Lipogen'][$wd];?>)</td>
-                                   <?php } ?>
+                                    <td style="border-top: 2px solid black;"><?php echo $lipogen = isset($injs['Lipogen'])?$injs['Lipogen']:0;?></td>                                    
                                 </tr>
                                 <tr>
                                     <td>Ultraburn</td>
-                                    <td><?php echo $ub = isset($injs['Ultraburn'])?$injs['Ultraburn']:0;?></td>
-                                    <?php if($sg && isset($mig[$location_id]['Ultraburn'][$wd])){?>
-                                   <td><strong><?php echo ($mig[$location_id]['Ultraburn'][$wd]) - $ub; ?></strong></td>
-                                    <td>(<?php echo $mig[$location_id]['Ultraburn'][$wd];?>)</td>
-                                   <?php } ?>
+                                    <td><?php echo $ub = isset($injs['Ultraburn'])?$injs['Ultraburn']:0;?></td>                                    
                                 </tr>  
-                                <tr class="">                            
-                                    <td>Cookies/Muffin/Cake</td>
-                                    <td><?php echo $cookie = isset($injs['Cookies/Muffin/Cake'])?$injs['Cookies/Muffin/Cake']:0;?></td>                                    
-                                </tr>
+                                <tr>
+                                    <td>Glutathione 200mg/ml</td>
+                                    <td><?php echo isset($injs['Glutathione'])?$injs['Glutathione']:0;?></td>                                    
+                                </tr> 
                             </tbody>
                         </table>
                                 
                   </td>
-                  <td style="width: 28%;vertical-align: top;padding: 0px 0px 0px 0px;">
+                  <td style="width: 18%;vertical-align: top;padding: 0px 15px 0px 0px;">
+                      
+                        <table class="stats_tbl inj_tbl table-striped" style="margin: 0px;">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>Used</td>
+                                    <?php if($sg && isset($mig[$location_id]['Lipogen'][$wd])){?>
+                                    <td><strong>Left</strong></td>
+                                    <td>Total</td>
+                                    <?php } ?>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="">                            
+                                    <td>Amino Blend</td>
+                                    <td><?php echo isset($injs['AminoBlend'])?$injs['AminoBlend']:0;?></td>                                    
+                                </tr>
+                                <tr class="">                            
+                                    <td>Stress Buster</td>
+                                    <td><?php echo isset($injs['StressBuster'])?$injs['StressBuster']:0;?></td>                                    
+                                </tr>
+                                <tr>
+                                    <td>Vit D3</td>
+                                    <td><?php echo $lipogen = isset($injs['VitD3'])?$injs['VitD3']:0;?></td>                                    
+                                </tr>
+                                <tr>
+                                    <td>Biotin</td>
+                                    <td><?php echo $ub = isset($injs['Biotin'])?$injs['Biotin']:0;?></td>                                    
+                                </tr>  
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>                                    
+                                </tr> 
+                            </tbody>
+                        </table>
+                                
+                  </td>
+                  <td style="width: 18%;vertical-align: top;padding: 0px 0px 0px 0px;">
                       
                         <table class="table-striped medstbl" style="margin: 0px;">
                             <thead>
