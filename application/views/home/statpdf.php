@@ -23,10 +23,15 @@
                   <td>TIME</td>
                   <td>STATUS</td>
                   <td>NAME</td>
-                  <td style="width: 5%;">B12 HALF</td>
-                  <td style="width: 5%;">B12 FULL</td>
-                  <td style="width: 5%;">LIPO</td>
-                  <td style="width: 5%;">ULTRA</td>
+                  <td style="width: 4%;">B12 HALF</td>
+                  <td style="width: 4%;">B12 FULL</td>
+                  <td style="width: 4%;">LIPO</td>
+                  <td style="width: 4%;">ULTRA</td>
+                  <td style="width: 5%;">GLUTATHIONE</td>
+                  <td style="width: 4%;">AMINO</td>
+                  <td style="width: 5%;">STRESS BUSTER</td>
+                  <td style="width: 4%;">VIT D3</td>
+                  <td style="width: 4%;">BIOTIN</td>
                   <td>CREDIT</td>
                   <td>CASH</td>
                   <td>MEDS</td>
@@ -53,6 +58,11 @@
                   <td><?php echo isset($injecs['b121cc'])?$injecs['b121cc']:'';?></td>
                   <td><?php echo isset($injecs['Lipogen'])?$injecs['Lipogen']:'';?></td>
                   <td><?php echo isset($injecs['Ultraburn'])?$injecs['Ultraburn']:'';?></td>
+                  <td><?php echo isset($injecs['Glutathione'])?$injecs['Glutathione']:'';?></td>
+                  <td><?php echo isset($injecs['AminoBlend'])?$injecs['AminoBlend']:'';?></td>
+                  <td><?php echo isset($injecs['StressBuster'])?$injecs['StressBuster']:'';?></td>
+                  <td><?php echo isset($injecs['VitD3'])?$injecs['VitD3']:'';?></td>
+                  <td><?php echo isset($injecs['Biotin'])?$injecs['Biotin']:'';?></td>
                   <?php
                   $cr = $cs = '';
                   
