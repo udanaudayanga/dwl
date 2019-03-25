@@ -431,6 +431,7 @@ function redeemedExisToday($order_id)
         {
             $temp = array();
             $temp['name'] = $item->name;
+            $temp['fname'] = $item->friendly_name;           
             $temp['available'] = $item->quantity;
             $temp['measure_in'] = $item->measure_in;
 

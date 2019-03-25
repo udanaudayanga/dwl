@@ -4,7 +4,7 @@
         <style>
             @page {
                 /*size: letter portrait;*/
-                margin: 100px 150px 20px;
+                margin: 50px 80px 20px;
               }
 
               body { margin: 0px;padding: 0px;font-family:'ptsans', sans-serif;}
@@ -18,12 +18,9 @@
         <table style="width: 100%;">
             <tr>
                 <td style="text-align: center;">
-                    <img src="<?php echo base_url();?>assets/img/receipt_header.png" style="height: 300px;"/>
+                    <img src="<?php echo base_url();?>assets/img/receipt_header_new.png" style="height: 300px;"/>
                 </td>                
-            </tr>
-            <tr>
-                <td style="font-size: 40px;padding-top: 20px;font-weight: bold;font-family:'courier' ;">sales receipt</td>
-            </tr>
+            </tr>            
             <tr>
                 <td style="padding-top: 20px;">Date: &nbsp;&nbsp;<?php echo date('m/d/Y',strtotime($order->created));?></td>
             </tr>
@@ -56,12 +53,14 @@
                         <tr>
                             <td style="width: 13%;font-size: 30px;vertical-align: top;"><?php echo $order->id;?></td>
                             <td style="width: 87%;">
+                                <strong>Bought Today:</strong>
                                 <table style="width: 100%;">
                                     <?php foreach($ois as $oi){?> 
                                     <tr>
                                         <td style="width: 78%;padding: 5px 0px;"><?php echo empty($oi->friendly_name)? $oi->name: $oi->friendly_name;?></td>
                                         <td style="width: 11%;padding: 5px 0px;"><?php echo $oi->quantity;?></td>
-                                        <td style="width: 11%;text-align: right;padding:5px 10px 5px 0px;"><?php echo $oi->price * $oi->quantity;?></td>
+                                        <?php $oi_price =  $oi->price * $oi->quantity;?>
+                                        <td style="width: 11%;text-align: right;padding:5px 10px 5px 0px;"><?php echo number_format($oi_price,2);?></td>
                                     </tr>
                                     <?php } ?>
                                 </table>
@@ -85,6 +84,30 @@
                         </tr>
                     </table>
                     
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 5px 20px;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 20%;font-size: 30px;vertical-align: top;color:#fff;"><?php echo $order->id;?></td>
+                            <td style="width: 80%;">
+                                <strong>Redeemed Today:</strong>
+                                <table style="width: 100%;">
+                                    <?php foreach($redeem_exis as $prior){?> 
+                                    <tr>
+                                        <td style="width: 72%;padding: 5px 0px;">
+                                        <strong>Order: </strong><?php echo $prior['order'];?><?php if(!empty($prior['date'])) echo " (".$prior['date'].")";?><br>
+                                        <?php echo empty($prior['fname'])? $prior['name']: $prior['fname'];?>
+                                        </td>
+                                        <td style="width: 17%;padding: 5px 0px;"><?php echo $prior['available'];?></td>                                       
+                                        <td style="width: 11%;text-align: right;padding:5px 10px 5px 0px;"><?php echo number_format(0,2);?></td>
+                                    </tr>
+                                    <?php } ?>
+                                </table>
+                            </td>                            
+                        </tr>  
+                    </table>
                 </td>
             </tr>
             <tr>

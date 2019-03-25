@@ -986,6 +986,8 @@ class Order extends Admin_Controller
         $this->data['patient'] = $patient;
         $ois = $this->order->getOrderItemsWithNames($order_id);
         $this->data['ois'] = $ois;
+
+        $this->data['redeem_exis'] = redeemedExisToday($order_id);
         
         $html = $this->load->view('order/receipt_pdf',$this->data,TRUE);
         

@@ -72,7 +72,7 @@ class Order_model extends CI_Model
     
     public function getRedeemedItems($patient_id,$date)
     {
-        $query = $this->db->query("SELECT p.name,ppb.quantity,pp.id,p.cat_id,p.is_stock,p.stock_item,p.id as product_id,p.is_combo,p.combo_item,p.measure_in
+        $query = $this->db->query("SELECT p.name,p.friendly_name,ppb.quantity,pp.id,p.cat_id,p.is_stock,p.stock_item,p.id as product_id,p.is_combo,p.combo_item,p.measure_in
                                     FROM prepaid pp
                                     LEFT JOIN prepaid_brkdwn ppb ON pp.id = ppb.prepaid_id 
                                     LEFT JOIN products p ON pp.pro_id = p.id 
