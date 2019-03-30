@@ -20,7 +20,7 @@
                 <td style="text-align: center;">
                     <img src="<?php echo base_url();?>assets/img/receipt_header_new.png" style="height: 300px;"/>
                 </td>                
-            </tr>            
+            </tr>                      
             <tr>
                 <td style="padding-top: 20px;">Date: &nbsp;&nbsp;<?php echo date('m/d/Y',strtotime($order->created));?></td>
             </tr>
@@ -47,6 +47,7 @@
                     </table>
                 </td>
             </tr>
+            <?php if($ois){?>
             <tr>
                 <td style="padding: 5px 20px;">
                     <table style="width: 100%;">
@@ -57,7 +58,16 @@
                                 <table style="width: 100%;">
                                     <?php foreach($ois as $oi){?> 
                                     <tr>
-                                        <td style="width: 78%;padding: 5px 0px;"><?php echo empty($oi->friendly_name)? $oi->name: $oi->friendly_name;?></td>
+                                        <td style="width: 78%;padding: 5px 0px;">
+                                        <?php echo empty($oi->friendly_name)? $oi->name: $oi->friendly_name;?><br>
+                                        <?php 
+                                            if($oi->measure_in == 'Days')
+                                            {
+                                                echo getMedsbyOrderId($oi->order_id);
+                                            }
+                                        ?>
+                                        
+                                        </td>
                                         <td style="width: 11%;padding: 5px 0px;"><?php echo $oi->quantity;?></td>
                                         <?php $oi_price =  $oi->price * $oi->quantity;?>
                                         <td style="width: 11%;text-align: right;padding:5px 10px 5px 0px;"><?php echo number_format($oi_price,2);?></td>
@@ -86,6 +96,8 @@
                     
                 </td>
             </tr>
+            <?php } ?>
+            <?php if($redeem_exis){?>
             <tr>
                 <td style="padding: 5px 20px;">
                     <table style="width: 100%;">
@@ -98,7 +110,13 @@
                                     <tr>
                                         <td style="width: 72%;padding: 5px 0px;">
                                         <strong>Order: </strong><?php echo $prior['order'];?><?php if(!empty($prior['date'])) echo " (".$prior['date'].")";?><br>
-                                        <?php echo empty($prior['fname'])? $prior['name']: $prior['fname'];?>
+                                        <?php echo empty($prior['fname'])? $prior['name']: $prior['fname'];?><br>
+                                        <?php 
+                                            if($prior['measure_in'] == 'Days')
+                                            {
+                                                echo getMedsbyOrderId($prior['order']);
+                                            }
+                                        ?>
                                         </td>
                                         <td style="width: 17%;padding: 5px 0px;"><?php echo $prior['available'];?></td>                                       
                                         <td style="width: 11%;text-align: right;padding:5px 10px 5px 0px;"><?php echo number_format(0,2);?></td>
@@ -110,6 +128,7 @@
                     </table>
                 </td>
             </tr>
+            <?php } ?>
             <tr>
                 <td style="padding-top: 100px;">
                     Thank you for your business

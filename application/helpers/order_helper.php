@@ -1059,3 +1059,38 @@ function getTodayInfo($order_id)
     
     return $result;
 }
+
+function getMedsbyOrderId($order_id)
+{
+    $CI =& get_instance();
+    $visit = $CI->patient->getVisitByOrderId($order_id);
+    $medsById = $CI->config->item('meds_for_id');
+    $medsPro = $CI->config->item('meds_info');
+    $med_str = "";
+
+    if($visit->is_med == 0)
+    {
+        $med_str = "No Med";
+    }
+    else 
+    {
+        if($visit->med1)
+        {
+            $med_id = $medsById[$visit->med1];
+            $med_str .= $medsPro[$med_id]['med']." ".$visit->meds_per_day."/day<br>";
+        }
+        if($visit->med2)
+        {
+            $med_id = $medsById[$visit->med2];
+            $med_str .= $medsPro[$med_id]['med']." ".$visit->meds_per_day."/day<br>";
+        }
+        if($visit->med3)
+        {
+            $med_id = $medsById[$visit->med3];
+            $med_str .= $medsPro[$med_id]['med']." ".$visit->meds_per_day."/day<br>";
+        }
+    }
+
+    return $med_str;
+
+}
