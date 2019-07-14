@@ -509,4 +509,15 @@ class Logs extends Admin_Controller
         
         create_mp_ticket($html);
     }
+
+    public function activities()
+    {
+        $this->data['bc1'] = 'Logs';
+	    $this->data['bc2'] = 'Activities';
+        $this->load->model('Util_model','util');
+        
+        $this->data['activities'] = $this->util->getActivities();
+
+        $this->load->view('logs/activities',$this->data);
+    }
 }

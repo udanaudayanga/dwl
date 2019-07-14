@@ -64,7 +64,10 @@ class User extends Admin_Controller
                     else
                     {
                         $result['rd'] = site_url();
-                    }
+					}
+					
+			//Add activity log
+			addActivity($user->id,'SIGN_IN');
 		}
 		else
 		{

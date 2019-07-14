@@ -27,4 +27,21 @@ class Util_model extends CI_Model
         $this->db->insert_batch('appoint_block', $data);
     }
 
+    public function addActivityLog($data)
+    {
+        $this->db->insert('activity_log',$data);
+    }
+
+    //get activities
+    function getActivities()
+    {
+        $query = $this->db->query('SELECT al.*,u.fname,u.lname
+                                FROM activity_log al
+                                LEFT JOIN users u ON al.uid = u.id
+                                ORDER BY al.created DESC
+                                '); 
+
+        return $query->result();
+    }
+
 }

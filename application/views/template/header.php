@@ -238,6 +238,7 @@
                                         <ul class="nav navbar-nav">
                                              <?php if($user->type == '1'){?>
                                             <li><a href="<?php echo site_url('logs');?>">Patients Log</a></li>
+                                            <li><a href="<?php echo site_url('logs/activities');?>">User Activities</a></li>
                                             <?php } ?>
                                             <li><a href="<?php echo site_url('logs/patient');?>">Patient Prescription Log</a></li>
                                               <?php if($user->type == '1'){?>

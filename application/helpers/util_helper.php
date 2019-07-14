@@ -991,4 +991,18 @@ function humanizeDateDiffference($otherDate = null, $offset = null) {
     return $pros;
 }
  
+//Add activity log
+function addActivity($uid,$event)
+{
+    $CI = & get_instance();
+    $CI->load->model('Util_model', 'util');
+
+    $data = array();
+    $data['uid'] = $uid;
+    $data['event'] = $event;
+    $data['remote_ip'] = $_SERVER['REMOTE_ADDR'];
+
+    $CI->util->addActivityLog($data);
+}
+
  
