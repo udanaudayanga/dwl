@@ -57,7 +57,7 @@
                          <?php }else{?>
                          <label style="font-size: 18px;" class="col-lg-1 col-md-2 col-sm-3 col-xs-4" for="exampleInputName3">Date: </label>
                          <div class="input-group col-lg-2 col-md-6 col-sm-6 col-xs-6" id="">
-                             <input style="font-size: 15px;width: 150px;" data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" placeholder="YYYY-MM-DD" type="text" class="datepicker input-sm form-control" id="date" name="date" value="<?php echo set_value('date');?>"/>
+                             <input style="font-size: 15px;width: 150px;" data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-start-date="today" placeholder="YYYY-MM-DD" type="text" class="datepicker input-sm form-control" id="date" name="date" value="<?php echo set_value('date');?>"/>
                             
                         </div>
                          <?php } ?>
@@ -398,7 +398,7 @@
                 });
             }
         });
-        
+         
     });
 
 </script>

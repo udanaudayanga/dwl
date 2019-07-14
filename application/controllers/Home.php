@@ -23,7 +23,7 @@ class Home extends Admin_Controller
     public function stats()
     {
         $this->data['bc1'] = 'Dashboard';
-	$this->data['bc2'] = 'Stats';
+	    $this->data['bc2'] = 'Stats';
         $this->data['is_all'] = false;
         $sg = FALSE;
         
@@ -42,7 +42,7 @@ class Home extends Admin_Controller
             
             
             if($this->form_validation->run() == TRUE)
-	    {
+	        {
                 $stats = $orders = $injs = array();
                 
                 $locations = implode(",", $post['location']);
@@ -62,11 +62,13 @@ class Home extends Admin_Controller
                 }
                 else
                 {
-                    $this->data['date'] = $post['date'];
-                    $orders = $this->patient->getStatsForDashboardStaff($post['date'],$locations);
-                    $injs = $this->getInjUsage($post['date'], $post['date']);
+                    $date = date('Y-m-d',strtotime($post['date']));
+                    if($date < date('Y-m-d')) $date = date('Y-m-d');
+                    $this->data['date'] = $date;                                   
+                    $orders = $this->patient->getStatsForDashboardStaff($date,$locations);
+                    $injs = $this->getInjUsage($date,$date);
                     $sg = TRUE;
-                    $this->data['wd'] = date('w', strtotime($post['date']));
+                    $this->data['wd'] = date('w', strtotime($date));
 //                    $this->data['b12u'] = $this->patient->getB12Used($post['date'],$post['date']);
                 }
                 $this->data['injs'] = $injs;    
@@ -158,7 +160,15 @@ class Home extends Admin_Controller
     public function statpdf($location_id,$start,$end)
     { 
         $sg = FALSE;
+        $user = $this->session->userdata('user');
         $rawLogs = $stats = $orders = $injs = array();
+
+        if($user->type != 1)
+        {
+            $sdate = date('Y-m-d',strtotime($start));
+            if($sdate < date('Y-m-d')) die('Invalid URL');
+        }
+
         if($end != 'NULL')
         {
             $rawLogs = $this->patient->getForStatPDF($location_id,$start,$end);
