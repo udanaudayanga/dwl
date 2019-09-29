@@ -30,7 +30,7 @@
 			    <td><?php echo $act->fname." ".$act->lname;?></td>
 			    <td><?php echo $act->event;?></td>
 			    <td><?php echo $act->remote_ip;?></td>
-			    <td><?php echo $act->created;?></td>
+			    <td><?php echo  date("Y-m-d H:i:s", strtotime('+3 hours' , strtotime($act->created)));?></td>
 			</tr>
 			<?php } ?>
 		    </tbody>

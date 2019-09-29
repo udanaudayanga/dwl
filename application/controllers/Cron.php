@@ -969,18 +969,18 @@ class Cron extends CI_Controller
         @ob_end_clean();
         $this->load->model("Cron_model", "cron");
         //$patients = $this->cron->getPastDuePatients(60,180);
-        $patients = $this->cron->getPastDuePatients(60,180);
+        $patients = $this->cron->getPastDuePatients(180,360);
         echo $this->db->last_query();
         die();
         foreach($patients as $p)
         {
             if(!$p->phone) continue;
 
-            if($p->patient_id < 2606) continue;
+            if($p->patient_id > 2606 || $p->patient_id < 2389) continue;
 
             echo $p->fname." ".$p->lname;
             
-            $msg = "Dear $p->fname, \nIt is never too late to get in shape for the holidays and as such we have waived the start up fees to rejoin the program. You simply start where you left off. Call Doctors Weight Loss Center 727-412 8208.";
+            $msg = "Dear $p->fname,\nTake advantage of our 'Seasonal Special Offer' where we are waiving any 'rejoining' fee. You just continue where you left off. Hurry, join before offer ends on Sep 15, 2019. Doctors Weight Loss Center 727-412 8208.";
             SendSMSnew($p->phone, $msg);
              
              echo " - SENT <br>";
@@ -1069,7 +1069,7 @@ class Cron extends CI_Controller
     public function sendtest()
     {
         $fname = "Sunil";
-        $msg = "Dear $fname, \nIt is never too late to get in shape for the holidays and as such we have waived the start up fees to rejoin the program. You simply start where you left off. Call Doctors Weight Loss Center 727-412 8208.";
+        $msg = "Dear $fname,\nTake advantage of our 'Seasonal Special Offer' where we are waiving any 'rejoining' fee. You just continue where you left off. Hurry, join before offer ends on Sep 15, 2019.\nDoctors Weight Loss Center 727-412 8208.";
             
         SendSMSnew('+94714717810', $msg);
         die('sent');
@@ -1125,7 +1125,7 @@ class Cron extends CI_Controller
         $this->load->model("Cron_model", "cron");
         $this->load->helper('file');
         
-        $start = $end = '2019-02-25';
+        $start = $end = '2019-09-28';
         //$end = '2018-11-18';
         if(!$loc_id)$loc_id = 3;
         echo "Generating: ".$start." - ".$end." - ".$loc_id."<br>";

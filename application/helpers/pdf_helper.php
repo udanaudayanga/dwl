@@ -92,6 +92,26 @@ function create_mp_ticket($html)
     
 }
 
+function create_mp_ticket_edit($html)
+{
+    $CI = get_instance();
+    $filename = 'test';
+    require_once(APPPATH . 'libraries/mpdf61/mpdf.php');
+    $pdf_view = 'portrait';
+
+    $mpdf = new mPDF('utf-8',array(216,279));
+    $mpdf->useActiveForms = true;
+//    $mpdf->debug = true; 
+//    $mpdf->showImageErrors = true;
+//    $stylesheet = file_get_contents('./assets/css/ticket.css'); // external css
+//    $mpdf->WriteHTML($stylesheet,1);
+    $mpdf->WriteHTML($html);
+    $mpdf->Output('Edit_ex.pdf','D');
+    exit;
+    
+}
+
+
 function create_mp_label($html)
 {
     $CI = get_instance();

@@ -31,7 +31,7 @@ class Cron_model extends CI_Model
                 LEFT JOIN patients p ON v.patient_id = p.id 
                 WHERE ADDDATE(CAST(v.visit_date AS DATE), INTERVAL v.med_days DAY) BETWEEN '$to' AND '$from'
                 AND v.patient_id NOT IN (SELECT vv.patient_id FROM visits vv WHERE vv.visit_date > v.visit_date)
-                and v.is_med = 1 AND p.sms = 1";
+                and v.is_med = 1 AND p.sms = 1 AND p.freezed = 0";
         
         $query = $this->db->query($sql);
         return $query->result();

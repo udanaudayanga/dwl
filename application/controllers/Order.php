@@ -961,6 +961,101 @@ class Order extends Admin_Controller
         
         create_mp_ticket($html);
     }
+
+    public function editpdf()
+    {
+        $html = '
+        <style>
+        body
+        {
+            padding-bottom:0px;
+            margin-bottom:0px;
+            margin-top:0px;
+            padding-top:0px;
+        }
+        h2
+        {
+        
+            padding-bottom:0px;
+            margin-bottom:0px;
+            margin-top:5px;
+            padding-top:0px;
+            font-family: Arial;
+            font-size:200%;
+            color:green;
+        }
+        p
+        {
+        
+            padding-bottom:0px;
+            margin-bottom:5px;
+            margin-top:10px;
+            padding-top:5px;
+            font-family: Arial;
+            font-size:100%;
+            font-weight:normal;
+        
+        }
+        .inp
+        {
+        
+            padding-bottom:0px;
+            margin-bottom:0px;
+            margin-top:5px;
+            padding-top:0px;
+            font-family: Arial;
+            font-size:100%;
+            width:100%;
+            border-bottom:1px solid #000000;
+            background-color:#dedede;
+        }
+        fieldset
+        {
+            
+            padding-bottom:0px;
+            margin-bottom:0px;
+            margin-top:5px;
+            padding-top:0px;
+            border: 1px solid #000000;
+            padding:10px;
+            font-family: Arial;
+            font-size:150%;
+            font-weight:bold;
+            margin-top:10px;
+        }
+        
+        textarea
+        {
+            font-family: Arial;
+            font-size:100%;
+            border:2px solid #000000;
+            background-color: #dadada;
+            background-color:#dedede;
+            height:200px;
+            width:100%;
+        }
+        
+        </style>
+        
+        <body>
+        <h2>Final Page</h2>
+        <form action="#" method="post">
+        <fieldset>
+        <p>Comments:</p>
+        <div class="inp"><textarea name="inputname" >Comments goes here</textarea> </div>
+        <p>Patient Signature:</p>
+        <div class="inp" style="width:300px;height:50px;border-bottom:2px solid black;background-color:#fff;"></div>
+        <p>Doctor Signature:</p>
+        <div class="inp" style="width:300px;height:50px;border-bottom:2px solid black;background-color:#fff;"></div>
+       
+        </fieldset>
+        
+ 
+        
+        </form>';
+
+        create_mp_ticket_edit($html);
+    }
     
     public function pendingOrder($order_id)
     {
