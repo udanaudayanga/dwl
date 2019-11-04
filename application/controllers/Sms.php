@@ -154,16 +154,16 @@ class Sms extends CI_Controller
                    }
                    elseif($query[1]=='fri')
                    {
-                       $msg = "Palm Harbor \nFriday: 7am - 1.45pm";
+                       $msg = "Palm Harbor \nFriday: Closed";
                    }
                    elseif($query[1]=='sat')
                    {
-                       $msg = "Palm Harbor \nSaturday: Closed";
+                       $msg = "Palm Harbor \nSaturday: 9am - 12.30pm";
                    }
                 }
                 else
                 {
-                    $msg = "Palm Harbor \nThu: 7 - 1pm | 3.30 - 6.15pm \nFri: 7am - 1.45pm";
+                    $msg = "Palm Harbor \nThu: 7 - 1pm | 3.30 - 6.15pm \nSat: 9am - 12.30pm";
                 }
             }
             elseif($query[0] == 'tamtime')
@@ -176,7 +176,7 @@ class Sms extends CI_Controller
                 $timeq = true;
                 $msg = "Largo: \nMon: 7 - 11am | 3pm - 6.30pm \nTue: 8 - 11am | 3 - 6.30pm \nWed: 12-5pm \nThu: 7 - 11am | 3 - 6.30pm \nFri: 7am - 12.30pm \nSat: 9am - 1.15pm\n\n";
                 $msg .= "St Petersburg: \nMon: 7-10.45am \nFri: 7am-1.45pm \nSat: 9am-12.45pm\n\n";
-                $msg .= "Palm Harbor: \nThu: 7 - 1pm | 3.30 - 6.15pm \nFri: 7am - 1.45pm\n";
+                $msg .= "Palm Harbor: \nThu: 7 - 1pm | 3.30 - 6.15pm \nSat: 9am - 12.30pm\n";
             }
             elseif($query[0] == 'mystatus')
             {

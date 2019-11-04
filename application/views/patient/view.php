@@ -506,7 +506,7 @@
                     if($created)
                     {
                 ?>
-                    <div class="col-xs-5" style="font-weight: bold;">Referral Given On</div><div class="col-xs-5"><?php echo $created;?></div>
+                    <div class="col-xs-5" style="font-weight: bold;">Referral Given On</div><div class="col-xs-5"><?php echo date('m/d/Y',strtotime($created));?></div>
                 <?php }
                     }?>
             </div>
