@@ -206,75 +206,76 @@
                             <?php } ?>
 			    <!-- Dropdown-->
                             <?php if($user->type == '1'){?>
-                            <li class="<?php if($class == 'location') echo 'active';?> panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#locations-menu">
-                                    <span class="icon fa fa-location-arrow"></span><span class="title">Manage</span>
-                                </a>
-                                <!-- Dropdown level 1 -->
-                                <div id="locations-menu" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul class="nav navbar-nav">
-                                            <li><a href="<?php echo site_url('medications');?>">Current Medications</a></li>
-                                            <li><a href="<?php echo site_url('category');?>">Product Categories</a></li>
-                                            <li><a href="<?php echo site_url('ri');?>">Regular Inventory</a></li>
-                                            <li><a href="<?php echo site_url('adz');?>">Mail Adz</a>
-                                            <li><a href="<?php echo site_url('locations');?>">Locations</a>
-                                            <li><a href="<?php echo site_url('logs/test');?>">HTML TEST</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
+                                    <li class="<?php if($class == 'location') echo 'active';?> panel panel-default dropdown">
+                                        <a data-toggle="collapse" href="#locations-menu">
+                                            <span class="icon fa fa-location-arrow"></span><span class="title">Manage</span>
+                                        </a>
+                                        <!-- Dropdown level 1 -->
+                                        <div id="locations-menu" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul class="nav navbar-nav">
+                                                    <li><a href="<?php echo site_url('medications');?>">Current Medications</a></li>
+                                                    <li><a href="<?php echo site_url('category');?>">Product Categories</a></li>
+                                                    <li><a href="<?php echo site_url('ri');?>">Regular Inventory</a></li>
+                                                    <li><a href="<?php echo site_url('adz');?>">Mail Adz</a>
+                                                    <li><a href="<?php echo site_url('locations');?>">Locations</a>
+                                                    <li><a href="<?php echo site_url('logs/test');?>">HTML TEST</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                                    <!-- Dropdown-->
+                                
+                                    <li class="panel panel-default dropdown">
+                                        <a data-toggle="collapse" href="#report-icon">
+                                            <span class="icon fa fa-bars"></span><span class="title">Reports</span>
+                                        </a>
+                                        <!-- Dropdown level 1 -->
+                                        <div id="report-icon" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul class="nav navbar-nav">
+                                                    <?php if($user->type == '1'){?>
+                                                    <li><a href="<?php echo site_url('logs');?>">Patients Log</a></li>
+                                                    <li><a href="<?php echo site_url('logs/activities');?>">User Activities</a></li>
+                                                    <?php } ?>
+                                                    <li><a href="<?php echo site_url('logs/patient');?>">Patient Prescription Log</a></li>
+                                                    <?php if($user->type == '1'){?>
+                                                    <li><a href="<?php echo site_url('logs/prescriptions');?>">Print Prescriptions</a></li>
+                                                    <li><a href="<?php echo site_url('order/removed');?>">Removed Orders</a></li>                                            
+                                                    <?php } ?>
+                                                    <li><a href="<?php echo site_url('reports');?>">Smart Reports</a></li>
+                                                    <li><a href="<?php echo site_url('logs/presno');?>">Prescription # Check</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                
+                                    <!-- Dropdown-->
+                                    <li class="panel panel-default dropdown">
+                                        <a data-toggle="collapse" href="#dropdown-icon">
+                                            <span class="icon fa fa-archive"></span><span class="title">Marketing</span>
+                                        </a>
+                                        <!-- Dropdown level 1 -->
+                                        <div id="dropdown-icon" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul class="nav navbar-nav">
+                                                    <li><a href="<?php echo site_url('appoint/freeb12');?>">Free B-12 Promo</a></li>
+                                                    <li><a href="<?php echo site_url('marketing/customList');?>">Custom Lists</a></li>
+                                                    <li><a href="<?php echo site_url('promos');?>">Promotions</a></li>
+                                                    <li><a href="<?php echo site_url('promos/general');?>">General Promotions</a></li>
+                                                    <li><a href="<?php echo site_url('mail/templates');?>">Mail Templates</a></li>
+                                                    <li><a href="<?php echo site_url('marketing/coupons');?>">Coupons</a></li>
+                                                    <li><a href="<?php echo site_url('mail/mailQueue');?>">Mail Queue</a></li>
+                                                    <?php if($user->type == '1'){?>
+                                                    <li><a href="<?php echo site_url('promos/queueMsg');?>">Queue Alerts</a></li>
+                                                    <?php } ?>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
                             <?php } ?>
-                            <!-- Dropdown-->
-                           
-                            <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#report-icon">
-                                    <span class="icon fa fa-bars"></span><span class="title">Reports</span>
-                                </a>
-                                <!-- Dropdown level 1 -->
-                                <div id="report-icon" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul class="nav navbar-nav">
-                                             <?php if($user->type == '1'){?>
-                                            <li><a href="<?php echo site_url('logs');?>">Patients Log</a></li>
-                                            <li><a href="<?php echo site_url('logs/activities');?>">User Activities</a></li>
-                                            <?php } ?>
-                                            <li><a href="<?php echo site_url('logs/patient');?>">Patient Prescription Log</a></li>
-                                              <?php if($user->type == '1'){?>
-                                            <li><a href="<?php echo site_url('logs/prescriptions');?>">Print Prescriptions</a></li>
-                                            <li><a href="<?php echo site_url('order/removed');?>">Removed Orders</a></li>                                            
-                                            <?php } ?>
-                                            <li><a href="<?php echo site_url('reports');?>">Smart Reports</a></li>
-                                            <li><a href="<?php echo site_url('logs/presno');?>">Prescription # Check</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                           
-                            <!-- Dropdown-->
-                            <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-icon">
-                                    <span class="icon fa fa-archive"></span><span class="title">Marketing</span>
-                                </a>
-                                <!-- Dropdown level 1 -->
-                                <div id="dropdown-icon" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul class="nav navbar-nav">
-                                            <li><a href="<?php echo site_url('appoint/freeb12');?>">Free B-12 Promo</a></li>
-                                            <li><a href="<?php echo site_url('marketing/customList');?>">Custom Lists</a></li>
-                                            <li><a href="<?php echo site_url('promos');?>">Promotions</a></li>
-                                            <li><a href="<?php echo site_url('promos/general');?>">General Promotions</a></li>
-                                            <li><a href="<?php echo site_url('mail/templates');?>">Mail Templates</a></li>
-                                            <li><a href="<?php echo site_url('marketing/coupons');?>">Coupons</a></li>
-                                            <li><a href="<?php echo site_url('mail/mailQueue');?>">Mail Queue</a></li>
-                                             <?php if($user->type == '1'){?>
-                                            <li><a href="<?php echo site_url('promos/queueMsg');?>">Queue Alerts</a></li>
-                                             <?php } ?>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
                             <?php } ?>
                         </ul>
                     </div>
