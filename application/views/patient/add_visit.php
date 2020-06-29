@@ -153,7 +153,7 @@
                               
                 <?php foreach($dralerts as $alert){?>
                 <div class="alert fresh-color alert-danger" role="alert" style="margin: 10px;padding: 5px;background-color: rgba(255, 0, 0, 1);font-size: 12px;line-height: 1.1;">
-                    <p><span style="font-weight: bold;font-size: 12px;"><?php echo date('m/d',strtotime($alert->created));?>:</span><a onclick="return confirm('Are you sure?');" style="cursor: pointer;" href="<?php echo site_url("patient/delAlert/$alert->id/$patient->id");?>"><span class="glyphicon glyphicon-remove pull-right" style="color: #4a4a4a;" aria-hidden="true"></span></a></p>
+                    <p><span style="font-weight: bold;font-size: 12px;"><?php echo date('m/d/Y',strtotime($alert->created));?>:</span><a onclick="return confirm('Are you sure?');" style="cursor: pointer;" href="<?php echo site_url("patient/delAlert/$alert->id/$patient->id");?>"><span class="glyphicon glyphicon-remove pull-right" style="color: #4a4a4a;" aria-hidden="true"></span></a></p>
                      <?php echo nl2br_except_pre($alert->msg);?>
                 </div>
                 <?php } ?>
