@@ -1027,4 +1027,28 @@ class Patient_model extends CI_Model
        }
        return $added;
     }
+
+    public function getFirstVisitForYear($patient_id, $year)
+    {
+        $sql = "SELECT v.*
+                FROM visits v
+                WHERE v.patient_id = $patient_id
+                AND (CAST(v.visit_date AS DATE) >= '$year')
+                ORDER BY v.visit_date ASC";
+
+        $query = $this->db->query($sql);
+        return $query->row();
+    }
+
+    public function getMedDaysForYear($patient_id,$year,$this_visit)
+    {
+        $sql = "SELECT SUM(v.med_days) AS med_days
+                FROM visits v
+                WHERE v.patient_id = $patient_id
+                AND (CAST(v.visit_date AS DATE) >= '$year')
+                AND v.visit_date < '$this_visit'";
+
+        $query = $this->db->query($sql);
+        return $query->row()->med_days;
+    }
 }

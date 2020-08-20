@@ -22,6 +22,7 @@ table.align-left tr td{text-align: left;}
 table.align-right tr td{text-align: right;}
 table.border_none tr td{border: none;}
 td.bold{font-weight: bold;}
+tr.twentyh td{height: 20px;line-height:1;}
 tr.thirtyh td{height: 30px;}
 tr.fortyh td{height: 40px;}
 tr.fortyfive td{height: 45px;}
@@ -40,5 +41,6 @@ tr td.med_fields{vertical-align:top;text-align:left;padding: 5px 0px 0px 5px;fon
 table.inj_tbl tr td{text-align:left;font-size: 19px;height: 30px;padding: 0 0 0 5px;}
 table.medication_tbl tr.hdr td{text-align: center;font-weight: bold;height: 40px;}
 table.medication_tbl tr td{text-align: center;padding: 0 0 0 5px;border: 1px solid #999;font-size: 19px;height: 35px;} 
-table.counsel_tbl tr td{text-align: left;height: 38px;font-size: 19px;}
+table.counsel_tbl tr td{text-align: left;height: 30px;font-size: 19px;}
 table.bottom_tbl tr td{font-size: 19px;vertical-align: top;}
+table.compact tr td{vertical-align: top;,line-height:1;padding: 0px;margin: 0px;}

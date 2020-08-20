@@ -962,6 +962,86 @@ class Order extends Admin_Controller
         create_mp_ticket($html);
     }
 
+    public function finalPageNew($order_id)
+    {
+         $order  = $this->order->getOrder($order_id);
+        $patient = $this->patient->getPatient($order->patient_id);
+        $this->data['patient'] = $patient;
+        $this->data['order'] = $order; 
+        $staff = $order->staff_id ? $this->user->get($order->staff_id):NULL;
+        $this->data['staff'] = $staff? $staff->lname." ".$staff->fname:"-";
+        $this->data['order_location'] = getLocation($order->location_id);
+        
+        //get first visit
+        $first_visit = $this->patient->getPatientVisit($patient->id,1);
+        $this->data['first_visit'] = $first_visit;
+        
+        $lastRestart = $this->order->getLastRestart($order->patient_id);
+        if($lastRestart && $lastRestart->date > date('Y-m-d',strtotime($order->created))) $lastRestart = NULL;
+        
+        //get last 6 visits
+        $latest_visits = $this->patient->getVisitsForVisitPage($order->patient_id,date('Y-m-d',strtotime($order->created)),$lastRestart);
+        $latest_visits = array_reverse($latest_visits);
+        
+        if($lastRestart) 
+        {
+            $count = $this->patient->getVisitCountSinceLastRestart($order->patient_id,date('Y-m-d',strtotime($order->created)),$lastRestart);
+            $lastRestart->count = $count > 6 ? $count - 5 : 1;
+        }
+        $this->data['lastRestart'] = $lastRestart;
+        
+        $order_items = $this->order->getOrderItemsWithNames($order_id);
+        
+        $this->data['visits'] = $latest_visits;
+        
+        $this_visit = $this->patient->getVisitByOrderId($order_id);
+        $this->data['thisvisit'] = $this_visit;
+        
+        
+        $this->data['injections'] = getTodayInjections($order_id);
+       
+        $res = getNextVisitDate($order->patient_id);
+        $next_visit = "";
+        if($res['status'] == 'success')
+        {
+            $next_visit = ($res['ed'] < 7)? "Next Visit Date ".date('m/d/Y',strtotime($res['rnv'])): "Based on last 4 visits, your next visit should be on: ".date('m/d/Y',strtotime($res['nvd']));
+        }
+        else
+        {
+            $next_visit =  $res['msg'];
+        }
+            $this->data['next_visit'] = $next_visit;
+
+        //Get First visit for year
+        $firstVisitYear = $this->patient->getFirstVisitForYear($patient->id, date('Y-01-01'));
+        $medDays = $this->patient->getMedDaysForYear($patient->id, date('Y-01-01'),$this_visit->visit_date);
+
+        if($firstVisitYear && $medDays)
+        {
+            $this->data['next_cal'] = date('D d/m/Y', strtotime($firstVisitYear->visit_date. " + $medDays days"));
+        }
+        else
+        {
+            $this->data['next_cal'] = "N/A";
+        }
+
+        $prev_visit_num = $this_visit->visit > 1 ? $this_visit->visit - 1 : 0;
+
+        if($prev_visit_num != 0)
+        {
+            $last_visit = $this->patient->getPatientVisit($patient->id,$prev_visit_num);
+            $this->data['next_auto'] = date('D d/m/Y', strtotime($last_visit->visit_date. " + $last_visit->med_days days"));
+        }
+        else
+        {
+            $this->data['next_auto'] = "N/A";
+        }
+            
+        $html = $this->load->view('order/finalpagenew',$this->data,true);
+        
+        create_mp_ticket($html);
+    }
+
     public function editpdf()
     {
         $html = '
