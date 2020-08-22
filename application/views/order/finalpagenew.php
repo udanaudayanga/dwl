@@ -500,7 +500,7 @@
                   <tr><td colspan="2" style="border-bottom: 1px solid #666;padding: 0px;margin: 0px;height: 8px;"></td></tr>
               </tr>
           </table>
-          <table class="bottom_tbl" style='margin-top: 10px;'>
+          <table class="bottom_tbl" style='margin-top: 40px;'>
                 <tr>
                     <td style="width: 35%;text-align: left;padding-left: 5px;height: 60px;border-right: 1px solid #999;border-bottom: 1px solid #999;vertical-align:top;padding-bottom:5px;padding-top:0;margin:0;">
                                         

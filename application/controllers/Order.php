@@ -1018,19 +1018,18 @@ class Order extends Admin_Controller
 
         if($firstVisitYear && $medDays)
         {
-            $this->data['next_cal'] = date('D d/m/Y', strtotime($firstVisitYear->visit_date. " + $medDays days"));
+            $this->data['next_cal'] = date('D m/d/Y', strtotime($firstVisitYear->visit_date. " + $medDays days"));
         }
         else
         {
             $this->data['next_cal'] = "N/A";
         }
 
-        $prev_visit_num = $this_visit->visit > 1 ? $this_visit->visit - 1 : 0;
+        
 
-        if($prev_visit_num != 0)
-        {
-            $last_visit = $this->patient->getPatientVisit($patient->id,$prev_visit_num);
-            $this->data['next_auto'] = date('D d/m/Y', strtotime($last_visit->visit_date. " + $last_visit->med_days days"));
+        if($this_visit)
+        {            
+            $this->data['next_auto'] = date('D m/d/Y', strtotime($this_visit->visit_date. " + $this_visit->med_days days"));
         }
         else
         {

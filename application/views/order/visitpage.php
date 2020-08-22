@@ -424,12 +424,12 @@
                       <table id="tbl_allergies">
                           <tr><td style="height: 60px;">Allergies: &nbsp;<span style="font-style: italic;"><?php echo $patient->allergies;?></span></td></tr>
                           <tr><td style="height: 100px;">Current Medications:  &nbsp;<span style="font-style: italic;"><?php echo $patient->previous_medication;?></span></td></tr>
-                          <tr><td style="height: 160px;">Dr’s Alerts:
+                          <tr><td style="height: 240px;">Dr’s Alerts:
                               <?php foreach($dralerts as $alert){?> 
                                   <p style="font-weight: bold;font-size: 15px;"><?php echo date('m/d',strtotime($alert->created));?>:&nbsp;<?php echo nl2br_except_pre($alert->msg);?></p>
                               <?php } ?>
                             </td></tr>
-                          <tr><td style="height: 80px;">Assessment & Plan:</td></tr>
+                          
                           
                       </table>
                   </td>
@@ -515,19 +515,21 @@
 
           <table class="bottom_tbl" style="margin: 10px 0 0 0;padding: 0px;">
               <tr>
-                  <td colspan="9"></td>                  
+                  <td colspan="11"></td>                  
                   <td style="font-weight: bold;">Medication</td>
                   <td style="font-weight: bold;">Week / s</td>
               </tr>
               <tr>
-                  <td style="text-align: left;width: 250px;padding-top: 5px;">MA Name: ........................................</td>
+                  <td style="text-align: left;width: 220px;padding-top: 5px;">MA Name: ...................................</td>
                   <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">MEDS</td>
                   <td style="width: 10px;"></td>
-                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">NO MEDS</td>
+                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">NATURAL</td>
                   <td style="width: 10px;"></td>
                   <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">SHOTS ONLY</td>
                   <td style="width: 10px;"></td>
-                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">NO Inject / Supp</td>
+                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">NO INJECT & BAG</td>
+                  <td style="width: 10px;"></td>
+                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">with BAG</td>                  
                   <td style="width: 25px;"></td>
                   <td style="border: 1px solid #999;padding: 5px 0px;">37.5mg / 30mg / 15mg / DI 25mg</td>
                   <td style="border: 1px solid #999;width: 100px;"></td>
