@@ -1125,13 +1125,12 @@ class Cron extends CI_Controller
         $this->load->model("Cron_model", "cron");
         $this->load->helper('file');
         
-        $start = $end = '2019-09-28';
+        $start = $end = '2020-08-20';
         //$end = '2018-11-18';
         if(!$loc_id)$loc_id = 3;
         echo "Generating: ".$start." - ".$end." - ".$loc_id."<br>";
         
         $dea = array(2=>'FN4356514',3=>'FN4321080',4=>'FN5029005');
-        
         $pres = $this->cron->getForPDMP($loc_id,$start,$end);
         
         
@@ -1148,6 +1147,7 @@ class Cron extends CI_Controller
         $PHA01 = "1699760843";
         $PHA03 = $dea[$loc_id];
         $PHA08 = "FL";
+        $PHA13 = "ME44026";
         
         $PAT02 = "03";
         $PAT03 = "";
@@ -1156,7 +1156,7 @@ class Cron extends CI_Controller
         $ds = "TH*$TH01*$TH02*01**$TH05*$TH06*$TH07**~~";
         $ds .= "IS*$IS01*$IS02*$IS03~";
         
-        $ds .= "PHA*$PHA01**$PHA03*****$PHA08~";
+        $ds .= "PHA*$PHA01**$PHA03*****$PHA08*****$PHA13~";
         
         $tpc = 1;
         
@@ -1184,6 +1184,7 @@ class Cron extends CI_Controller
             $DSP05 = date("Ymd",strtotime($pr->visit_date));
             $DSP06 = $pr->refill > 0 ? $pr->refill - 1: 0;
             $DSP07 = "01";
+            $DSP11 = "03";
             $DSP16 = "01";
             
             $PRE02 = $dea[$loc_id];
@@ -1197,7 +1198,7 @@ class Cron extends CI_Controller
                 $DSP09 = $pr->med_days * $pr->meds_per_day;
                 $DSP10 = $pr->med_days;
                 
-                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10******$DSP16~";
+                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16~";
                 $ds .= "PRE**$PRE02~";
                 
                 $tpc += 2;
@@ -1209,7 +1210,7 @@ class Cron extends CI_Controller
                 $DSP09 = $pr->med_days * $pr->meds_per_day;
                 $DSP10 = $pr->med_days;
                 
-                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10******$DSP16~";
+                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16~";
                 $ds .= "PRE**$PRE02~";
                 
                 $tpc += 2;
@@ -1221,7 +1222,7 @@ class Cron extends CI_Controller
                 $DSP09 = $pr->med_days * $pr->meds_per_day;
                 $DSP10 = $pr->med_days;
                
-                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10******$DSP16~";
+                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16~";
                 $ds .= "PRE**$PRE02~";
                 
                 $tpc += 2;
