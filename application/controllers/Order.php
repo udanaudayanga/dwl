@@ -907,7 +907,7 @@ class Order extends Admin_Controller
         redirect('order/pending');
     }
     
-    public function finalPage($order_id)
+    public function finalPageold($order_id)
     {
          $order  = $this->order->getOrder($order_id);
         $patient = $this->patient->getPatient($order->patient_id);
@@ -957,12 +957,12 @@ class Order extends Admin_Controller
         }
             $this->data['next_visit'] = $next_visit;
             
-        $html = $this->load->view('order/finalpage',$this->data,true);
+        $html = $this->load->view('order/finalpageold',$this->data,true);
         
         create_mp_ticket($html);
     }
 
-    public function finalPageNew($order_id)
+    public function finalPage($order_id)
     {
          $order  = $this->order->getOrder($order_id);
         $patient = $this->patient->getPatient($order->patient_id);
@@ -1036,7 +1036,7 @@ class Order extends Admin_Controller
             $this->data['next_auto'] = "N/A";
         }
             
-        $html = $this->load->view('order/finalpagenew',$this->data,true);
+        $html = $this->load->view('order/finalpage',$this->data,true);
         
         create_mp_ticket($html);
     }

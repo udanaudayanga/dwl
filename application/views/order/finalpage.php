@@ -325,10 +325,8 @@
                   <td style="width:30%;border:1px solid #666;padding:5px;border-right: none;">
                       <table id="tbl_allergies">
                           <tr><td style="height: 60px;">Allergies:  &nbsp;<span style="font-style: italic;"><?php echo $patient->allergies;?></span></td></tr>
-                          <tr><td style="height: 140px;">Current Medications:   &nbsp;<span style="font-style: italic;"><?php echo $patient->previous_medication;?></span></td></tr>
-                          <tr><td style="height: 140px;">Dr’s Alerts:</td></tr>
-                          <tr><td style="height: 100px;">Assessment & Plan:</td></tr>
-                          <tr><td style="height: 60px;">Other Instructions:</td></tr>
+                          <tr><td style="height: 150px;">Current Medications:   &nbsp;<span style="font-style: italic;"><?php echo $patient->previous_medication;?></span></td></tr>
+                          <tr><td style="height: 150px;">Dr’s Alerts:</td></tr>   
                       </table>
                   </td>
                   <td style="width: 70%;border:1px solid #666;border-left: none;vertical-align: top;padding:5px;">
@@ -375,7 +373,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td style="height: 40px;vertical-align: bottom;text-align: left;font-size: 18px;">
+                              <td style="height: 35px;vertical-align: bottom;text-align: left;font-size: 18px;">
                                   Notes
                               </td>
                           </tr>
@@ -385,16 +383,12 @@
                                       <tr><td>&nbsp;</td></tr>
                                       <tr><td>&nbsp;</td></tr>
                                       <tr><td>&nbsp;</td></tr>
-                                      <tr><td>&nbsp;</td></tr>
-                                      <tr><td>&nbsp;</td></tr>
-                                      <tr><td>&nbsp;</td></tr>
-                                      <tr><td>&nbsp;</td></tr>
                                   </table>
                               </td>
                           </tr>
                           <tr>
-                              <td style="height: 40px;vertical-align: bottom;text-align: left;font-size: 18px;">
-                                  How Resolved
+                              <td style="height: 35px;vertical-align: bottom;text-align: left;font-size: 18px;">
+                              Assessment & Plan:
                               </td>
                           </tr>
                           <tr>
@@ -403,10 +397,10 @@
                                       <tr><td>&nbsp;</td></tr>
                                       <tr><td>&nbsp;</td></tr>
                                       <tr><td>&nbsp;</td></tr>
-                                      
                                   </table>
                               </td>
                           </tr>
+                         
                       </table>
                   </td>
               </tr>
@@ -416,19 +410,40 @@
                   <td style="width: 35%;vertical-align: top;">
                       <table class="counsel_tbl">
                           <tr>
-                              <td>Counselled</td>
-                              <td>Amino Acids</td>
-                          </tr>
+                              <td style="height:10px;">Counselled</td>
+                              <td style="height:10px;">Option to fill in pharmacy given</td>
+                          </tr>                         
                           <tr>
-                              <td>Calcium</td>
-                              <td>Multi-vitamins</td>
+                              <td colspan="2" style="padding-bottom:15px;">Amino Acids &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Calcium &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Multi-vitamins</td>
                           </tr>
-                          <tr>
-                              <td colspan="2">Option to fill in pharmacy given</td>
-                          </tr>
-                          <tr>
-                              <td colspan="2">Order By: <?php echo $staff;?></td>
-                          </tr>
+                          <tr  class="twentyh">
+                              <td colspan="2" style="padding: 0px;margin: 0px;">
+                                  <table class="compact">
+                                      <tr class="twentyh">
+                                          <td>Largo</td>
+                                          <td>Palm</td>
+                                          <td>St Pete</td>
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>                        
+                          <tr class="twentyh">
+                              <td colspan="2" style="vertical-align: top;line-height:1;padding: 0px;margin: 0px;">
+                                  <table class="compact">
+                                      <tr class="twentyh">
+                                          <td>MON</td>
+                                          <td>TUE</td>
+                                          <td>WED</td>
+                                          <td>THU</td>
+                                          <td>FRI</td>
+                                          <td>SAT</td>
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>  
+                          <tr class="twentyh">
+                              <td colspan="2" style="vertical-align: top;line-height:1;padding: 0px;margin: 0px;">Time: . . . . . . . . . . . . . . . . . . . . . . . &nbsp; &nbsp;Appt Made </td>
+                          </tr>                     
                           <tr>
                               <td colspan="2">MA: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . </td>
                           </tr>
@@ -485,14 +500,15 @@
                   <tr><td colspan="2" style="border-bottom: 1px solid #666;padding: 0px;margin: 0px;height: 8px;"></td></tr>
               </tr>
           </table>
-          <table class="bottom_tbl" style='margin-top: 10px;'>
+          <table class="bottom_tbl" style='margin-top: 40px;'>
                 <tr>
-                    <td style="width: 35%;text-align: left;padding-left: 5px;height: 60px;border-right: 1px solid #999;border-bottom: 1px solid #999;">
-                        Return:  Week/s for a follow up visit<br><br>                        
-                        <p style="font-size: 26px;"><?php echo $next_visit;?></p>
+                    <td style="width: 35%;text-align: left;padding-left: 5px;height: 60px;border-right: 1px solid #999;border-bottom: 1px solid #999;vertical-align:top;padding-bottom:5px;padding-top:0;margin:0;">
+                                        
+                        <p style="font-size: 26px;padding:0;margin:0;line-height:1;">Next Visit Cal: <?php echo $next_cal;?></p>
+                        <p style="font-size: 26px;padding:0;margin:0;line-height:1;">Next Visit Auto: <?php echo $next_auto;?></p>
                     </td>
                     <td colspan="2" style="width: 65%;text-align: left;padding-left: 5px;height: 60px;border-bottom: 1px solid #999;">
-                        Medical Director Signature
+                        Patient's Sign:
                     </td>
                 </tr>
                 <tr>
@@ -509,9 +525,9 @@
                         <?php } ?>
                     </td>
                     <td style="text-align: left;padding-left: 5px;height: 80px;vertical-align: top;border-right: 1px solid #999;">
-                        Patient's Sign:
+                        Medical Director Signature
                     </td>
-                    <td style="text-align: left;padding-left: 5px;height: 80px;vertical-align: top;">
+                    <td style="text-align: left;padding-left: 5px;height: 80px;vertical-align: top;width:25%">
                         PA / Nurse Practitioner Signature
                     </td>
                 </tr>

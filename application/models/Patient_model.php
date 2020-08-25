@@ -1046,7 +1046,7 @@ class Patient_model extends CI_Model
                 FROM visits v
                 WHERE v.patient_id = $patient_id
                 AND (CAST(v.visit_date AS DATE) >= '$year')
-                AND v.visit_date < '$this_visit'";
+                AND v.visit_date <= '$this_visit'";
 
         $query = $this->db->query($sql);
         return $query->row()->med_days;
