@@ -711,6 +711,58 @@ class Order extends Admin_Controller
     
 
     
+    // public function print_label_old($visit_id)
+    // {
+    //     $visit = $this->patient->getVisitById($visit_id);
+    //     $patient = $this->patient->getPatient($visit->patient_id);
+    //     $name = $patient->lname." ".$patient->fname;
+    //     $addr = $patient->address.", ".$patient->city.", ".getStateAbbr($patient->state)." ".$patient->zip;
+        
+    //     $meds = array();
+    //     if($visit->med3 > 0)
+    //     {
+    //         $temp = array();
+    //         $temp['rx'] = $visit->prescription_no;
+    //         $temp['date'] = date('m/d/Y',strtotime($visit->visit_date));
+    //         $temp['name'] = $name;
+    //         $temp['addr'] = $addr;
+    //         $temp['qty'] = $visit->med_days * $visit->meds_per_day;
+    //         $temp['msg'] = getMedsMsg($visit->med3,NULL,$visit->meds_per_day);
+    //         array_push($meds, $temp);
+    //     }
+    //     else 
+    //     {
+    //         if($visit->med1 > 0)
+    //         {
+    //             $temp = array();
+    //             $temp['rx'] = $visit->prescription_no;
+    //             $temp['date'] = date('m/d/Y',strtotime($visit->visit_date));
+    //             $temp['name'] = $name;
+    //             $temp['addr'] = $addr;
+    //             $temp['qty'] = $visit->med_days * $visit->meds_per_day;
+    //             $temp['msg'] = getMedsMsg($visit->med1,NULL,$visit->meds_per_day);
+    //             array_push($meds, $temp);
+    //         }
+    //         if($visit->med2 > 0)
+    //         {
+    //             $temp = array();
+    //             $temp['rx'] = $visit->prescription_no;
+    //             $temp['date'] = date('m/d/Y',strtotime($visit->visit_date));
+    //             $temp['name'] = $name;
+    //             $temp['addr'] = $addr;
+    //             $temp['qty'] = $visit->med_days * $visit->meds_per_day;
+    //             $temp['msg'] = getMedsMsg(NULL,$visit->med2,$visit->meds_per_day);
+    //             array_push($meds, $temp);
+    //         }
+    //     }
+        
+    //     $this->data['meds'] = $meds;
+        
+        
+    //     $html = $this->load->view('order/label',$this->data,TRUE);
+    //     create_mp_label($html);
+    // }
+
     public function print_label($visit_id)
     {
         $visit = $this->patient->getVisitById($visit_id);
@@ -759,7 +811,7 @@ class Order extends Admin_Controller
         $this->data['meds'] = $meds;
         
         
-        $html = $this->load->view('order/label',$this->data,TRUE);
+        $html = $this->load->view('order/labelnew',$this->data,TRUE);
         create_mp_label($html);
     }
     
