@@ -98,6 +98,7 @@
 
                     <div style="" class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <label for="day">&nbsp;</label>
+                        <input type="hidden" name="patient_id" value="<?php echo $patient->id;?>">
                     <button style="margin-top: 0px;" id="add_pro_cart_btn" type="button" class="btn btn-success form-control">Add</button>
                     </div>
                 </form>

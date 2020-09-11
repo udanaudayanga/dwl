@@ -393,7 +393,7 @@ class Order extends Admin_Controller
     {
      
         $this->data['bc1'] = 'Order';
-	$this->data['bc2'] = 'Edit';
+	    $this->data['bc2'] = 'Edit';
         
         $exorder = $this->order->getOrder($order_id);
         $user = $this->session->userdata('user');
@@ -409,6 +409,7 @@ class Order extends Admin_Controller
         $this->data['categories'] = $this->product->getCategories();
         $patient = $this->patient->getPatient($exorder->patient_id);
         $this->data['patient'] = $patient;
+        $this->data['patient_id'] = $patient->id;
         $this->data['staff'] = $this->user->getUserByType(array(2,4));
 //        $this->data['prepaids'] = $this->order->getPatientPP($exorder->patient_id);
 //        $redeemToday = $this->order->getRedeemedItems($exorder->patient_id,date('Y-m-d'));

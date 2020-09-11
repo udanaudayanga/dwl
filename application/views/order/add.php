@@ -69,6 +69,7 @@
 
                     <div style="margin-bottom: 5px;" class="form-group form-group-lg col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <label for="day">&nbsp;</label>
+                        <input type="hidden" name="patient_id" value="<?php echo $patient->id;?>">
                     <button style="margin-top: 0px;" id="add_pro_cart_btn" type="button" class="btn btn-success form-control">Add</button>
                     </div>
                 </form>
@@ -76,6 +77,7 @@
         </div>
     </div>
 </div>
+<?php $patient_id = $patient->id;?>
 <div role="alert" id="js_cart_error" class="alert fresh-color alert-danger hide cart_error">
     <strong></strong>
 </div>
@@ -88,7 +90,7 @@
 <div class="row">
     <div class="col-xs-12" style="margin-bottom: 10px;">
         <div class="card"> 
-            <div class="card-body" id="order_cart_div" style="padding: 10px;">
+            <div class="card-body" id="order_cart_div" style="padding: 10px;">                
                 <?php $this->load->view('order/_cart');?>
             </div>
         </div>
