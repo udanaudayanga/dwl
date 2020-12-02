@@ -230,7 +230,7 @@ function manageCycle($patient_id) {
 
 
     if ($latest_phase) {
-        if ($latest_phase->end) {
+        if ($latest_phase->end && $latest_phase->end < date('Y-m-d')) {
             addCyclePhase($patient_id, $latest_phase, $latest_phase->end);
         } else {
             $last_visit = $CI->patient->getLatestVisit($patient_id);
@@ -1003,6 +1003,19 @@ function addActivity($uid,$event)
     $data['remote_ip'] = $_SERVER['REMOTE_ADDR'];
 
     $CI->util->addActivityLog($data);
+}
+
+function getNoOfTurnsForVisits($visits)
+{
+    $turns = 0;
+
+    foreach ($visits as $visit) {
+        $days = $visit->is_med == 1 ? $visit->med_days : $visit->no_med_days;
+
+        $turns += getTurnsForDays($days);
+    }
+
+    return $turns;
 }
 
  

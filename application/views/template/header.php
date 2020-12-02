@@ -247,6 +247,7 @@
                                                     <?php } ?>
                                                     <li><a href="<?php echo site_url('reports');?>">Smart Reports</a></li>
                                                     <li><a href="<?php echo site_url('logs/presno');?>">Prescription # Check</a></li>
+                                                    <li><a href="<?php echo site_url('reports/twelvewkcompleted');?>">12 wk Completed</a></li>
                                                 </ul>
                                             </div>
                                         </div>

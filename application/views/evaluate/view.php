@@ -72,7 +72,7 @@
                             <td style="font-weight: bold;padding-left: 25px;"><?php echo $phase->phase;?></td>
                             <td><?php echo date('m/d/Y',strtotime($phase->start));?></td>
                             <td><?php echo ($phase->end)?date('m/d/Y',strtotime($phase->end)):'-';?></td>
-                            <td style="text-transform: capitalize;"><?php echo ($phase->end)?'Complete':'inprogress';?></td>
+                            <td style="text-transform: capitalize;"><?php echo ($phase->end && $phase->end < date('Y-m-d'))?'Complete':'inprogress';?></td>
                             <td>
                                 <a title="Summery PDF" target="_blank"  class="" href="<?php echo site_url("evaluate/report/$phase->id");?>" style="color: #04c;" ><span style="font-size: 1.2em;" aria-hidden="true" class="glyphicon glyphicon-file"></span></a>&nbsp;&nbsp;
                                 <a title="Edit" data-id="<?php echo $phase->id;?>" data-start="<?php echo $phase->start;?>" data-end="<?php echo $phase->end;?>" data-phase="<?php echo $phase->phase;?>" class="edit_phase" href="" style="color: #31b0d5;"><span aria-hidden="true" style="font-size: 1.2em;" class="glyphicon glyphicon-edit"></span></a> &nbsp;&nbsp;

@@ -358,4 +358,36 @@ class Reports extends Admin_Controller
         
         create_mp_ticket($html);
     }
+
+    public function twelvewkcompleted(){
+
+        $activePatients = $this->patient->getPatientsByStatus();
+        $this->data['bc1'] = 'Reports';
+        $this->data['bc2'] = 'Active Patients with at least 12 weeks';
+
+        $patients = [];
+
+        foreach($activePatients as $patient)
+        {   
+            $temp = [];
+
+            $visits = $this->patient->getLatestNoOfVisits($patient->id,12,date('Y-m-d'));
+            if(count($visits) < 2) continue;
+
+            $turns = getNoOfTurnsForVisits($visits);
+            if($turns< 12) continue;
+
+            $temp['name'] = $patient->fname." ".$patient->lname;
+            $temp['status'] = 6;
+            $temp['last'] = $visits[0]->visit_date;
+            $temp['turns'] = $turns;
+            
+            $patients[$patient->id] = $temp;
+           
+        }
+        $this->data['patients'] = $patients;
+
+        $this->load->view('reports/twelvewkcompleted',$this->data);
+
+    }
 }

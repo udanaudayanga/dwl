@@ -145,6 +145,7 @@ class Appoint extends Admin_Controller
             $post['date'] = date('Y-m-d',strtotime($post['date']));
             $post['time'] = date('H:i:s',strtotime($post['time']));
             $post['created'] = date('Y-m-d H:i:s');
+           
             
             if($this->appoint->isBlocked($post['date'],$post['location_id'],$post['time'],TRUE))
             {
@@ -159,8 +160,12 @@ class Appoint extends Admin_Controller
                 
                 $location = getLocation($post['location_id']);
                 
-                $msg = $post['first_name'].", a reminder from Doctor's Weight Loss for your new patient visit on ".date("l, F d, Y",strtotime($post['date']))." ".date("g:ia",strtotime($post['time']))." EDT @($location->name). Please note: New Patient Initial Visit takes about 2 hrs. Take all your prescription meds prior to visit. Do not apply any body oils or lotions as that might hinder the EKG process. To reschedule (727-412-8208) \nType C to confirm or P to cancel.\nType STOP to stop these Msgs.\nMsg & Data rates may apply.";
-                SendSMSnew($_POST['phn'], $msg); 
+                if(isset($post['phn']) && !empty($post['phn']) && strlen($post['phn']) ==10)
+                {
+                    $msg = $post['first_name'].", a reminder from Doctor's Weight Loss for your new patient visit on ".date("l, F d, Y",strtotime($post['date']))." ".date("g:ia",strtotime($post['time']))." EDT @($location->name). Please note: New Patient Initial Visit takes about 2 hrs. Take all your prescription meds prior to visit. Do not apply any body oils or lotions as that might hinder the EKG process. To reschedule (727-412-8208) \nType C to confirm or P to cancel.\nType STOP to stop these Msgs.\nMsg & Data rates may apply.";
+                    SendSMSnew($_POST['phn'], $msg); 
+                }
+                    
                 
                 $this->calView();
             }

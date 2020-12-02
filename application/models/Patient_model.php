@@ -1051,4 +1051,10 @@ class Patient_model extends CI_Model
         $query = $this->db->query($sql);
         return $query->row()->med_days;
     }
+
+    public function getPatientsByStatus($status = 1)
+    {
+        $query = $this->db->where('status',$status)->get('patients');
+	    return $query->result();
+    }
 }
