@@ -106,7 +106,7 @@
                         </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <label for="qty">End Date</label>
-                            <input type="text" data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" placeholder="YYYY-MM-DD" class="form-control" name="end" value="<?php echo date('Y-m-d',strtotime("+12 weeks"));?>" >
+                            <input type="text" data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" placeholder="YYYY-MM-DD" class="form-control" name="end" value="" >
                         </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <label for="qty">Phase</label>

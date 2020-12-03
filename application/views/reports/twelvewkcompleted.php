@@ -34,7 +34,10 @@
 			    <td><?php echo $patient['status']?></td>
 			    <td><?php echo $patient['last']?></td>
                 <td><?php echo $patient['turns']?></td>
-                <td><a style="color: #31b0d5;" target="_blank" href="<?php echo site_url('patient/view/'.$id);?>"><span aria-hidden="true" style="font-size: 1.3em;" class="glyphicon glyphicon-new-window"></span></a></td>
+                <td>
+				<a style="color: #31b0d5;" target="_blank" href="<?php echo site_url('patient/view/'.$id);?>"><span aria-hidden="true" style="font-size: 1.3em;" class="glyphicon glyphicon-new-window"></span></a>
+				<a style="color: purple;" target="_blank" href="<?php echo site_url('evaluate/view/'.$id);?>"><span aria-hidden="true" style="font-size: 1.3em;margin-left:20px;" class="glyphicon glyphicon-calendar"></span></a>
+				</td>
 			</tr>
 			<?php } ?>
 		    </tbody>
