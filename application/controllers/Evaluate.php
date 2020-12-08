@@ -24,8 +24,9 @@ class Evaluate extends Hybrid_controller
             if($this->form_validation->run() == TRUE)
 	    {
                 $post = $this->input->post();
-
-                $post['end'] = empty($post['end']) ? null : $post['end'];
+               
+                $post['start'] = date('Y-m-d', strtotime($post['start'])); 
+                $post['end'] = empty($post['end']) ? null : date('Y-m-d', strtotime($post['end']));
                 
                 $post['created'] = date('Y-m-d H:i:s');
                 $this->evaluate->add($post);
@@ -47,12 +48,15 @@ class Evaluate extends Hybrid_controller
         if($this->input->server('REQUEST_METHOD') === 'POST')
     	{ 
             $this->form_validation->set_rules('start', 'Start Date', 'trim|required');
-            $this->form_validation->set_rules('end', 'End Date', 'trim|required');
+            $this->form_validation->set_rules('end', 'End Date', 'trim');
             $this->form_validation->set_rules('phase', 'Phase', 'trim|required');
             
             if($this->form_validation->run() == TRUE)
 	    {
                 $post = $this->input->post();
+
+                $post['start'] = date('Y-m-d', strtotime($post['start'])); 
+                $post['end'] = empty($post['end']) ? null : date('Y-m-d', strtotime($post['end']));
                 
                 $post['created'] = date('Y-m-d H:i:s');
                 $id = $post['id'];

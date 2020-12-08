@@ -75,7 +75,7 @@
                             <td style="text-transform: capitalize;"><?php echo ($phase->end && $phase->end < date('Y-m-d'))?'Complete':'inprogress';?></td>
                             <td>
                                 <a title="Summery PDF" target="_blank"  class="" href="<?php echo site_url("evaluate/report/$phase->id");?>" style="color: #04c;" ><span style="font-size: 1.2em;" aria-hidden="true" class="glyphicon glyphicon-file"></span></a>&nbsp;&nbsp;
-                                <a title="Edit" data-id="<?php echo $phase->id;?>" data-start="<?php echo $phase->start;?>" data-end="<?php echo $phase->end;?>" data-phase="<?php echo $phase->phase;?>" class="edit_phase" href="" style="color: #31b0d5;"><span aria-hidden="true" style="font-size: 1.2em;" class="glyphicon glyphicon-edit"></span></a> &nbsp;&nbsp;
+                                <a title="Edit" data-id="<?php echo $phase->id;?>" data-start="<?php echo date('m/d/Y',strtotime($phase->start));?>" data-end="<?php echo $phase->end ? date('m/d/Y',strtotime($phase->end)) : '';?>" data-phase="<?php echo $phase->phase;?>" class="edit_phase" href="" style="color: #31b0d5;"><span aria-hidden="true" style="font-size: 1.2em;" class="glyphicon glyphicon-edit"></span></a> &nbsp;&nbsp;
                                 <a title="Delete" href="<?php echo site_url("evaluate/remove/$patient->id/$phase->id");?>" style="color: red;" data-toggle="modal" onclick="return confirm('Are you sure?');"><span style="font-size: 1.2em;" aria-hidden="true" class="glyphicon glyphicon-trash"></span></a>
                                 
                             </td>
@@ -102,11 +102,11 @@
                     <div class="col-xs-12" style="padding: 0px;">
                         <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <label for="qty">Start Date</label>
-                            <input type="text" data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" placeholder="YYYY-MM-DD" class="form-control" name="start" value="<?php echo date('Y-m-d');?>" >
+                            <input type="text" data-provide="datepicker" data-date-autoclose="true" data-date-format="mm/dd/yyyy" placeholder="MM/DD/YYYY" class="form-control" name="start" value="<?php echo date('m/d/Y');?>" >
                         </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <label for="qty">End Date</label>
-                            <input type="text" data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" placeholder="YYYY-MM-DD" class="form-control" name="end" value="" >
+                            <input type="text" data-provide="datepicker" data-date-autoclose="true" data-date-format="mm/dd/yyyy" placeholder="MM/DD/YYYY" class="form-control" name="end" value="" >
                         </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <label for="qty">Phase</label>
@@ -144,11 +144,11 @@
                     <div class="col-xs-12" style="padding: 0px;">
                         <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <label for="qty">Start Date</label>
-                            <input type="text" data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" placeholder="YYYY-MM-DD" class="form-control" name="start" value="" id="ep_start_date">
+                            <input type="text" data-provide="datepicker" data-date-autoclose="true" data-date-format="mm/dd/yyyy" placeholder="MM/DD/YYYY" class="form-control" name="start" value="" id="ep_start_date">
                         </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <label for="qty">End Date</label>
-                            <input type="text" data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" placeholder="YYYY-MM-DD" class="form-control" name="end" value="" id="ep_end_date">
+                            <input type="text" data-provide="datepicker" data-date-autoclose="true" data-date-format="mm/dd/yyyy" placeholder="MM/DD/YYYY" class="form-control" name="end" value="" id="ep_end_date">
                         </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <label for="qty">Phase</label>
