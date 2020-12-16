@@ -362,4 +362,10 @@ class Order_model extends CI_Model
     {
         $this->db->where('order_id',$order_id)->where('product_id',$product_id)->update('order_items',$data);
     }
+
+    public function geLastOrder($patient_id)
+    {
+        $query = $this->db->where('patient_id',$patient_id)->order_by('created','DESC')->get('orders');
+        return $query->row();
+    }
 }
