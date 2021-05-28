@@ -186,7 +186,7 @@ class Home extends Admin_Controller
             $this->data['end'] = $end;
             $orders = $this->patient->getStatsForDashboard($start,$end,$location_id);
             $injs = $this->getInjUsage($start, $end);
-            
+
             if($start == $end)
             {
                 $sg = TRUE;
@@ -211,10 +211,11 @@ class Home extends Admin_Controller
         
         foreach($rawLogs as &$log)
         {
-            $injecs = $this->getPatientInjUsage($start,$end,$log->patient_id,$location_id);
+            //$injecs = $this->getPatientInjUsage($start,$end,$log->patient_id,$location_id);
+            $injecs = $this->orderinj($log->id);
             $log->injs = $injecs;
         }
-        
+
         foreach($orders as $order)
         {
             $crd = $csh = 0;
@@ -699,6 +700,19 @@ class Home extends Admin_Controller
             }
         }
              
+        return $stats;
+    }
+
+    private function orderinj($order_id)
+    {
+        $injs = getTodayInjections($order_id);
+        $injForId = array("5" => "B-12","18" => "Lipogen","41" => "Ultraburn","107" => "Glutathione", "108"=>"AminoBlend","109" => "StressBuster","113" => "VitD3","115" => "Biotin");
+        $stats = array();
+
+        foreach($injs as $key => $inj)
+        {
+            $stats[$injForId[$key]] = $inj['qty'];
+        }
         return $stats;
     }
 }
