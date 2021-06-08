@@ -285,8 +285,8 @@
                         <?php foreach($injections as $inj){?>
                         <tr>
                             <td style="height: 100px;vertical-align: top;">
-                                <strong><?php echo $inj['name'];?>: </strong><br>
-                                <?php echo $inj['lot'];?>  &nbsp;&nbsp;&nbsp;&nbsp;Exp Dt: <?php echo date('m/d',strtotime($inj['exp']));?> &nbsp;&nbsp;&nbsp;&nbsp;Qty: <?php echo $inj['qty'];?>
+                                <strong><?php echo $inj['name'];?>: </strong> &nbsp;&nbsp;&nbsp;&nbsp;Qty: <?php echo $inj['qty'];?>
+                                <!-- <?php // echo $inj['lot'];?>  &nbsp;&nbsp;&nbsp;&nbsp;Exp Dt: <?php //echo date('m/d',strtotime($inj['exp']));?> -->
                             </td>
                         </tr>
                         <?php } ?>

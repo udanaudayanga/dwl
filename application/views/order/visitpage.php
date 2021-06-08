@@ -293,9 +293,9 @@
                     <table class="inj_tbl">
                         <?php foreach($injections as $inj){?>
                         <tr>
-                            <td style="height: 40px;vertical-align: top;font-size:15px;line-height:1.1;">
-                                <strong><?php echo $inj['name'];?>: </strong><br>
-                                <?php echo $inj['lot'];?>  &nbsp;&nbsp;&nbsp;&nbsp;Exp Dt: <?php echo date('m/Y',strtotime($inj['exp']));?> &nbsp;&nbsp;&nbsp;&nbsp;Qty: <?php echo $inj['qty'];?>
+                            <td style="height: 50px;vertical-align: top;font-size:16px;line-height:1.1;">
+                                <strong><?php echo $inj['name'];?> </strong><br>Qty: <?php echo $inj['qty'];?>
+                                <!-- <?php // echo $inj['lot'];?>  &nbsp;&nbsp;&nbsp;&nbsp;Exp Dt: <?php //echo date('m/Y',strtotime($inj['exp']));?>  -->
                             </td>
                         </tr>
                         <?php } ?>

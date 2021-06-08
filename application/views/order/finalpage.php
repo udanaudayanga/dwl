@@ -158,7 +158,7 @@
                           <tr class="fortyh">
                               <td class="bold aright" style="text-align: right;padding:0px 5px 0px 5px;">
                                   <table><tr>
-                                          <td style="border: 1px solid black;font-size: 12px;font-weight: bold;text-align: left;border-right: none;vertical-align: top;width: 24%;padding: 3px 0 0 3px;">
+                                          <td style="border: 1px solid black;font-size: 12px;font-weight: bold;text-align: left;border-right: none;vertical-align: top;width: 37%;padding: 3px 0 0 3px;">
                                               BFI %
                                           </td>  
                                       
@@ -174,7 +174,7 @@
                               
                               <td class="aleft" style="padding:0px 5px 5px 5px;">
                                   <table><tr>
-                                          <td style="border: 1px solid black;font-size: 12px;font-weight: bold;text-align: left;border-right: none;vertical-align: top;width: 24%;padding: 3px 0 0 3px;">
+                                          <td style="border: 1px solid black;font-size: 12px;font-weight: bold;text-align: left;border-right: none;vertical-align: top;width: 37%;padding: 3px 0 0 3px;">
                                               BMI %
                                           </td>   
                                           
@@ -203,9 +203,9 @@
                     <table class="inj_tbl">
                         <?php foreach($injections as $inj){?>
                         <tr>
-                            <td style="height: 40px;vertical-align: top;font-size:15px;line-height:1.1;">
-                                <strong><?php echo $inj['name'];?>: </strong><br>
-                                <?php echo $inj['lot'];?>  &nbsp;&nbsp;&nbsp;&nbsp;Exp Dt: <?php echo date('m/Y',strtotime($inj['exp']));?> &nbsp;&nbsp;&nbsp;&nbsp;Qty: <?php echo $inj['qty'];?>
+                            <td style="height: 50px;vertical-align: top;font-size:16px;line-height:1.1;">
+                                <strong><?php echo $inj['name'];?> </strong><br>Qty: <?php echo $inj['qty'];?>
+                                <!-- <?php //echo $inj['lot'];?>  &nbsp;&nbsp;&nbsp;&nbsp;Exp Dt: <?php //echo date('m/Y',strtotime($inj['exp']));?> &nbsp;&nbsp;&nbsp;&nbsp; -->
                             </td>
                         </tr>
                         <?php } ?>

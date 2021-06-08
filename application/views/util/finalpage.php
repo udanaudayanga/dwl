@@ -152,7 +152,7 @@
                           <tr class="fortyh">
                               <td class="bold aright" style="text-align: right;padding:0px 5px 0px 5px;">
                                   <table><tr>
-                                          <td style="border: 1px solid black;font-size: 12px;font-weight: bold;text-align: left;border-right: none;vertical-align: top;width: 24%;padding: 3px 0 0 3px;">
+                                          <td style="border: 1px solid black;font-size: 12px;font-weight: bold;text-align: left;border-right: none;vertical-align: top;width: 37%;padding: 3px 0 0 3px;">
                                               BFI %
                                           </td>  
                                       
@@ -168,7 +168,7 @@
                               
                               <td class="aleft" style="padding:0px 5px 5px 5px;">
                                   <table><tr>
-                                          <td style="border: 1px solid black;font-size: 12px;font-weight: bold;text-align: left;border-right: none;vertical-align: top;width: 24%;padding: 3px 0 0 3px;">
+                                          <td style="border: 1px solid black;font-size: 12px;font-weight: bold;text-align: left;border-right: none;vertical-align: top;width: 37%;padding: 3px 0 0 3px;">
                                               BMI %
                                           </td>   
                                           
