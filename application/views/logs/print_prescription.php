@@ -171,8 +171,21 @@
                                </td>
                            </tr>
                            <tr>
-                               <td style="padding-top:<?php echo (isset($log->med3) || !(isset($log->med1) && isset($log->med2)))? '160px;':'50px;';?>text-align:right;">                                   
-                                   M NANDA. M.D.
+                               <td style="padding-top:<?php echo (isset($log->med3) || !(isset($log->med1) && isset($log->med2)))? '150px;':'40px;';?>text-align:right;">         
+                               <table>
+                                    <tr>
+                                        <td style="font-size:15px;width:30%;text-align:left;">
+                                            ELECTRONICALLY SIGNED BY<br>
+                                            NANDA MANU MD<br>
+                                            <?php echo date('m/d/Y',strtotime($log->visit_date));?>
+                                        </td>
+                                        <td style="width:40%;">
+                                        <img src="<?php echo base_url();?>assets/img/sign2.jpg" style="width: 200px;"/>
+                                        </td>
+                                        <td style="text-align:right;font-size:20px;vertical-align: bottom;">NANDA M, MD</td>
+                                    </tr>
+                               </table>                          
+                                   
                                </td>
                            </tr>
                       </table>

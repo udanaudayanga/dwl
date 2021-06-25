@@ -525,7 +525,22 @@
                         <?php } ?>
                     </td>
                     <td style="text-align: left;padding-left: 5px;height: 80px;vertical-align: top;border-right: 1px solid #999;">
-                        Medical Director Signature
+                        
+                        <table>
+                            <tr>
+                                <td style="text-align:left;" colspan="2">Medical Director Signature</td>
+                            </tr>
+                            <tr>
+                                        <td style="font-size:15px;width:40%;text-align:left;padding-left:8px;padding-top:8px;">
+                                            ELECTRONICALLY SIGNED BY<br>
+                                            NANDA MANU MD<br>
+                                            <?php echo date('m/d/Y',strtotime($order->created));?>
+                                        </td>
+                                        <td style="width:60%;padding-top:5px;">
+                                        <img src="<?php echo base_url();?>assets/img/sign2.jpg" style="width: 200px;"/>
+                                        </td>
+                            </tr>
+                        </table>
                     </td>
                     <td style="text-align: left;padding-left: 5px;height: 80px;vertical-align: top;width:25%">
                         PA / Nurse Practitioner Signature
