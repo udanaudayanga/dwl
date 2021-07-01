@@ -531,13 +531,13 @@
                                 <td style="text-align:left;" colspan="2">Medical Director Signature</td>
                             </tr>
                             <tr>
-                                        <td style="font-size:15px;width:40%;text-align:left;padding-left:8px;padding-top:8px;">
+                                        <td style="font-size:14px;width:35%;text-align:left;padding-left:8px;padding-top:8px;">
                                             ELECTRONICALLY SIGNED BY<br>
                                             NANDA MANU MD<br>
-                                            <?php echo date('m/d/Y',strtotime($order->created));?>
+                                            ON <?php echo date('m/d/Y',strtotime($order->created));?>
                                         </td>
-                                        <td style="width:60%;padding-top:5px;">
-                                        <img src="<?php echo base_url();?>assets/img/sign2.jpg" style="width: 200px;"/>
+                                        <td style="width:65%;padding-top:5px;">
+                                        <img src="<?php echo base_url();?>assets/img/sign2.jpg" style="width: 250px;margin-top:-8px;"/>
                                         </td>
                             </tr>
                         </table>
