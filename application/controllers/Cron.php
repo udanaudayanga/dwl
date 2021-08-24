@@ -1125,7 +1125,7 @@ class Cron extends CI_Controller
         $this->load->model("Cron_model", "cron");
         $this->load->helper('file');
         
-        $start = $end = '2021-05-02';
+        $start = $end = '2021-05-09';
         //$end = '2018-11-18';
         if(!$loc_id)$loc_id = 3;
         echo "Generating: ".$start." - ".$end." - ".$loc_id."<br>";
@@ -1227,6 +1227,13 @@ class Cron extends CI_Controller
                 
                 $tpc += 2;
             }        
+
+            $AIR07 = strtoupper($pr->lname);
+            $AIR08 = strtoupper($pr->fname);
+            $AIR11 = 02;
+            
+            $ds .= "AIR*******$AIR07*$AIR08***$AIR11~";
+            $tpc += 1;
             
         }
         if(empty($pres))
@@ -1236,8 +1243,10 @@ class Cron extends CI_Controller
             $ds .= "DSP*****$DSP05************~";
             $ds .= "PRE***~";
             $ds .= "CDI*****~";
-            $tpc += 4;
+            $ds .= "AIR***********~";
+            $tpc += 5;
         }
+        
         
         $tpc += 3;
         

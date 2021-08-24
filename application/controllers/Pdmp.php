@@ -115,7 +115,14 @@ class Pdmp extends CI_Controller
                 $ds .= "PRE**$PRE02~";
                 
                 $tpc += 2;
-            }        
+            } 
+            
+            $AIR07 = strtoupper($pr->lname);
+            $AIR08 = strtoupper($pr->fname);
+            $AIR11 = 02;
+            
+            $ds .= "AIR*******$AIR07*$AIR08***$AIR11~";
+            $tpc += 1;
             
         }
         if(empty($pres))
@@ -125,8 +132,11 @@ class Pdmp extends CI_Controller
             $ds .= "DSP*****$DSP05************~";
             $ds .= "PRE***~";
             $ds .= "CDI*****~";
-            $tpc += 4;
+            $ds .= "AIR***********~";
+            $tpc += 5;
         }
+
+       
         
         $tpc += 3;
         
