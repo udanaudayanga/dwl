@@ -1186,6 +1186,10 @@ class Cron extends CI_Controller
             $DSP07 = "01";
             $DSP11 = "03";
             $DSP16 = "01";
+
+            $AIR07 = strtoupper($pr->lname);
+            $AIR08 = strtoupper($pr->fname);
+            $AIR11 = 98;
             
             $PRE02 = $dea[$loc_id];
             
@@ -1200,8 +1204,9 @@ class Cron extends CI_Controller
                 
                 $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16~";
                 $ds .= "PRE**$PRE02~";
+                $ds .= "AIR*******$AIR07*$AIR08***$AIR11~";
                 
-                $tpc += 2;
+                $tpc += 3;
             }
             
             if($pr->med2 > 0)
@@ -1212,8 +1217,9 @@ class Cron extends CI_Controller
                 
                 $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16~";
                 $ds .= "PRE**$PRE02~";
+                $ds .= "AIR*******$AIR07*$AIR08***$AIR11~";
                 
-                $tpc += 2;
+                $tpc += 3;
             }
             
             if($pr->med3 > 0)
@@ -1224,16 +1230,10 @@ class Cron extends CI_Controller
                
                 $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16~";
                 $ds .= "PRE**$PRE02~";
+                $ds .= "AIR*******$AIR07*$AIR08***$AIR11~";
                 
-                $tpc += 2;
-            }        
-
-            $AIR07 = strtoupper($pr->lname);
-            $AIR08 = strtoupper($pr->fname);
-            $AIR11 = 02;
-            
-            $ds .= "AIR*******$AIR07*$AIR08***$AIR11~";
-            $tpc += 1;
+                $tpc += 3;
+            }   
             
         }
         if(empty($pres))
@@ -1243,7 +1243,7 @@ class Cron extends CI_Controller
             $ds .= "DSP*****$DSP05************~";
             $ds .= "PRE***~";
             $ds .= "CDI*****~";
-            $ds .= "AIR***********~";
+            $ds .= "AIR~";
             $tpc += 5;
         }
         
