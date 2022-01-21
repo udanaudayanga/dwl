@@ -19,7 +19,7 @@ class Pdmp extends CI_Controller
         if(empty($date)) die('Please correct the url with correct date');
         
         
-        $dea = array(2=>'FN4356514',3=>'FN4321080',4=>'FN5029005');
+        $dea = array(2=>'FN4356514',3=>'FN4321080',4=>'FN5029005',5=>'FN0546208');
         $pres = $this->cron->getForPDMP($loc_id,$start,$end);
         
         
@@ -1291,7 +1291,7 @@ class Pdmp extends CI_Controller
         if(!$loc_id)$loc_id = 3;
         echo "Generating: ".$start." - ".$end." - ".$loc_id."<br>";
         
-        $dea = array(2=>'FN4356514',3=>'FN4321080',4=>'FN5029005');
+        $dea = array(2=>'FN4356514',3=>'FN4321080',4=>'FN5029005',5=>'FN0546208');
         $pres = $this->cron->getForPDMP($loc_id,$start,$end);
         
         
@@ -1347,6 +1347,7 @@ class Pdmp extends CI_Controller
             $DSP07 = "01";
             $DSP11 = "03";
             $DSP16 = "01";
+            $DSP17 = date("Ymd",strtotime($pr->visit_date));
             
             $PRE02 = $dea[$loc_id];
             
@@ -1359,7 +1360,7 @@ class Pdmp extends CI_Controller
                 $DSP09 = $pr->med_days * $pr->meds_per_day;
                 $DSP10 = $pr->med_days;
                 
-                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16~";
+                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16*$DSP17~";
                 $ds .= "PRE**$PRE02~";
                 
                 $tpc += 2;

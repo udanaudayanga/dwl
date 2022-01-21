@@ -17,7 +17,7 @@ class Logs extends Admin_Controller
     {
         $this->data['bc1'] = 'Logs';
 	$this->data['bc2'] = 'Print';
-        $this->data['locations'] = $this->location->getAll();
+        $this->data['locations'] = $this->location->getAll(true);
         
         
         $this->load->view('logs/index',$this->data);
@@ -152,7 +152,7 @@ class Logs extends Admin_Controller
     {
         $this->data['bc1'] = 'Prescriptions';
 	$this->data['bc2'] = 'Print';
-        $this->data['locations'] = $this->location->getAll();
+        $this->data['locations'] = $this->location->getAll(true);
         
         
         $this->load->view('logs/prescriptions',$this->data);

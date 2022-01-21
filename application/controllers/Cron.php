@@ -1130,7 +1130,7 @@ class Cron extends CI_Controller
         if(!$loc_id)$loc_id = 3;
         echo "Generating: ".$start." - ".$end." - ".$loc_id."<br>";
         
-        $dea = array(2=>'FN4356514',3=>'FN4321080',4=>'FN5029005');
+        $dea = array(2=>'FN4356514',3=>'FN4321080',4=>'FN5029005',5=>'FN0546208');
         $pres = $this->cron->getForPDMP($loc_id,$start,$end);
         
         
