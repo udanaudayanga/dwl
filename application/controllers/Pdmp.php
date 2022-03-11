@@ -75,6 +75,7 @@ class Pdmp extends CI_Controller
             $DSP07 = "01";
             $DSP11 = "03";
             $DSP16 = "01";
+            $DSP17 =  date("Ymd",strtotime($pr->visit_date));
 
             $AIR07 = strtoupper($pr->lname);
             $AIR08 = strtoupper($pr->fname);
@@ -91,7 +92,7 @@ class Pdmp extends CI_Controller
                 $DSP09 = $pr->med_days * $pr->meds_per_day;
                 $DSP10 = $pr->med_days;
                 
-                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16~";
+                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16*$DSP17~";
                 $ds .= "PRE**$PRE02~";
                 $ds .= "AIR*******$AIR07*$AIR08***$AIR11~";
                 
@@ -104,7 +105,7 @@ class Pdmp extends CI_Controller
                 $DSP09 = $pr->med_days * $pr->meds_per_day;
                 $DSP10 = $pr->med_days;
                 
-                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16~";
+                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16*$DSP17~";
                 $ds .= "PRE**$PRE02~";
                 $ds .= "AIR*******$AIR07*$AIR08***$AIR11~";
                 
@@ -117,7 +118,7 @@ class Pdmp extends CI_Controller
                 $DSP09 = $pr->med_days * $pr->meds_per_day;
                 $DSP10 = $pr->med_days;
                
-                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16~";
+                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16*$DSP17~";
                 $ds .= "PRE**$PRE02~";
                 $ds .= "AIR*******$AIR07*$AIR08***$AIR11~";
                 
@@ -1372,7 +1373,7 @@ class Pdmp extends CI_Controller
                 $DSP09 = $pr->med_days * $pr->meds_per_day;
                 $DSP10 = $pr->med_days;
                 
-                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16~";
+                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16*$DSP17~";
                 $ds .= "PRE**$PRE02~";
                 
                 $tpc += 2;
@@ -1384,7 +1385,7 @@ class Pdmp extends CI_Controller
                 $DSP09 = $pr->med_days * $pr->meds_per_day;
                 $DSP10 = $pr->med_days;
                
-                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16~";
+                $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16*$DSP17~";
                 $ds .= "PRE**$PRE02~";
                 
                 $tpc += 2;
