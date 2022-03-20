@@ -1580,4 +1580,31 @@ class Patient_model extends CI_Model
         $query = $this->db->where('status', $status)->get('patients');
         return $query->result();
     }
+
+    public function getRecentPatients($date)
+    {
+        $sql = "SELECT p.id,p.fname,p.lname 
+                FROM visits v 
+                LEFT JOIN patients p ON v.patient_id = p.id 
+                WHERE DATE(v.visit_date) >= '$date'
+                GROUP BY v.patient_id 
+                ORDER BY v.id DESC";
+
+        $query = $this->db->query($sql);
+
+        return $query->result();
+    }
+
+    public function getRecentPPnames()
+    {
+        $sql = "SELECT pp.pro_id,p.name
+                FROM prepaid pp
+                LEFT JOIN products p ON pp.pro_id = p.id 
+                WHERE DATE(updated) > '2021-01-01'
+                GROUP BY pp.pro_id";
+
+        $query = $this->db->query($sql);
+
+        return $query->result();
+    }
 }

@@ -390,4 +390,61 @@ class Reports extends Admin_Controller
         $this->load->view('reports/twelvewkcompleted',$this->data);
 
     }
+
+    public function prepaid()
+    {
+        $patients = $this->patient->getRecentPatients('2021-01-01');
+        $rows = $headers = $ppids = [];
+
+        
+        $ppnames = $this->patient->getRecentPPnames();
+
+        array_push($headers, 'ID','Name');
+        
+        foreach($ppnames as $pp)
+        {
+            array_push($headers,$pp->name);
+            array_push($ppids,$pp->pro_id);
+        }
+
+                       
+        foreach($patients as $patient)
+        {
+            $prepaids = getPrePaids($patient->id);
+
+            if(!empty($prepaids))
+            {
+                $row = $up = [];
+                array_push($row, $patient->id);
+                array_push($row, $patient->fname." ".$patient->lname);   
+                
+                foreach($prepaids as $prep)
+                {
+                    $up[$prep->pro_id] = $prep->remaining;
+                }
+                
+                foreach($ppids as $ppid)
+                {
+                    $ppRemaining = isset($up[$ppid]) ? $up[$ppid] : 0;
+                    array_push($row, $ppRemaining);
+                }
+
+                array_push($rows,$row);
+            }
+        }
+
+        $fp = fopen('php://output', 'w');
+        if ($fp && !empty($rows)) {
+            header('Content-Type: text/csv');
+            header('Content-Disposition: attachment; filename="prepaids.csv"');
+            header('Pragma: no-cache');
+            header('Expires: 0');
+            fputcsv($fp, $headers);
+            foreach($rows as $r)
+            {
+                fputcsv($fp, array_values($r));
+            }
+            exit();
+        }
+    }
 }
