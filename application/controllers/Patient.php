@@ -503,18 +503,18 @@ class Patient extends Admin_Controller
 
             if ($this->form_validation->run() == TRUE) {
                 $proceed = true;
-                if ($post['is_med'] == 1) {
-                    $no_of_meds = $post['med_days'] * $post['meds_per_day'];
-                    // if (!empty($post['med1']) && !checkStock($post['med1'], $no_of_meds)) $proceed = FALSE;
-                    // if (!empty($post['med2']) && !checkStock($post['med2'], $no_of_meds)) $proceed = FALSE;
-                    // if (!empty($post['med3']) && !checkStock($post['med3'], $no_of_meds)) $proceed = FALSE;
+                // if ($post['is_med'] == 1) {
+                //     $no_of_meds = $post['med_days'] * $post['meds_per_day'];
+                //     // if (!empty($post['med1']) && !checkStock($post['med1'], $no_of_meds)) $proceed = FALSE;
+                //     // if (!empty($post['med2']) && !checkStock($post['med2'], $no_of_meds)) $proceed = FALSE;
+                //     // if (!empty($post['med3']) && !checkStock($post['med3'], $no_of_meds)) $proceed = FALSE;
 
-                    if (!empty($post['med1'])) $proceed = FALSE;
-                    if (!empty($post['med2'])) $proceed = FALSE;
-                    if (!empty($post['med3'])) $proceed = FALSE;
+                //     if (!empty($post['med1'])) $proceed = FALSE;
+                //     if (!empty($post['med2'])) $proceed = FALSE;
+                //     if (!empty($post['med3'])) $proceed = FALSE;
 
-                    if (!$proceed) $this->data['errors'] = '<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" style="padding:0 5px;"><div role="alert" class="alert fresh-color alert-danger">Meds are out of stock.</div></div>';
-                }
+                //     if (!$proceed) $this->data['errors'] = '<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" style="padding:0 5px;"><div role="alert" class="alert fresh-color alert-danger">Meds are out of stock.</div></div>';
+                // }
                 if ($proceed) {
 
                     $post['order_id'] = $order_id;
