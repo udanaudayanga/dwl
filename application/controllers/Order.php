@@ -66,7 +66,7 @@ class Order extends Admin_Controller
                 
                 if(in_array($product->cat_id,$visit_cats))$dayProducts = TRUE;
                 
-                if(!checkStock($item['id'], $item['qty']))
+                if(FALSE && !checkStock($item['id'], $item['qty']))
                 {   
                     $this->session->set_flashdata('error', "Product: $product->name, Doesn't have enough stock. Order cannot save with an out of stock item.");
                     redirect("order/add/$patient_id");
@@ -209,7 +209,7 @@ class Order extends Admin_Controller
         
         
         //check stock
-        if(checkStock($product->id, $post['qty']))
+        if(TRUE || checkStock($product->id, $post['qty']))
         {   
             $stock = true;
             if($product->free_product)
@@ -218,7 +218,7 @@ class Order extends Admin_Controller
                 foreach($fps as $fp)
                 {
                     $free_qty = $fp->quantity * $post['qty'];
-                    if(checkStock($fp->free_pro_id, $free_qty))
+                    if(TRUE || checkStock($fp->free_pro_id, $free_qty))
                     {
                         $stock = TRUE;
                     }

@@ -211,7 +211,7 @@
         }
         
         $("#is_stock").change(function() {
-            checkStock();
+            //checkStock();
         });
         
         $("#attach_free").change(function() {
@@ -222,7 +222,7 @@
             checkCombo();
         });
         
-        checkStock();
+        //checkStock();
         checkFree();
         checkCombo();
     });

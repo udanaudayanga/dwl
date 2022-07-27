@@ -149,6 +149,8 @@ function getPrePaids($patient_id)
 
 function checkStock($pro_id,$qnt)
 {
+    return TRUE;
+
     $CI =& get_instance();
     $CI->load->model("Product_model", "product");
     $product = $CI->product->get($pro_id);
