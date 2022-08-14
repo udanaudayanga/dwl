@@ -1357,6 +1357,100 @@ class Patient extends Admin_Controller
         echo json_encode($result);
     }
 
+    public function pastTwelveWeeks($patient_id)
+    {
+        $lastOrder = $this->order->geLastOrder($patient_id);
+
+        //get last 12 visits
+        $latest_visits = $this->patient->getNoOfVisitsForPatient($lastOrder->patient_id, 12);
+        $visits = array_reverse($latest_visits);
+
+        $visitCount = count($visits);
+        
+        $this->data['visits'] = $latest_visits;
+
+
+        $headers = ['Visit #', 'Phase', '# of Wks', 'Visit Date', 'Loc', 'Weight', 'BFI', 'BMI', 'BP', 'Last 2 Visit', 'Total Wt', 'Days Over Schld Visit'];
+
+        $rows = array();
+        $last_weight = 0;
+        $tr = 0;
+        $total_weight_diff = 0;
+        $pvdate = FALSE;
+        $vn = 0;
+
+        for ($i = 0; $i < $visitCount; $i++) {
+            if (isset($visits[$i])) {
+                $v = $visits[$i];
+                $med_days = $v->is_med == 1 ? $v->med_days : $v->no_med_days;
+                $coming_after = "-";
+                if ($pvdate) {
+                    $d1 = new DateTime(date('Y-m-d', strtotime($pvdate->visit_date)));
+                    $d2 = new DateTime(date('Y-m-d', strtotime($v->visit_date)));
+                    $gap = $d1->diff($d2)->format("%a");
+                    $prev_med_days = $pvdate->is_med == 1 ? $pvdate->med_days : $pvdate->no_med_days;
+                    $gap = $gap - $prev_med_days;
+                    $coming_after = $gap . " days";
+                }
+                $pvdate = $v;
+                $vt = getTurnsForDays($med_days);
+
+                
+                $temp = [];
+                $temp['vn'] = $vn;
+                $temp['phase'] = getPhaseByVisit(date('Y-m-d', strtotime($v->visit_date)), $patient_id);
+                $temp['now'] = $vt;
+                $temp['vd'] = date('m/d/Y', strtotime($v->visit_date));
+                $temp['loc'] = $v->abbr;
+                $temp['weight'] = $v->weight;
+                $temp['bfi'] = $v->bfi;
+                $temp['bmi'] = $v->bmi;
+                $temp['bp'] = $v->bp;
+
+                $diff = floatval($v->weight - $last_weight);
+                $diff = round($diff, 1);
+
+                $temp['l2v'] =  $i == 0 ? 0 : $diff;
+
+                if ($i == 0) {
+                    if ($v->visit > 1 && isset($first_visit)) {
+                        $total_weight_diff = floatval($v->weight - $first_visit->weight);
+                    } else {
+                        $total_weight_diff = 0;
+                    }
+                } else {
+                    $total_weight_diff = $total_weight_diff + $diff;
+                }
+
+                $temp['tw'] = round($total_weight_diff, 1);
+                $temp['dosv'] = $coming_after;
+
+                array_push($rows, $temp);
+
+                $last_weight = $v->weight;
+                $vn++;
+            }
+        }
+
+        $fp = fopen('php://output', 'w');
+        if ($fp && $rows && !empty($rows)) {
+            header('Content-Type: text/csv');
+            header('Content-Disposition: attachment; filename="past_12_visits_"' . $patient_id . '".csv"');
+            header('Pragma: no-cache');
+            header('Expires: 0');
+            fputcsv($fp, $headers);
+            foreach ($rows as $r) {
+                fputcsv($fp, array_values($r));
+            }
+            exit();
+        } else {
+            header("Location: " . site_url("patient/view/$patient_id"));
+        }
+
+
+        die($patient_id);
+    }
+
     /**
      * Download past six weeks visits
      *

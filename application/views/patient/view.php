@@ -107,7 +107,7 @@
                 <?php if(!empty($restarts)){?> 
                 <a class="btn  col-xs-10" style="margin-bottom: 0px;padding: 3px 6px;background-color: #b2c326;color: #fff;"  id="restart_info_alert_btn" data-id="<?php echo $patient->id;?>"  data-toggle="modal" data-target="#view_restarts" href="#view_restarts">Restarts</a>
                 <?php } ?>
-                <a class="btn btn-success col-xs-10" style="margin-bottom: 0px;padding: 3px 6px;"  id="" data-id="<?php echo $patient->id;?>" href="<?php echo site_url("patient/pastSixWeek/$patient->id")?>">Past 6 Wk info</a>
+                <a class="btn btn-success col-xs-10" style="margin-bottom: 0px;padding: 3px 6px;"  id="" data-id="<?php echo $patient->id;?>" href="<?php echo site_url("patient/pastTwelveWeeks/$patient->id")?>">Past 12 Wk info</a>
 
             </div>
 

@@ -550,6 +550,21 @@ class Patient_model extends CI_Model
         return $query->result();
     }
 
+
+    public function getNoOfVisitsForPatient($patient_id, $no_of_visits)
+    {
+        $sql = "SELECT v.*,l.abbr
+                FROM visits v
+                LEFT JOIN orders o ON v.order_id = o.id
+                LEFT JOIN locations l ON o.location_id = l.id
+                where v.patient_id = $patient_id
+                ORDER BY v.visit DESC
+                limit $no_of_visits";
+
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
     
     /**
      * getVisitCountSinceLastRestart
