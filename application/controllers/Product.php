@@ -98,7 +98,7 @@ class Product extends Admin_Controller
                     
                     
                     $freepros = array();
-                    for($i=0;$i<3;$i++)
+                    for($i=0;$i<4;$i++)
                     {
                         if(empty($free_pros[$i])) continue;
                         $temp = array();
@@ -229,7 +229,7 @@ class Product extends Admin_Controller
                     if(isset($post['free_product']))
                     {
                         $freepros = array();
-                        for($i=0;$i<3;$i++)
+                        for($i=0;$i<4;$i++)
                         {
                             if(empty($free_pros[$i])) continue;
                             $temp = array();

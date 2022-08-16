@@ -129,7 +129,7 @@
                             <hr style="margin: 10px 0px;">
                     </div>
                     <div id="attach_free_div">
-                        <?php for($i=0;$i<3;$i++){?>
+                        <?php for($i=0;$i<4;$i++){?>
                             <div class="col-xs-12">
                                 <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                    <label for="free_pro_id">Select free product</label>

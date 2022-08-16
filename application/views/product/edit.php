@@ -142,7 +142,7 @@
                             <hr style="margin: 10px 0px;">
                     </div>
                     <div id="attach_free_div">
-                         <?php for($i=0;$i<3;$i++){
+                         <?php for($i=0;$i<4;$i++){
                              $fp = isset($free_pros[$i])?$free_pros[$i]:NULL;
                              ?>
                             <div class="col-xs-12">
