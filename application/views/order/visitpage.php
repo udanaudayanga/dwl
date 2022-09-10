@@ -521,17 +521,22 @@
               </tr>
               <tr>
                   <td style="text-align: left;width: 220px;padding-top: 5px;">MA Name: ...................................</td>
-                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">MEDS</td>
-                  <td style="width: 10px;"></td>
-                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">NATURAL</td>
-                  <td style="width: 10px;"></td>
-                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">SHOTS ONLY</td>
-                  <td style="width: 10px;"></td>
-                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">NO INJECT & BAG</td>
-                  <td style="width: 10px;"></td>
-                  <td style="font-weight: bold;padding: 5px 0px;border: 1px solid #999;">with BAG</td>                  
+
+                  <td colspan="9" style="border: 1px solid #999;padding: 5px 5px;text-align:left;">
+                    <table style="padding: 0px;">
+                        <tr>
+                            <td style="text-align: left;width:18%">Meds</td>
+                            <td style="text-align: left;width:28%">NoMeds w/Lipo</td>
+                            <td style="text-align: left;width:18%">OnlyMeds</td>
+                            <td style="text-align: left;width:18%">B-12</td>
+                            <td style="text-align: left;width:18%">Aminos</td>
+                        </tr>
+                    </table>
+                  </td>
+
+                       
                   <td style="width: 25px;"></td>
-                  <td style="border: 1px solid #999;padding: 5px 0px;">37.5mg / 30mg / 15mg / DI 25mg</td>
+                  <td style="border: 1px solid #999;padding: 5px px;">37.5mg / 30mg / 15mg </td>
                   <td style="border: 1px solid #999;width: 100px;"></td>
               </tr>
           </table>
