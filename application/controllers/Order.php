@@ -770,6 +770,7 @@ class Order extends Admin_Controller
         $patient = $this->patient->getPatient($visit->patient_id);
         $name = $patient->lname." ".$patient->fname;
         $addr = $patient->address.", ".$patient->city.", ".getStateAbbr($patient->state)." ".$patient->zip;
+        $medsById = $this->config->item('meds_for_id');
         
         $meds = array();
         if($visit->med3 > 0)
@@ -792,8 +793,10 @@ class Order extends Admin_Controller
                 $temp['date'] = date('m/d/Y',strtotime($visit->visit_date));
                 $temp['name'] = $name;
                 $temp['addr'] = $addr;
-                $temp['qty'] = $visit->med_days * $visit->meds_per_day;
+                $temp['qty'] = ceil($visit->med_days * $visit->meds_per_day);
                 $temp['msg'] = getMedsMsg($visit->med1,NULL,$visit->meds_per_day);
+                $temp['med_name'] = $medsById[$visit->med1];
+
                 array_push($meds, $temp);
             }
             if($visit->med2 > 0)
@@ -810,9 +813,10 @@ class Order extends Admin_Controller
         }
         
         $this->data['meds'] = $meds;
-        
+               
         
         $html = $this->load->view('order/labelnew',$this->data,TRUE);
+        
         create_mp_label($html);
     }
     
@@ -1088,7 +1092,9 @@ class Order extends Admin_Controller
         {
             $this->data['next_auto'] = "N/A";
         }
-            
+
+        $this->data['med_change_last_orderid'] = $this->config->item('37extd_last_orderid');
+                  
         $html = $this->load->view('order/finalpage',$this->data,true);
         
         create_mp_ticket($html);

@@ -60,7 +60,11 @@
                                                     }
                                                 ?>
                                                 <?php if($last_visit && $last_visit->is_med == 1){?>
-                                                <h4 style="font-size: 20px;text-align: left;padding: 0px;margin: 0px;font-weight: normal;">MEDS: &nbsp;  <?php echo ($last_visit->med3)? getProduct($last_visit->med3)->name : ($last_visit->med1?getProduct($last_visit->med1)->name:"-")." / ".($last_visit->med2?getProduct($last_visit->med2)->name:"-");?></h4>
+                                                    <?php if($order->id > $med_change_last_orderid){?>
+                                                        <h4 style="font-size: 20px;text-align: left;padding: 0px;margin: 0px;font-weight: normal;">MEDS: &nbsp;  <?php echo $last_visit->med1?getProduct($last_visit->med1)->name:'-';?></h4>
+                                                    <?php }else{?>
+                                                        <h4 style="font-size: 20px;text-align: left;padding: 0px;margin: 0px;font-weight: normal;">MEDS: &nbsp;  <?php echo ($last_visit->med3)? getProduct($last_visit->med3)->name : ($last_visit->med1?getProduct($last_visit->med1)->name:"-")." / ".($last_visit->med2?getProduct($last_visit->med2)->name:"-");?></h4>
+                                                    <?php } ?>
                                                 <?php }elseif($last_visit && $last_visit->is_med == 0){?>
                                                 <h4 style="font-size: 20px;text-align: left;padding: 0px;margin: 0px;font-weight: normal;">MEDS: &nbsp;  No Meds</h4>
                                                 <?php } ?>
@@ -469,13 +473,13 @@
                               <td><?php if(!empty($m37)) echo $m37 * $thisvisit->meds_per_day; ?></td>
                           </tr>
                           <tr>
-                              <td>Phentermine 30mg CAP</td>
-                              <?php $m30 = getMedAmount($thisvisit,30);?>
+                              <td>Phentermine 37.5mg Extd TAB</td>
+                              <?php $m37extd = getMedAmount($thisvisit,'37 Extd');?>
                               <td>&nbsp;</td>
                               <td>&nbsp;</td>
                               <td>&nbsp;</td>
-                              <td><?php echo $m30;?></td>
-                              <td><?php if(!empty($m30)) echo $m30 * $thisvisit->meds_per_day; ?></td>
+                              <td><?php echo $m37extd;?></td>
+                              <td><?php if(!empty($m37extd)) echo ceil($m37extd * $thisvisit->meds_per_day); ?></td>
                           </tr>
                           <tr>
                               <td>Phentermine 15mg CAP</td>

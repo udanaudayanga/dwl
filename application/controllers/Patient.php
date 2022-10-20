@@ -491,30 +491,17 @@ class Patient extends Admin_Controller
                 }
                 if ($post['is_med'] == 1) {
                     $this->form_validation->set_rules('med_days', 'No of days', 'trim|required');
-                    $this->form_validation->set_rules('meds_per_day', 'Meds per day', 'trim|required');
+                    // $this->form_validation->set_rules('meds_per_day', 'Meds per day', 'trim|required');
 
                     if ($post['med1'] == 0 && $post['med2'] == 0 && $post['med3'] == 0) {
                         $this->form_validation->set_rules('med1', 'Medications', 'trim|is_natural_no_zero|required', array('is_natural_no_zero' => "Medications field is required"));
-                        //                        $this->form_validation->set_rules('med2', 'Medications', 'trim|is_natural_no_zero',array('is_natural_no_zero'=> "Medications field is required"));
-                        //                        $this->form_validation->set_rules('med3', 'Medications', 'trim|is_natural_no_zero',array('is_natural_no_zero'=> "Medications field is required"));
                     }
                 }
             }
 
             if ($this->form_validation->run() == TRUE) {
                 $proceed = true;
-                // if ($post['is_med'] == 1) {
-                //     $no_of_meds = $post['med_days'] * $post['meds_per_day'];
-                //     // if (!empty($post['med1']) && !checkStock($post['med1'], $no_of_meds)) $proceed = FALSE;
-                //     // if (!empty($post['med2']) && !checkStock($post['med2'], $no_of_meds)) $proceed = FALSE;
-                //     // if (!empty($post['med3']) && !checkStock($post['med3'], $no_of_meds)) $proceed = FALSE;
-
-                //     if (!empty($post['med1'])) $proceed = FALSE;
-                //     if (!empty($post['med2'])) $proceed = FALSE;
-                //     if (!empty($post['med3'])) $proceed = FALSE;
-
-                //     if (!$proceed) $this->data['errors'] = '<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" style="padding:0 5px;"><div role="alert" class="alert fresh-color alert-danger">Meds are out of stock.</div></div>';
-                // }
+                
                 if ($proceed) {
 
                     $post['order_id'] = $order_id;
@@ -533,6 +520,10 @@ class Patient extends Admin_Controller
 
                     if ($post['is_med'] == 0) unset($post['med_days']);
                     if ($post['is_med'] == 1) unset($post['no_med_days']);
+
+                    $extd_id = $this->config->item('37extd_id');
+
+                    $post['meds_per_day'] = $post['med1']==$extd_id ? 1.5 : 1;
 
                     if ($today_visit) {
 
@@ -645,7 +636,7 @@ class Patient extends Admin_Controller
             }
         }
 
-
+        
         $this->load->view('patient/prescription', $this->data);
     }
 

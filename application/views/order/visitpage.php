@@ -63,7 +63,11 @@
                                                     }
                                                 ?>
                                                 <?php if($last_visit && $last_visit->is_med == 1){?>
-                                                <h4 style="font-size: 20px;text-align: left;padding: 0px;margin: 0px;font-weight: normal;">MEDS: &nbsp;  <?php echo ($last_visit->med3)? getProduct($last_visit->med3)->name : ($last_visit->med1?getProduct($last_visit->med1)->name:"-")." / ".($last_visit->med2?getProduct($last_visit->med2)->name:"-");?></h4>
+                                                    <?php if($order->id > $med_change_last_orderid){?>                                                    
+                                                        <h4 style="font-size: 20px;text-align: left;padding: 0px;margin: 0px;font-weight: normal;">MEDS: &nbsp;  <?php echo $last_visit->med1?getProduct($last_visit->med1)->name:"-";?></h4>
+                                                    <?php }else{?>
+                                                        <h4 style="font-size: 20px;text-align: left;padding: 0px;margin: 0px;font-weight: normal;">MEDS: &nbsp;  <?php echo ($last_visit->med3)? getProduct($last_visit->med3)->name : ($last_visit->med1?getProduct($last_visit->med1)->name:"-")." / ".($last_visit->med2?getProduct($last_visit->med2)->name:"-");?></h4>
+                                                    <?php } ?>
                                                 <?php }elseif($last_visit && $last_visit->is_med == 0){?>
                                                 <h4 style="font-size: 20px;text-align: left;padding: 0px;margin: 0px;font-weight: normal;">MEDS: &nbsp;  No Meds</h4>
                                                 <?php } ?>
@@ -536,7 +540,7 @@
 
                        
                   <td style="width: 25px;"></td>
-                  <td style="border: 1px solid #999;padding: 5px px;">37.5mg / 30mg / 15mg </td>
+                  <td style="border: 1px solid #999;padding: 5px px;">37.5mg / 15mg / 37.5mg Extd</td>
                   <td style="border: 1px solid #999;width: 100px;"></td>
               </tr>
           </table>

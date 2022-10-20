@@ -111,30 +111,42 @@
                         echo "SO/PrO";
                     }                    
                     elseif($log->is_med==1){
-                        if($log->med3>0)
-                        {
-                            echo $medinfo[$log->med3];
-                        }
-                        else
+                        if($log->id > $med_change_last_orderid)
                         {
                             if($log->med1>0 && isset($medinfo[$log->med1]))
                             {
                                 echo $medinfo[$log->med1];
                             }
-                            else 
+                        }
+                        else
+                        {
+                            if($log->med3>0)
                             {
-                                echo "-";
+                                echo $medinfo[$log->med3];
                             }
-                            echo " / ";
-                            if($log->med2>0 && isset($medinfo[$log->med2]))
+                            else
                             {
-                                echo $medinfo[$log->med2];
-                            }
-                            else 
-                            {
-                                echo "-";
+                                if($log->med1>0 && isset($medinfo[$log->med1]))
+                                {
+                                    echo $medinfo[$log->med1];
+                                }
+                                else 
+                                {
+                                    echo "-";
+                                }
+                                echo " / ";
+                                if($log->med2>0 && isset($medinfo[$log->med2]))
+                                {
+                                    echo $medinfo[$log->med2];
+                                }
+                                else 
+                                {
+                                    echo "-";
+                                }
                             }
                         }
+
+                        
                     }
                     else
                     {
@@ -143,7 +155,7 @@
                   ?>
                   
                   </td>
-                  <td><?php if(empty($log->is_med)){echo "&nbsp;";}else{ echo $log->is_med==1?$log->med_days * $log->meds_per_day:"&nbsp;";}?></td>
+                  <td><?php if(empty($log->is_med)){echo "&nbsp;";}else{ echo $log->is_med==1?ceil($log->med_days * $log->meds_per_day):"&nbsp;";}?></td>
                   <td><?php if(empty($log->is_med)){echo "&nbsp;";}else{echo $log->is_med==1?$log->med_days:$log->no_med_days;}?></td>
               </tr>
               <?php } ?>

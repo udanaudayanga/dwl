@@ -260,7 +260,7 @@ class Home extends Admin_Controller
                 if(!empty($order->med1))
                 {
                     $med1 = $medsForId[$order->med1];
-                    $stats[$order->location_id][$med1] = isset($stats[$order->location_id][$med1])? $stats[$order->location_id][$med1]+($order->med_days * $order->meds_per_day): ($order->med_days * $order->meds_per_day); 
+                    $stats[$order->location_id][$med1] = isset($stats[$order->location_id][$med1])? $stats[$order->location_id][$med1]+(ceil($order->med_days * $order->meds_per_day)): ceil($order->med_days * $order->meds_per_day); 
                 }
                 if(!empty($order->med2))
                 {
@@ -281,6 +281,7 @@ class Home extends Admin_Controller
         
         $this->data['stat'] = $stats[$location_id];  
         
+        $this->data['med_change_last_orderid'] = $this->config->item('37extd_last_orderid');
                 
         $html = $this->load->view('home/statpdf',  $this->data,TRUE);
         

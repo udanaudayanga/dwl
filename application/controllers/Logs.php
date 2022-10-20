@@ -93,7 +93,7 @@ class Logs extends Admin_Controller
                     $temp->abbr = $log->abbr;
                     $temp->prescription_no = $log->prescription_no;
                     $temp->days = $log->med_days;
-                    $temp->qty = $log->med_days * $log->meds_per_day;
+                    $temp->qty = ceil($log->med_days * $log->meds_per_day);
                     $temp->visit_date = $log->visit_date;                    
                     $temp->mfg = $medin['mfg'];
                     $temp->ndc = $medin['ndc'];
@@ -142,7 +142,8 @@ class Logs extends Admin_Controller
         $this->data['start'] = $start;
         $this->data['end'] = $end;
         $this->data['counts'] = $medCounts;
-        
+
+                
         $html = $this->load->view('logs/report',  $this->data,TRUE);
         
         create_mp_logs($html);
@@ -219,7 +220,7 @@ class Logs extends Admin_Controller
                 $temp->abbr = $log->abbr;
                 $temp->prescription_no = $log->prescription_no;
                 $temp->days = $log->med_days;
-                $temp->qty = $log->med_days * $log->meds_per_day;
+                $temp->qty = ceil($log->med_days * $log->meds_per_day);
                 $temp->visit_date = $log->visit_date;
                 $temp->dea = $log->dea;
                 $temp->address = $log->address;
@@ -270,8 +271,6 @@ class Logs extends Admin_Controller
     {
         ini_set('max_execution_time', 300);
         
-//        $location = $this->location->get($location_id);
-//        $this->date['location'] = $location;
         
         $rawLogs = $this->patient->getPresByNumber($pres);
         $logs = array();
@@ -322,7 +321,7 @@ class Logs extends Admin_Controller
                 $temp->abbr = $log->abbr;
                 $temp->prescription_no = $log->prescription_no;
                 $temp->days = $log->med_days;
-                $temp->qty = $log->med_days * $log->meds_per_day;
+                $temp->qty = ceil($log->med_days * $log->meds_per_day);
                 $temp->visit_date = $log->visit_date;
                 $temp->dea = $log->dea;
                 $temp->address = $log->address;
@@ -458,7 +457,7 @@ class Logs extends Admin_Controller
                     $temp->abbr = $log->abbr;
                     $temp->prescription_no = $log->prescription_no;
                     $temp->days = $log->med_days;
-                    $temp->qty = $log->med_days * $log->meds_per_day;
+                    $temp->qty = ceil($log->med_days * $log->meds_per_day);
                     $temp->visit_date = $log->visit_date;                    
                     $temp->mfg = $medin['mfg'];
                     $temp->ndc = $medin['ndc'];

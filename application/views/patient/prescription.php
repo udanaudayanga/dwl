@@ -70,25 +70,25 @@
                     <form class="form-inline">
                     <div class="form-group" style="font-size: 18px;margin-right: 10px;">Meds:</div>
                     <div class="form-group">
-                        <input style="width: 40px;text-align: center;padding: 5px;" type="text"  id="exampleInputName2" class="form-control" value="<?php echo ($last_visit->med1)?getProduct($last_visit->med1)->name:'-';?>"  readonly="readonly">
+                        <input style="width: 80px;text-align: center;padding: 5px;" type="text"  id="exampleInputName2" class="form-control" value="<?php echo ($last_visit->med1)?getProduct($last_visit->med1)->name:'-';?>"  readonly="readonly">
                     </div> 
-                    <div class="form-group" style="font-size: 26px;">/</div>
+                    <!-- <div class="form-group" style="font-size: 26px;">/</div>
                     <div class="form-group">
                         <input style="width: 40px;text-align: center;padding: 5px;" type="text"  id="exampleInputEmail3" class="form-control" value="<?php echo ($last_visit->med2)?getProduct($last_visit->med2)->name:'-';?>" readonly="readonly">
                     </div>
                     <div class="form-group" style="margin-left: 10px;">
                         <input style="width: 40px;text-align: center;padding: 5px;" type="text"  id="exampleInputEmail4" class="form-control" value="<?php echo ($last_visit->med3)?getProduct($last_visit->med3)->name:'-';?>" readonly="readonly">
-                    </div>
+                    </div> -->
                     </form>
                 </div>
-                <div class="form-group col-xs-6" style="margin-bottom: 10px;padding-right: 0px;">
+                <!-- <div class="form-group col-xs-6" style="margin-bottom: 10px;padding-right: 0px;">
                     <form class="form-inline">    
                     <div class="form-group " style="margin-left: 0px;margin-top: 5px;">
                         <label for="exampleInputName3">Meds per day: </label>
                         <input style="width: 40px;text-align: center;padding: 5px;" type="text"  id="exampleInputName6" class="form-control" value="<?php echo $last_visit->meds_per_day;?>" readonly="readonly">
                     </div>
                         </form>
-                </div>
+                </div> -->
                 <div class="form-group  col-xs-6" style="margin-bottom: 10px;">
                 <form class="form-inline">
                     <div class="form-group " style="margin-top: 5px;">
@@ -296,7 +296,7 @@
                     <div class="form-group col-lg-10 col-md-10 col-sm-11 col-xs-12" id="today_meds" style="margin-bottom: 0px;">
                             <div class="form-inline">
                                 <div class="form-group form-group-lg">
-                                    <select name="med1" style="padding: 3px 10px;width: 80px;" class="not_select2 form-control">
+                                    <select name="med1" style="padding: 3px 10px;width: 120px;" class="not_select2 form-control">
                                         <option value="0">-</option>
                                         <?php foreach($med_pros as $pro){
                                             if(strtolower($pro->name) == 'di')continue;
@@ -304,8 +304,9 @@
                                         <option <?php echo set_select('med1',$pro->id,($tv)?$tv->med1==$pro->id:FALSE);?> value="<?php echo $pro->id;?>"><?php echo $pro->name;?></option>
                                         <?php } ?>
                                     </select>
-                                    <!--<input style="width: 60px;" type="text" value="<?php echo set_value('med1',($tv)?$tv->med1:'');?>" id="med1" name="med1" class="form-control">-->
-                                </div> <div class="form-group" style="font-size: 30px;">/</div>
+                                   
+                                </div> 
+                                <!-- <div class="form-group" style="font-size: 30px;">/</div>
                                 <div class="form-group form-group-lg">
                                     <select name="med2" style="padding: 3px 10px;width: 80px;" class="not_select2 form-control">
                                         <option value="0">-</option>
@@ -315,7 +316,7 @@
                                         <option <?php echo set_select('med2',$pro->id,($tv)?$tv->med2==$pro->id:FALSE);?> value="<?php echo $pro->id;?>"><?php echo $pro->name;?></option>
                                         <?php } ?>
                                     </select>
-                                    <!--<input style="width: 60px;" type="text" value="<?php echo set_value('med2',($tv)?$tv->med2:'');?>"  id="med2" name="med2" class="form-control">-->
+                                    
                                 </div>
                                 <div class="form-group form-group-lg" style="margin-left: 15px;">
                                     <select name="med3" style="padding: 3px 10px;width: 80px;" class="not_select2 form-control">
@@ -326,25 +327,21 @@
                                         <option <?php echo set_select('med3',$pro->id,($tv)?$tv->med3==$pro->id:FALSE);?> value="<?php echo $pro->id;?>"><?php echo $pro->name;?></option>
                                         <?php } ?>
                                     </select>
-                                    <!--<input style="width: 60px;" type="text"  id="med3" value="<?php echo set_value('med3',($tv)?$tv->med3:'');?>" name="med3" class="form-control">-->
-                                </div>
-                                <div class="form-group form-group-lg pull-right" style="margin-left: 15px;">
+                                    
+                                </div> -->
+                                <!-- <div class="form-group form-group-lg pull-right" style="margin-left: 15px;">
                                     <label for="med_days">Meds per day: </label>
                                     <select name="meds_per_day" style="padding: 3px 10px;width: 80px;" class="not_select2 form-control">    
                                         <option <?php echo set_select('meds_per_day',0.5,($tv)?$tv->meds_per_day==0.5:FALSE);?> value="0.5">0.5</option>
                                         <option <?php echo set_select('meds_per_day',1,($tv)?$tv->meds_per_day==1:TRUE);?> value="1">1</option>
+                                        <option <?php echo set_select('meds_per_day',1.5,($tv)?$tv->meds_per_day==1.5:TRUE);?> value="1.5">1.5</option>
                                         <option <?php echo set_select('meds_per_day',2,($tv)?$tv->meds_per_day==2:FALSE);?> value="2">2</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="form-group form-group-lg pull-right" style="margin-left: 15px;">
                                     <label for="med_days">No of days: </label>
                                     <input style="width: 60px;" <?php if($user->type != 1){?> readonly="readonly" <?php } ?> type="text"  id="med_days" value="<?php echo set_value('no_med_days',($pmt)?$pmt *7:'');?>" name="med_days" class="form-control">
-<!--                                    <select readonly style="padding: 3px 10px;width: 80px;" id="med_days" name="med_days" class="form-control not_select2">
-                                        <option <?php echo set_select('med_days',7,$pmt == 1 ? TRUE : FALSE);?> value="7" >7</option>
-                                        <option <?php echo set_select('med_days',14,$pmt == 2 ? TRUE : FALSE);?> value="14" >14</option>
-                                        <option <?php echo set_select('med_days',21,$pmt == 3 ? TRUE : FALSE);?> value="21" >21</option>
-                                        <option <?php echo set_select('med_days',28,$pmt == 4 ? TRUE : FALSE);?> value="28" >28</option>
-                                    </select>-->
+
                                 </div>
                                 
                             </div>

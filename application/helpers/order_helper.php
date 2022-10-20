@@ -290,9 +290,9 @@ function getMedAmount($visit,$med)
     
     $med_count = '';
     
-    if($visit->med1 && $medsById[$visit->med1] == $med) $med_count = $visit->med_days;
-    if($visit->med2 && $medsById[$visit->med2] == $med) $med_count = $visit->med_days;
-    if($visit->med3 && $medsById[$visit->med3] == $med) $med_count = $visit->med_days;
+    if($visit->med1 && $medsById[$visit->med1] === $med){ $med_count = $visit->med_days;}
+    if($visit->med2 && $medsById[$visit->med2] == $med){ $med_count = $visit->med_days;}
+    if($visit->med3 && $medsById[$visit->med3] == $med){ $med_count = $visit->med_days;}
     
     return $med_count;
 }
@@ -323,6 +323,11 @@ function getMedsMsg($m,$e,$mpd)
     if($morning && $morning == 37 && $mpd ==1)
     {
         return "TAKE ONE TAB (37.5 MG) A DAY AROUND 9-10 AM -- ABOUT 10-15 MINS AFTER CONSUMING FOOD";
+    }
+
+    if($morning && $morning == '37 Extd' && $mpd ==1.5)
+    {
+        return "TAKE FULL TAB (37.5 MG) A DAY AROUND 9-10 AM AND HALF TAB BETWEEN 1-2PM";
     }
     
     if($morning && $morning == 'DI' && $mpd ==1)

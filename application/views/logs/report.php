@@ -19,7 +19,7 @@
                   <td style="width: 27%;padding: 0px;border-right-width: 3px;">
                       <table class="medications" style="width: 100%;">
                           <tr class="fortyh"><td style="width: 80%;border-top: none;border-left: none;">Phentermine Hydrochloride 37.5mg TAB</td><td style="width: 20%;border-top: none;border-left: none;border-right: none;"><?php if(isset($counts[37])) echo $counts[37]; ?></td></tr>
-                          <tr class="fortyh"><td style="width: 80%;border-top: none;border-left: none;border-top: none;border-bottom: none;">Phentermine Hydrochloride 30 mg CAP</td><td style="width: 20%;border: none;"><?php if(isset($counts[30])) echo $counts[30]; ?></td></tr>
+                          <tr class="fortyh"><td style="width: 80%;border-top: none;border-left: none;border-top: none;border-bottom: none;">Phentermine Hydrochloride 37.5mg Extd TAB</td><td style="width: 20%;border: none;"><?php if(isset($counts['37 Extd'])) echo $counts['37 Extd']; ?></td></tr>
                       </table>
                   </td>
                   <td style="width: 27%;padding: 0px;">
