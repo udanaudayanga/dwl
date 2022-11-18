@@ -478,10 +478,10 @@ class Patient extends Admin_Controller
             $post = $this->input->post();
 
             $this->form_validation->set_rules('is_med', 'No Meds or Meds', 'trim|required');
-            $this->form_validation->set_rules('weight', 'Weight', 'trim|decimal|greater_than_equal_to[60.0]|less_than_equal_to[420.0]|required');
-            $this->form_validation->set_rules('bmi', 'BMI', 'trim|decimal|greater_than_equal_to[15.0]|less_than_equal_to[60.0]|required');
+            $this->form_validation->set_rules('weight', 'Weight', 'trim|decimal|greater_than_equal_to[60.0]|required');
+            $this->form_validation->set_rules('bmi', 'BMI', 'trim|decimal|greater_than_equal_to[15.0]|required');
             if ($post['bfi'] != 0)
-                $this->form_validation->set_rules('bfi', 'BFI', 'trim|decimal|greater_than_equal_to[15.0]|less_than_equal_to[60.0]|required');
+                $this->form_validation->set_rules('bfi', 'BFI', 'trim|decimal|greater_than_equal_to[15.0]|required');
 
             $this->form_validation->set_rules('bp', 'BP', 'trim|required');
 
