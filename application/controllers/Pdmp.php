@@ -89,7 +89,7 @@ class Pdmp extends CI_Controller
             if($pr->med1 > 0)
             {
                 $DSP08 = $ndc[$pr->med1];
-                $DSP09 = $pr->med_days * $pr->meds_per_day;
+                $DSP09 = ceil($pr->med_days * $pr->meds_per_day);
                 $DSP10 = $pr->med_days;
                 
                 $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16*$DSP17~";
@@ -102,7 +102,7 @@ class Pdmp extends CI_Controller
             if($pr->med2 > 0)
             {
                 $DSP08 = $ndc[$pr->med2];
-                $DSP09 = $pr->med_days * $pr->meds_per_day;
+                $DSP09 = ceil($pr->med_days * $pr->meds_per_day);
                 $DSP10 = $pr->med_days;
                 
                 $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16*$DSP17~";
@@ -115,7 +115,7 @@ class Pdmp extends CI_Controller
             if($pr->med3 > 0)
             {
                 $DSP08 = $ndc[$pr->med3];
-                $DSP09 = $pr->med_days * $pr->meds_per_day;
+                $DSP09 = ceil($pr->med_days * $pr->meds_per_day);
                 $DSP10 = $pr->med_days;
                
                 $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16*$DSP17~";
@@ -1358,7 +1358,7 @@ class Pdmp extends CI_Controller
             if($pr->med1 > 0)
             {
                 $DSP08 = $ndc[$pr->med1];
-                $DSP09 = $pr->med_days * $pr->meds_per_day;
+                $DSP09 = ceil($pr->med_days * $pr->meds_per_day);
                 $DSP10 = $pr->med_days;
                 
                 $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16*$DSP17~";
@@ -1370,7 +1370,7 @@ class Pdmp extends CI_Controller
             if($pr->med2 > 0)
             {
                 $DSP08 = $ndc[$pr->med2];
-                $DSP09 = $pr->med_days * $pr->meds_per_day;
+                $DSP09 = ceil($pr->med_days * $pr->meds_per_day);
                 $DSP10 = $pr->med_days;
                 
                 $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16*$DSP17~";
@@ -1382,7 +1382,7 @@ class Pdmp extends CI_Controller
             if($pr->med3 > 0)
             {
                 $DSP08 = $ndc[$pr->med3];
-                $DSP09 = $pr->med_days * $pr->meds_per_day;
+                $DSP09 = ceil($pr->med_days * $pr->meds_per_day);
                 $DSP10 = $pr->med_days;
                
                 $ds .= "DSP*$DSP01*$DSP02*$DSP03*$DSP04*$DSP05*$DSP06*$DSP07*$DSP08*$DSP09*$DSP10*$DSP11*****$DSP16*$DSP17~";
