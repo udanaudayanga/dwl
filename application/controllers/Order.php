@@ -951,6 +951,8 @@ class Order extends Admin_Controller
         $this->data['redeem_new'] = redeemedNewToday($order_id);
         $this->data['pp_remaining'] = avblPPRemaining($order->patient_id, $order_id);
         $this->data['dralerts'] = $this->patient->getAlerts($order->patient_id,1); 
+
+        $this->data['med_change_last_orderid'] = $this->config->item('37extd_last_orderid');
         
         $html = $this->load->view('order/visitpage',$this->data,true);
         
