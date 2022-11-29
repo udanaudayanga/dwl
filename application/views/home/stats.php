@@ -335,6 +335,13 @@
                                                 <td><span style="color: red;font-weight: bold;"><?php echo ($mig[$key]['37'][$wd]) - $ts; ?></span>&nbsp;&nbsp;<span style="color: blue;">(<?php echo $mig[$key]['37'][$wd];?>)</span></td>
                                                 <?php } ?>
                                             </tr>
+                                            <tr>                            
+                                                <td>37.5 Extd</td>
+                                                <td><?php echo $ts = isset($stats[$key]['37 Extd'])?round($stats[$key]['37 Extd']/7):0;?></td>
+                                                <?php if($sg && isset($mig[$key]['37 Extd'][$wd])){?>
+                                                <td><span style="color: red;font-weight: bold;"><?php echo ($mig[$key]['37 Extd'][$wd]) - $ts; ?></span>&nbsp;&nbsp;<span style="color: blue;">(<?php echo $mig[$key]['37 Extd'][$wd];?>)</span></td>
+                                                <?php } ?>
+                                            </tr>
                                             <tr>
                                                 <td>15</td>
                                                 <td><?php echo $ft = isset($stats[$key]['15'])?round($stats[$key]['15']/7):0;?></td>
@@ -342,7 +349,7 @@
                                                 <td><span style="color: red;font-weight: bold;"><?php echo ($mig[$key]['15'][$wd]) - $ft; ?></span>&nbsp;&nbsp;<span style="color: blue;">(<?php echo $mig[$key]['15'][$wd];?>)</span></td>
                                                 <?php } ?>
                                             </tr>
-                                            <tr>
+                                            <!-- <tr>
                                                 <td>30</td>
                                                 <td><?php echo $tf = isset($stats[$key]['30'])?round($stats[$key]['30']/7):0;?></td>
                                                 <?php if($sg && isset($mig[$key]['30'][$wd])){?>
@@ -355,7 +362,7 @@
                                                 <?php if($sg && isset($mig[$key]['di'][$wd])){?>
                                                 <td><span style="color: red;font-weight: bold;"><?php echo ($mig[$key]['di'][$wd]) - $di; ?></span>&nbsp;&nbsp;<span style="color: blue;">(<?php echo $mig[$key]['di'][$wd];?>)</span></td>
                                                 <?php } ?>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </td>
