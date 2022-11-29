@@ -320,6 +320,13 @@
                                     <td><strong><?php echo ($mig[$location_id]['37'][$wd]) - $ts; ?></strong>&nbsp;&nbsp;(<?php echo $mig[$location_id]['37'][$wd];?>)</td>
                                     <?php } ?>
                                 </tr>
+                                <tr>                            
+                                    <td>37.5 Extd</td>
+                                    <td><?php echo $ts = isset($stat['37 Extd'])?round($stat['37 Extd']/7):0;?></td>
+                                    <?php if($sg && isset($mig[$location_id]['37 Extd'][$wd])){?>
+                                    <td><strong><?php echo ($mig[$location_id]['37 Extd'][$wd]) - $ts; ?></strong>&nbsp;&nbsp;(<?php echo $mig[$location_id]['37 Extd'][$wd];?>)</td>
+                                    <?php } ?>
+                                </tr>
                                 <tr>
                                     <td>15</td>
                                     <td><?php echo $ft = isset($stat['15'])?round($stat['15']/7):0;?></td>
@@ -327,7 +334,7 @@
                                     <td><strong><?php echo ($mig[$location_id]['15'][$wd]) - $ft; ?></strong>&nbsp;&nbsp;(<?php echo $mig[$location_id]['15'][$wd];?>)</td>
                                     <?php } ?>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>30</td>
                                     <td><?php echo $tf = isset($stat['30'])?round($stat['30']/7):0;?></td>
                                     <?php if($sg && isset($mig[$location_id]['30'][$wd])){?>
@@ -340,7 +347,7 @@
                                     <?php if($sg && isset($mig[$location_id]['di'][$wd])){?>
                                     <td><strong><?php echo ($mig[$location_id]['di'][$wd]) - $di; ?></strong>&nbsp;&nbsp;(<?php echo $mig[$location_id]['di'][$wd];?>)</td>
                                     <?php } ?>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                                 
