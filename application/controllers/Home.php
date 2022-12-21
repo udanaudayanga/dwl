@@ -123,7 +123,7 @@ class Home extends Admin_Controller
                         if(!empty($order->med1))
                         {
                             $med1 = $medsForId[$order->med1];
-                            $stats[$order->location_id][$med1] = isset($stats[$order->location_id][$med1])? $stats[$order->location_id][$med1]+($order->med_days * $order->meds_per_day): ($order->med_days * $order->meds_per_day); 
+                            $stats[$order->location_id][$med1] = isset($stats[$order->location_id][$med1])? $stats[$order->location_id][$med1]+$order->med_days : $order->med_days; 
                         }
                         if(!empty($order->med2))
                         {
@@ -260,7 +260,7 @@ class Home extends Admin_Controller
                 if(!empty($order->med1))
                 {
                     $med1 = $medsForId[$order->med1];
-                    $stats[$order->location_id][$med1] = isset($stats[$order->location_id][$med1])? $stats[$order->location_id][$med1]+(ceil($order->med_days * $order->meds_per_day)): ceil($order->med_days * $order->meds_per_day); 
+                    $stats[$order->location_id][$med1] = isset($stats[$order->location_id][$med1])? $stats[$order->location_id][$med1] + $order->med_days : $order->med_days; 
                 }
                 if(!empty($order->med2))
                 {
@@ -278,6 +278,8 @@ class Home extends Admin_Controller
         $this->data['sg'] = FALSE;//$sg;
         $this->data['mig'] = $this->config->item('mig');         
         $this->data['injs'] = isset($injs[$location_id])?$injs[$location_id]:array();
+
+               
         
         $this->data['stat'] = $stats[$location_id];  
         
@@ -630,6 +632,7 @@ class Home extends Admin_Controller
     {
         $injIds = array(5,18,41,107,108,109,113,115);
         $orders = $this->patient->getInjSaleForDuration($start,$end, implode(',', $injIds));
+        
 
         $stats = $b12 = array();
         $injForId = array("5" => "B-12","18" => "Lipogen","41" => "Ultraburn","107" => "Glutathione", "108"=>"AminoBlend","109" => "StressBuster","113" => "VitD3","115" => "Biotin");
