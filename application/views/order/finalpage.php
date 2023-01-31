@@ -16,7 +16,7 @@
                                     <tr class="">
                                         <td colspan="2" class="bold" style="height: 105px;vertical-align: top;text-align: left;">
                                             <?php if(file_exists("./assets/upload/patients/$patient->photo")){?>
-                                            <img src="/phpThumb/phpThumb.php?src=<?php echo base_url();?>assets/upload/patients/<?php echo $patient->photo;?>&amp;h=153&amp;f=png" />
+                                            <img src="/phpThumb/phpThumb.php?src=/assets/upload/patients/<?php echo $patient->photo;?>&amp;h=153&amp;f=png" />
                                             <?php }else{ 
                                                 $gender_img = $patient->gender == 1 ? "male.png":"female.png";
                                             ?>                                  
