@@ -11,7 +11,9 @@
             <div class="card-body" style="overflow: auto;padding:15px;">
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" style="height: 220px;border: 0.5px solid #ccc;padding-top: 2px;">
                     <div class="thumbnail" style="border: none;margin-bottom: 0px;margin-top: 0px;">
-                        <img style="margin-left: 0px;" src="/phpThumb/phpThumb.php?src=/assets/upload/patients/<?php echo $patient->photo;?>&amp;w=180&amp;h=210&amp;zc=1&amp;f=png" />
+                        <a target="_blank" href="<?php echo site_url();?>/assets/upload/patients/<?php echo $patient->photo;?>">
+                            <img style="position: absolute;top:34%;left:35%;" src="/phpThumb/phpThumb.php?src=/assets/upload/patients/<?php echo $patient->photo;?>&amp;w=60&amp;h=70&amp;zc=1&amp;f=png" />
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12" style="height: 110px;border: 0.5px solid #ccc;padding: 0px;">

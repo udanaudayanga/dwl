@@ -66,7 +66,10 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12" style="">
-                <img src="/phpThumb/phpThumb.php?src=/assets/upload/patients/<?php echo $patient->photo;?>&amp;h=180&amp;zc=1&amp;f=png" class="thumbnail"  style="margin-bottom: 0px;max-width: 100%;float: left;"/>
+                <a target="_blank" href="<?php echo site_url();?>/assets/upload/patients/<?php echo $patient->photo;?>">
+                    <img src="/phpThumb/phpThumb.php?src=/assets/upload/patients/<?php echo $patient->photo;?>&amp;w=60&amp;h=70&amp;zc=1&amp;f=png" class="thumbnail"  style="position: absolute;top:34%;left:35%;"/>
+                </a>
+                
                 <a style="float: right;" href="<?php echo site_url("patient/edit/$patient->id");?>" class="btn btn-default " title="edit"><span class="glyphicon glyphicon-edit"></a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="">

@@ -28,7 +28,9 @@
             <div class="card-body" style="padding:5px 0px;min-height: 135px;">
                 <div class="col-sm-5 col-xs-12" style="padding-right: 0px;">
                     <div class="thumbnail" style="border: none;margin-bottom: 0px;">
-                        <img style="margin-left: 0px;" src="/phpThumb/phpThumb.php?src=/assets/upload/patients/<?php echo $patient->photo;?>&amp;w=110&amp;h=120&amp;zc=1&amp;f=png" />
+                    <a target="_blank" href="<?php echo site_url();?>/assets/upload/patients/<?php echo $patient->photo;?>">
+                        <img style="position: absolute;top:34%;left:35%;" src="/phpThumb/phpThumb.php?src=/assets/upload/patients/<?php echo $patient->photo;?>&amp;w=60&amp;h=70&amp;zc=1&amp;f=png" />
+                    </a>
                     </div>
                 </div>
                 <div class="col-sm-7 col-xs-12" style="">

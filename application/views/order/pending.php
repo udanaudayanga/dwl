@@ -65,7 +65,9 @@
                             <td><a target="_blank" href="<?php echo site_url("patient/view/$order->patient_id");?>"><?php echo $order->patient_name;?></a></td>
                             <td style="padding: 2px;">
                                 <?php if($order->photo){?>
-                                <img class="thumbnail qm_photo" style="margin-left: 0px;margin-bottom: 0px;" src="/phpThumb/phpThumb.php?src=/assets/upload/patients/<?php echo $order->photo;?>&amp;w=64&amp;h=64&amp;zc=1&amp;f=png" />
+                                <a target="_blank" href="<?php echo site_url();?>/assets/upload/patients/<?php echo $order->photo;?>">
+                                    <img class="thumbnail qm_photo" style="margin-left: 0px;margin-bottom: 0px;" src="/phpThumb/phpThumb.php?src=/assets/upload/patients/<?php echo $order->photo;?>&amp;w=64&amp;h=64&amp;zc=1&amp;f=png" />
+                                </a>
                                 <?php } ?>
                             </td>
                             <td>
