@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Existing Patients Line Up</title>
+    <title>Patients Line Up</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     
     <!-- CSS Libs -->
@@ -31,13 +31,14 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/themes/flat-blue.css">
     <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">
     var BASE_URL = "<?php echo base_url(); ?>";
     </script>
     <style>
         .btn-gray{background-color: gray;border-color: gray;color: white;}
         div.container{font-family: 'Open Sans', sans-serif;}
+        div:where(.swal2-container) div:where(.swal2-popup) {font-size: inherit !important;}
     </style>
   </head>
 
@@ -46,223 +47,50 @@
 
         <div class="page-header" style="margin-top: 80px;margin-bottom: 10px;overflow: auto;">
             
-            <div class="col-xs-4" style="background: url(/assets/img/new_logo_queue1.png) no-repeat center left;height: 48px;background-position-x: 15px;"></div>
-            <div class="col-xs-4" style="text-align: right;"><a class="btn btn-gray btn-lg chng_btn" id="new" style="font-size: 20px;margin: 0;padding: 8px 15px;width: 154px;" href=""><span style="font-size: 22px;" class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;NEW</a></div>
-            <div class="col-xs-4" style="text-align: right;"><a class="btn btn-success btn-lg chng_btn" id="ex" style="font-size: 20px;margin: 0;padding: 8px 15px;width: 154px;" href=""><span style="font-size: 22px;" class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;EXISTING</a></div>
+            <div class="col-12" style="background: url(/assets/img/new_logo.png) no-repeat center center;height: 100px;background-size: contain;"></div>
+            
         </div>
         <div id="ex_frm" style="overflow: auto;padding: 35px 35px 20px 35px;background-color: #ccc;margin-top: 30px;">
         <form method="post" id="log_frm">
             <div class="col-xs-12" style="padding: 20px;background-color: white;box-shadow: 5px 5px 5px #888888;">
-            <div class="col-xs-12" style="padding:15px 0px;">
-                <div class="col-xs-5" style="padding-left: 0px;">
-                    <input type="text" maxlength="3" name="last" class="form-control input-lg" style="font-size: 36px;height: 60px;padding: 10px 10px;text-align: center;text-transform: uppercase;width: 90%;box-shadow: 3px 3px 3px #ccc;">
+            <div class="row" style="padding:15px;">
+                <div class="col-xs-7 col-md-6 col-md-offset-2" style="padding-left: 0px;">
+                    <input type="text" name="last" required class="form-control input-lg" style="font-size: 36px;height: 60px;padding: 10px 10px;text-align: left;text-transform: uppercase;box-shadow: 3px 3px 3px #ccc;">
                 </div>
-                <div class="col-xs-7" style="color: gray;">
-                    <p style="font-size: 16px;text-align: left;line-height: 1.1;font-weight: bold;margin: 5px 0px;">
-                        First 3 Characters of LAST Name
-                    </p>
-                    <p style="font-size: 20px;text-align: left;line-height: 1.1;padding-top: 0px;margin: 0px;">Eg. LARSON = LAR</p>
+                <div class="col-xs-5 col-md-3" style="color: gray;padding-top:20px;font-size: 1.1em;">                    
+                        LAST NAME
                 </div>
             </div>
-            <div class="col-xs-12" style="padding:15px 0px;">
-                <div class="col-xs-5" style="padding-left: 0px;">
-                    <input type="text" maxlength="3" name="first" class="form-control input-lg" style="font-size: 36px;height: 60px;padding: 15px 10px;text-align: center;text-transform: uppercase;width: 90%;box-shadow: 3px 3px 3px #ccc;">
+            <div class="row" style="padding:15px;">
+                <div class="col-xs-7 col-md-6 col-md-offset-2" style="padding-left: 0px;">
+                    <input type="text" name="first" required class="form-control input-lg" style="font-size: 36px;height: 60px;padding: 15px 10px;text-align: left;text-transform: uppercase;box-shadow: 3px 3px 3px #ccc;">
                 </div>
-                <div class="col-xs-7" style="color: gray;">
-                    <p style="font-size: 16px;text-align: left;line-height: 1.1;font-weight: bold;margin: 5px 0px;">
-                        First 3 Characters of FIRST Name
-                    </p>
-                    <p style="font-size: 20px;text-align: left;line-height: 1.1;padding-top: 0px;margin: 0px;">Eg. ANGELA = ANG</p>
+                <div class="col-xs-5 col-md-3" style="color: gray;padding-top:20px;font-size: 1.1em;">                    
+                        FIRST NAME
                 </div>
             </div>
-            <div class="col-xs-12" style="padding:15px 0px;">
-                <div class="col-xs-5" style="padding-left: 0px;">
-                    <input type="text" placeholder="" maxlength="10" name="dob" class="form-control input-lg" style="font-size: 32px;height: 60px;padding: 15px 10px;text-align: center;text-transform: uppercase;width: 90%;box-shadow: 3px 3px 3px #ccc;">
+            <div class="row" style="padding:15px;">
+                <div class="col-xs-6 col-md-3 col-md-offset-3 text-center">
+                    <label class="radio-inline" style="color:gray;font-weight: 600;">
+                        <input type="radio" checked required name="type" id="inlineRadio1" value="1"> WEIGHTLOSS
+                    </label>
                 </div>
-                <div class="col-xs-7" style="color: gray;">
-                    <p style="font-size: 16px;text-align: left;line-height: 1.1;font-weight: bold;margin: 5px 0px;">
-                        DATE OF BIRTH
-                    </p>
-                    <p style="font-size: 20px;text-align: left;line-height: 1.1;padding-top: 0px;margin: 0px;">Eg. 10/18/1985</p>
+                <div class="col-xs-6 col-md-3 text-center">
+                    <label class="radio-inline"  style="color:gray;font-weight: 600;">
+                        <input type="radio" required name="type" id="inlineRadio2" value="2"> MEDSPA
+                    </label>
                 </div>
             </div>
         </div>
         <div class="col-xs-12" style="padding: 0px;text-align: center;margin-top: 20px;">            
-                <a href="" id="sbm_btn" class="btn btn-lg btn-default" style="padding: 12px 30px;margin: 0px;font-size: 20px;background-color: red;color: white;box-shadow: 0px 0px 5px #000;border-color: red;">Submit</a>
+                <button type="submit" class="btn btn-lg btn-default" style="padding: 12px 30px;margin: 0px;font-size: 20px;background-color: red;color: white;box-shadow: 0px 0px 5px #000;border-color: red;">Submit</button>
            
         </div>
         </form>
     </div>
-    <div id="new_frm" class="hide" style="overflow: auto;padding: 35px 35px 20px 35px;background-color: #ccc;margin-top: 30px;">
-        <form method="post" id="new_p_frm">
-            <div class="col-xs-12" style="padding: 20px;background-color: white;box-shadow: 5px 5px 5px #888888;">
-            <div class="col-xs-12" style="padding:15px 0px;">
-                <div class="col-xs-5" style="padding-left: 0px;">
-                    <input type="text" id="last_new"  name="last" class="form-control input-lg" style="font-size: 36px;height: 60px;padding: 10px 10px;text-align: center;text-transform: uppercase;width: 90%;box-shadow: 3px 3px 3px #ccc;">
-                </div>
-                <div class="col-xs-7" style="color: gray;padding-top: 15px;">                    
-                    <p style="font-size: 20px;text-align: left;line-height: 1.1;padding-top: 0px;margin: 0px;">LAST NAME</p>
-                </div>
-            </div>
-            <div class="col-xs-12" style="padding:15px 0px;">
-                <div class="col-xs-5" style="padding-left: 0px;">
-                    <input type="text" id="first_new" name="first" class="form-control input-lg" style="font-size: 36px;height: 60px;padding: 15px 10px;text-align: center;text-transform: uppercase;width: 90%;box-shadow: 3px 3px 3px #ccc;">
-                </div>
-                <div class="col-xs-7" style="color: gray;padding-top: 15px;">                    
-                    <p style="font-size: 20px;text-align: left;line-height: 1.1;padding-top: 0px;margin: 0px;">FIRST NAME</p>
-                </div>
-            </div>
-            
-        </div>
-        <div class="col-xs-12" style="padding: 0px;text-align: center;margin-top: 20px;">
-            
-                <a href="" id="addq_new_btn" class="btn btn-lg btn-warning" style="padding: 12px 30px;margin: 0px;font-size: 20px;background-color: red;color: white;box-shadow: 0px 0px 5px #000;border-color: red;">Submit Your Request</a>
-            
-        </div>
-        </form>
-    </div>
-<!--    <div id="new_frm">
-        <form method="post" id="new_p_frm">
-        <div class="col-xs-12">
-            <div class="col-xs-5" style="padding: 0px 20px 0px 0px">
-                <input type="text" id="last_new"  name="last" class="form-control input-lg" style="font-size: 36px;height: 60px;padding: 10px 10px;text-align: center;text-transform: uppercase;width: 75%;">
-                <p style="font-size: 26px;text-align: center;line-height: 1.1;width: 75%;margin: 5px 0px;">
-                    <span style="color: red;">LAST NAME</span>
-                </p>
-                
-            </div>
-            <div class="col-xs-5" style="padding: 0px 20px 0px 0px;">
-                <input type="text" id="first_new" name="first" class="form-control input-lg" style="font-size: 36px;height: 60px;padding: 15px 10px;text-align: center;text-transform: uppercase;width: 75%;">
-                <p style="font-size: 26px;text-align: center;line-height: 1.1;width: 75%;margin: 5px 0px;">
-                    <span style="color: red;">FIRST NAME</span>
-                </p>
-            </div>
-            <div class="col-xs-2" style="padding: 0px">
-                <a href="" id="addq_new_btn" class="btn btn-lg btn-warning pull-right" style="padding: 12px 10px;margin: 0px;font-size: 26px;">ADD TO QUEUE</a>
-            </div>
-        </div>
-        
-        </form>
-    </div>-->
-    </div> <!-- /container -->
-    
-    <div class="modal fade modal-info" id="patient_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="width: 80%;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>			
-                    <h3 class="modal-title" id="myModalLabel">IS THIS YOU?</h3>
-                </div>
-                <div class="modal-body" style='overflow: auto;'>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-lg" style="background-color: #979797;" id='ui_no'>NO</button>
-                    <button type="button"  class="btn btn-success btn-lg" id='ui_yes'>YES</button>
-                </div>
-            </div>
-        </div>
-    </div>
-<!--    <div class="modal fade modal-info" id="items_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="width: 80%;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>			
-                    <h3 class="modal-title" id="myModalLabel">SELECT ITEMS YOU HOPE TO PURCHASE TODAY, IF NOT CLICK ADD TO QUEUE</h3>
-                </div>
-                <div class="modal-body" style='overflow: auto;'>
-                    <div class="row">
-                        <div class="col-xs-12" style="margin-bottom: 10px;">
-                            <div class="card">              
-                                <div class="card-body" style="padding: 0px;background-color: #CAF0FE;">
-                                    <form id="add_pro_cart" method="POST">
-                                        <input type="hidden" name="pid" id="pid" value=""/>
-                                        <div class="form-group form-group-lg col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                            <label for="cat">Category</label>
-                                            <select class="form-control not_select2" name="cat_id" id="cart_add_cat_q" tabindex="-1" aria-hidden="true" style="width: 100%;">
-                                                <option>Select</option>
-                                               <?php foreach($categories as $cat){?>
-                                                <option <?php echo set_select('cat_id', $cat->id); ?> value="<?php echo $cat->id;?>"><?php echo $cat->name;?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group form-group-lg col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                            <label for="name">Name</label>
-                                            <div id="cart_pro_dd_div">
-                                            <select class="form-control not_select2" id="name" name="pro_id" tabindex="-1" aria-hidden="true" style="width: 100%;">
 
-                                            </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group form-group-lg col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                            <label for="qty">Quantity</label>
-                                            <input type="text" class="form-control" name="qty" value="1" id="qty" placeholder="Quantity">
-                                        </div>
-                                        <div class="form-group col-lg-2 col-md-6 col-xs-12">
-                                            <label for="day">Days</label>
-                                            <input type="text" class="form-control" name="days" id="day" placeholder="Days">
-                                        </div>
-
-                                        <div style="margin-bottom: 0px;" class="form-group form-group-lg col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                            <label for="day">&nbsp;</label>
-                                            
-                                        <button style="margin-top: 0px;" id="add_item_btn" type="button" class="btn btn-lg btn-success form-control">Add</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12" style="margin-bottom: 10px;">
-                            <div class="card"> 
-                                <div class="card-body" id="order_cart_div" style="padding: 10px;">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-lg" data-dismiss="modal" style="background-color: #979797;" >NO</button>
-                    <button type="button" id="add_to_queue" class="btn btn-success btn-lg">ADD TO QUEUE</button>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    
-        <div class="modal fade modal-info" id="visit_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="width: 80%;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>			
-                    <h3 class="modal-title" id="myModalLabel">YOU CAME FOR? </h3>
-                </div>
-                <div class="modal-body" style='overflow: auto;'>
-                    
-                    <div class="row">
-                        <div class="col-xs-12" style="margin-bottom: 10px;">
-                            <div class="card"> 
-                                <div class="card-body" id="order_cart_div" style="padding: 10px;">
-                                    <label class="radio-inline">
-                                    <input type="radio" name="type" id="type_1" value="1"> VISIT
-                                  </label>
-                                  <label class="radio-inline">
-                                    <input type="radio" name="type" id="type_2" value="2"> SHOTS/PRODUCTS ONLY
-                                  </label>
-                                  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-lg" data-dismiss="modal" style="background-color: #979797;margin-right: 20px;" >No</button>
-                    <button type="button" id="add_to_queue" class="btn btn-success btn-lg">Submit Your Request</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div> <!-- /container -->7
 
         <script type="text/javascript" src="/assets/js/bootstrap-switch.min.js"></script>
         <script type="text/javascript" src="/assets/js/jquery.matchHeight-min.js"></script>
@@ -283,25 +111,35 @@
             
             $(function(){
                 
-                $('.chng_btn').on('click',function(e){
+                $('#log_frm').on('submit',function(e){
                     e.preventDefault();
-                    _target = $(this)
-                    _id = _target.attr('id')
-                    if(_id == 'new')
-                    {
-                        $('#ex_frm').addClass('hide');
-                        $('#new_frm').removeClass('hide');
-                        _target.removeClass('btn-gray').addClass('btn-success');
-                        $('#ex').removeClass('btn-success').addClass('btn-gray');
-                    }
-                    else
-                    {
-                        $('#ex_frm').removeClass('hide');
-                        $('#new_frm').addClass('hide');
-                        _target.removeClass('btn-gray').addClass('btn-success');
-                        $('#new').removeClass('btn-success').addClass('btn-gray');
-                    }
+
+                    _this = $(this);
+
+                    $.post(BASE_URL+'queue/addQueue', _this.serialize(),function(data){
+                        data = JSON.parse(data);
+
+                        if(data.status == 'success')
+                        {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Please take a seat and someone will be with you shortly.',
+                                text: 'Thank You',
+                                timer: 4000,
+                                timerProgressBar: true,
+                                showConfirmButton: false,
+                            }).then((result)=>{
+                                _this.trigger('reset');
+                            });
+                        }
+                    });
+
+
+
+
                 });
+
+                
                 
                 $('#addq_new_btn').on('click',function(e){
                     e.preventDefault();
@@ -328,7 +166,7 @@
                     }
                 });
                 
-                $('#sbm_btn').on('click',function(e){
+                $('#sbm_btns').on('click',function(e){
                     e.preventDefault();
                     
                     $.post(BASE_URL+'queue/checkUser',$('#log_frm').serialize(),function(data){

@@ -164,9 +164,9 @@ class Order extends Admin_Controller
                 $this->session->unset_userdata('cd_'.$patient_id);
             }
             
-            markQueue($patient);
+            // markQueue($patient);
             
-            sendQueueMsg($patient_id,2);                
+            // sendQueueMsg($patient_id,2);                
             
             $this->cart->destroy();
             $this->session->unset_userdata('patient_category');

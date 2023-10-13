@@ -540,7 +540,7 @@ class Home extends Admin_Controller
     public function queue()
     {
         $this->data['bc1'] = 'Queue';
-	$this->data['bc2'] = 'Today';
+	    $this->data['bc2'] = 'Today';
         
         $queue = $this->queue->getTodayQueue();
         $this->data['queue'] = $queue;

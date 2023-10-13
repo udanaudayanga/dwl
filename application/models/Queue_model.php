@@ -66,9 +66,8 @@ class Queue_model extends CI_Model
     public function getTodayQueue()
     {
         $date = date('Y-m-d');
-        $sql = "SELECT q.*,p.fname,p.lname
+        $sql = "SELECT q.*
                 FROM queue q 
-                LEFT JOIN patients p ON q.patient_id = p.id
                 WHERE CAST(q.created as DATE) = '$date'
                 ORDER BY q.created ASC";
         
