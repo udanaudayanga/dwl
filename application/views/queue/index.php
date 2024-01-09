@@ -81,16 +81,17 @@
                     </label>
                 </div>
             </div>
+            <p id="load_img" style="text-align: center;display:none;"><img src="/assets/img/ajax-loader.gif" alt="" srcset=""></p>
         </div>
         <div class="col-xs-12" style="padding: 0px;text-align: center;margin-top: 20px;">            
-                <button type="submit" class="btn btn-lg btn-default" style="padding: 12px 30px;margin: 0px;font-size: 20px;background-color: red;color: white;box-shadow: 0px 0px 5px #000;border-color: red;">Submit</button>
+                <button id="submit_btn" type="submit" class="btn btn-lg btn-default" style="padding: 12px 30px;margin: 0px;font-size: 20px;background-color: red;color: white;box-shadow: 0px 0px 5px #000;border-color: red;">Submit</button>
            
         </div>
         </form>
     </div>
 
 
-    </div> <!-- /container -->7
+    </div> <!-- /container -->
 
         <script type="text/javascript" src="/assets/js/bootstrap-switch.min.js"></script>
         <script type="text/javascript" src="/assets/js/jquery.matchHeight-min.js"></script>
@@ -116,6 +117,9 @@
 
                     _this = $(this);
 
+                    $('#load_img').css('display','block');
+                    $('#submit_btn').prop('disabled', true);
+
                     $.post(BASE_URL+'queue/addQueue', _this.serialize(),function(data){
                         data = JSON.parse(data);
 
@@ -130,8 +134,10 @@
                                 showConfirmButton: false,
                             }).then((result)=>{
                                 _this.trigger('reset');
+                                $('#load_img').css('display','none');
+                                $('#submit_btn').prop('disabled', false);
                             });
-                        }
+                        }                        
                     });
 
 

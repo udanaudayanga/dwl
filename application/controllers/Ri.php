@@ -15,4 +15,9 @@ class Ri extends Admin_Controller
         
         $this->load->view('ri/index',$this->data);
     }
+
+    public function test()
+    {
+        echo date('Y-m-d H:i:s');
+    }
 }

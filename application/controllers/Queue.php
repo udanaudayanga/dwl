@@ -25,6 +25,8 @@ class Queue extends CI_Controller
     {
         $post = $this->input->post();
 
+        $post['created'] = date('Y-m-d H:i:s');
+
         $qid = $this->queue->add($post);
         if($qid)
         {
