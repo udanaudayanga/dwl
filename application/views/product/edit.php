@@ -58,10 +58,10 @@
 			<label for="low_stock">Low Stock Alert</label>
 			<input type="number" placeholder="" id="low_stock" name="lsa" value="<?php echo set_value('lsa',$product->lsa);?>" class="form-control">
 		    </div>	
-		    <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12" style="height: 62px;">
+		    <!-- <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12" style="height: 62px;">
 			<label for="photo">Photo</label>
 			<input name="photo" type="file" id="photo">
-		    </div>
+		    </div> -->
                      <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12" style="height: 62px;">
 			<label for="pre_paid">&nbsp;</label>
                         <div class="checkbox3 checkbox-round">

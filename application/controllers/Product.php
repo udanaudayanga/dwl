@@ -78,12 +78,12 @@ class Product extends Admin_Controller
 	    if($this->form_validation->run() == TRUE)
 	    {
                 
-		$uploaded = $this->upload();
+		// $uploaded = $this->upload();
 		
-		if(!isset($uploaded['error']))
-		{                    
+		// if(!isset($uploaded['error']))
+		// {                    
 		    $post['created'] = date('Y-m-d H:i:s');
-		    $post['photo'] = $uploaded['img'];
+		    // $post['photo'] = $uploaded['img'];
                     $free_pros  = $post['free_pro'];
                     $free_qty   = $post['free_quantity'];
                     unset($post['free_pro'],$post['free_quantity']);
@@ -113,11 +113,11 @@ class Product extends Admin_Controller
                    
 		    $this->session->set_flashdata('message','Product Added Successfully');
 		    redirect('product');
-		}
-		else
-		{
-		    $this->data['errors'] = $uploaded['error'];
-		}
+		// }
+		// else
+		// {
+		//     $this->data['errors'] = $uploaded['error'];
+		// }
 	    }
 	    else
 	    {
@@ -196,20 +196,20 @@ class Product extends Admin_Controller
 	    {
 		$post = $this->input->post();
                 
-		$uploaded = array();
+		// $uploaded = array();
 		
-		if (!empty($_FILES['photo']['name'])) {
-		    $uploaded = $this->upload();
-		}
+		// if (!empty($_FILES['photo']['name'])) {
+		//     $uploaded = $this->upload();
+		// }
 		
-		if(!isset($uploaded['error']))
-		{
+		// if(!isset($uploaded['error']))
+		// {
 		    $post['created'] = date('Y-m-d H:i:s');
-		    if(isset($uploaded['img']))
-		    {
-			$post['photo'] = $uploaded['img'];
-                        if(file_exists("./assets/upload/products/$product->photo"))unlink("./assets/upload/products/$product->photo");
-		    }
+		    // if(isset($uploaded['img']))
+		    // {
+			// $post['photo'] = $uploaded['img'];
+            //             if(file_exists("./assets/upload/products/$product->photo"))unlink("./assets/upload/products/$product->photo");
+		    // }
                     
                     if(!isset($post['is_stock'])) $post['is_stock'] = 0;
                     if(!isset($post['prepaid'])) $post['prepaid'] = 0;
@@ -245,11 +245,11 @@ class Product extends Admin_Controller
                                        
 		    $this->session->set_flashdata('message','Product Updated Successfully');
 		    redirect('product');
-		}
-		else
-		{
-		    $this->data['errors'] = $uploaded['error'];
-		}	
+		// }
+		// else
+		// {
+		//     $this->data['errors'] = $uploaded['error'];
+		// }	
 	    }
 	    else
 	    {
