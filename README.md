@@ -1,12 +1,12 @@
-Doctor's Weight Loss Clinics Chain ADMIN System. 
+# Doctor's Weight Loss Clinics Chain ADMIN System. 
 
-TECH STACK:
-Codeigniter / PHP
-CSS3 / BOOTSTRAP
-Javascript / jQuery
+### TECH STACK:
+#### Codeigniter / PHP
+#### CSS3 / BOOTSTRAP
+#### Javascript / jQuery
 
-API integraions:
-Payment gateways
-SMS gateway
-Transaction EMAIL API
+### API integraions:
+#### Payment gateways
+#### SMS gateway
+#### Transaction EMAIL API
 
