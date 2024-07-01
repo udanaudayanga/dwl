@@ -25,3 +25,6 @@ Admin management system of a weight loss clinic chain. This application can mana
 - Javascript / jQuery
 
 
+## Authors
+
+- [@udanaudayanga](https://www.github.com/udanaudayanga)
