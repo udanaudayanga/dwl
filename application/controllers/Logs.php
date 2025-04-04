@@ -162,6 +162,7 @@ class Logs extends Admin_Controller
     public function print_prescription($location_id,$start,$end)
     {
         ini_set('max_execution_time', 300);
+        ini_set('memory_limit','512M');
         
         $location = $this->location->get($location_id);
         $this->date['location'] = $location;
