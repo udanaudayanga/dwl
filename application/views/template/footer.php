@@ -16,9 +16,9 @@
             <script type="text/javascript" src="/assets/js/jquery.dataTables.min.js"></script>
             <script type="text/javascript" src="/assets/js/dataTables.bootstrap.min.js"></script>
             <script type="text/javascript" src="/assets/js/select2.full.min.js"></script>
-            <script type="text/javascript" src="/assets/js/ace.js"></script>
-            <script type="text/javascript" src="/assets/js/mode-html.js"></script>
-            <script type="text/javascript" src="/assets/js/theme-github.js"></script>
+            <script type="text/javascript" src="/assets/js/ace/ace.js"></script>
+            <script type="text/javascript" src="/assets/js/ace/mode-html.js"></script>
+            <script type="text/javascript" src="/assets/js/ace/theme-github.js"></script>
 	    <script type="text/javascript" src="/assets/js/datepicker/js/bootstrap-datepicker.min.js"></script>
 	    <script type="text/javascript" src="/assets/js/jqueryui/jquery-ui.js"></script>
             <script type="text/javascript" src="/assets/js/bootbox.min.js"></script>
